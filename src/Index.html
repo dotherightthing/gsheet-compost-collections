@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+  <head>
+    <base target="_top">
+    <?!= GccPage.include('Stylesheet.css', {
+      tplColorStyles,
+      tplCompanyLogo,
+    }); ?>
+  </head>
+  <body class="bg-logo">
+    <?!= GccPage.include('Partials/UseIcons.part'); ?>
+    <!-- start header -->
+    <header id="header">
+      <!-- start form -->
+      <form id="run-select" name="selectRun" class="wrapper grid grid-select-form">
+        <?!= GccPage.include('Partials/SelectRun.part', {
+          extraAttrs: ' aria-controls="select-run-b"',
+          runPart: 'a',
+          tplRunGroups,
+        }); ?>
+        <?!= GccPage.include('Partials/SelectRun.part', {
+          extraAttrs: '',
+          runPart: 'b',
+          tplRunGroups,
+        }); ?>
+        <?!= GccPage.include('Partials/SelectRunExtras.part', {
+          runPart: tplRunExtrasLabel
+        }); ?>
+        <button type="submit" class="submit small">Go</button>
+      </form>
+      <!-- end form -->
+    </header>
+    <!-- end header -->
+
+    <div id="run"></div>
+
+    <!-- start messages -->
+    <div class="footer" id="footer">
+      <div class="wrapper grid grid-footer">
+        <p class="footer-links small">
+          <? if (GccEnv.getInstance().isStable()) { ?>
+          <button class="a small dialog-open footer-version" data-dialog="dialog-version-history">
+            <?= GccEnv.getInstance().env.deployment; ?> - <?!= GccPage.include('Partials/Version.part'); ?>
+          </button>
+          <? } else { ?>
+          <span><?= GccEnv.getInstance().env.deployment; ?></span>
+          <? } ?>
+          <? if (GccEnv.getInstance().isDev() && GccEnv.getInstance().isDeveloper()) { ?>
+          <button class="a small dialog-open" data-dialog="dialog-developer">Dev Tools</button>
+          <? } ?>
+          <button class="a small dialog-open" data-dialog="dialog-help">Help</button>
+        </p>
+        <p class="footer-logo">
+          <img src="<?= tplCompanyLogo ?>" alt="<?= tplCompanyName ?>">
+        </p>
+      </div>
+    </div>
+    <!-- end messages -->
+
+    <div id="run-loader" data-is-loading="false" class="loader overlay grid grid-overlay" hidden>
+      <div class="loader-icon">
+        <div class="is-loading">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="is-loading-error"></div>
+        <div class="is-loading-complete"></div>
+      </div>
+      <div class="loader-title wrapper"></div>
+      <div class="loader-description small wrapper"></div>
+    </div>
+    <? if (GccEnv.getInstance().isDev() && GccEnv.getInstance().isDeveloper()) { ?>
+      <?!= GccPage.include('Partials/DialogDeveloper.part'); ?>
+    <? } ?>
+    <?!= GccPage.include('Partials/DialogHelp.part', {
+      tplLinks: GccPage.getInstance().getHelpLinks(),
+    }); ?>
+    <? if (GccEnv.getInstance().isStable()) { ?>
+      <?!= GccPage.include('Partials/DialogVersionHistory.part', {
+        tplVersionHistory: GccPage.include('Partials/VersionHistory.part'),
+      }); ?>
+    <? } ?>
+    <?!= GccPage.include('Htmlified/Pubsub.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUi.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiCollection.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiCss.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiDialog.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiLoader.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiRun.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiRunForm.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiSelectDisclosure.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiSelectForm.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUtils.js'); ?>
+    <?!= GccPage.include('Htmlified/GccValidate.js'); ?>
+    <?!= GccPage.include('Init.js', {
+      tplConfig,
+    }); ?>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!-- start form -->
+<!-- TODO make this sticky -->
+<form class="wrapper run" id="run-form">
+  <input type="hidden" name="tplSelectedRunNameA" value="<?= tplSelectedRunNameA ?>">
+  <input type="hidden" name="tplSelectedRunNameB" value="<?= tplSelectedRunNameB ?>">
+  <input type="hidden" name="tplPreRunExtras" value="<?= tplPreRunExtras ?>">
+  <input type="hidden" name="tplPostRunExtras" value="<?= tplPostRunExtras ?>">
+  <input type="hidden" name="tplRunDate" value="<?= tplRunDate ?>">
+  <div id="collections"><!-- to generate --></div>
+  <div id="run-saver" class="loader submit-status grid grid-submit wrapper" aria-live="polite" data-is-loading="false" hidden>
+      <div class="loader-icon">
+        <div class="is-loading">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="is-loading-error"></div>
+        <div class="is-loading-complete"></div>
+      </div>
+      <div class="loader-title"></div>
+      <div class="loader-description small"></div>
+    </div>
+</form>
+<!-- end form -->

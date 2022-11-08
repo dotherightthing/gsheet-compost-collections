@@ -1,0 +1,128 @@
+<!-- start dialog-->
+<div role="dialog" class="dialog dialog-light" id="dialog-help" aria-labelledby="dialog-help-label" aria-modal="true" data-trigger="" hidden>
+  <div class="dialog-start dialog-tabtrap" tabindex="0"></div>
+  <div class="dialog-header wrapper grid grid-dialog-header">
+    <h2 class="brand-heading" id="dialog-help-label">
+      <span>Help</span>
+    </h2>
+    <button class="dialog-button dialog-close smaller">Close</button>
+  </div>
+  <div class="dialog-body wrapper">
+    <h3 class="dialog-heading small">Useful links</h3>
+    <ul class="dialog-links">
+      <? tplLinks.forEach((tplLink) => { ?>
+      <li class="grid dialog-links-item">
+        <a href="<?= tplLink.url ?>" target="_blank">
+          <span class="a"><?= tplLink.label ?><span class="hidden-assistive"> (opens in a new tab/window)</span></span>
+        </a>
+      </li>
+      <? }); ?>
+    </ul>
+    <h3 class="dialog-heading small">Checkbox icons</h3>
+    <ul class="dialog-key">
+      <li class="grid grid-key dialog-key-item">
+        <span>
+          <button type="button" class="button-disclosure button-checkbox button-checkbox-small" data-is-complete="false" data-is-editing="false" disabled>
+            <span class="is-cancelled">
+              <svg aria-hidden="true" class="icon icon-cross"><use xlink:href="#cross"></svg>
+            </span>
+          </button>
+        </span>
+        <span class="dialog-key-item-definition">
+          Don't collect - cancelled.
+        </span>
+      </li>
+      <li class="grid grid-key dialog-key-item">
+        <span>
+          <button type="button" class="button-disclosure button-checkbox button-checkbox-small" data-is-complete="false" data-is-editing="false" disabled>
+            <span class="is-on-hold">
+              <svg aria-hidden="true" class="icon icon-dash"><use xlink:href="#dash"></svg>
+            </span>
+          </button>
+        </span>
+        <span class="dialog-key-item-definition">
+          Don't collect - on hold.
+        </span>
+      </li>
+      <li class="grid grid-key dialog-key-item">
+        <span>
+          <button type="button" class="button-disclosure button-checkbox button-checkbox-small" data-is-complete="false" data-is-editing="false">
+            <span class="is-not-complete">
+              <svg aria-hidden="true" class="icon icon-question-mark"><use xlink:href="#question-mark"></svg>
+            </span>
+          </button>
+        </span>
+        <span class="dialog-key-item-definition">
+          To collect:
+          <span class="dialog-key-item-action small-lc">Click on icon to expand item and select collected amount.</span>
+        </span>
+      </li>
+      <li class="grid grid-key dialog-key-item">
+        <span>
+          <button type="button" class="button-disclosure button-checkbox button-checkbox-small" data-is-complete="false" data-is-editing="false">
+            <span class="is-not-complete">
+              <svg aria-hidden="true" class="icon icon-exclamation-mark"><use xlink:href="#exclamation-mark"></svg>
+            </span>
+          </button>
+        </span>
+        <span class="dialog-key-item-definition">
+          To collect - special note:
+          <span class="dialog-key-item-action small-lc">Click on icon to expand item and select collected amount.</span>
+        </span>
+      </li>
+      <li class="grid grid-key dialog-key-item">
+        <span>
+          <button type="button" class="button-disclosure button-checkbox button-checkbox-small" data-is-complete="false" data-is-editing="true">
+            <span class="is-editing">
+              <svg aria-hidden="true" class="icon icon-edit"><use xlink:href="#edit"></svg>
+            </span>
+          </button>
+        </span>
+        <span class="dialog-key-item-definition">
+          Entering/editing collected amount:
+          <span class="dialog-key-item-action small-lc">Select an amount to collapse the item.</span>
+        </span>
+      </li>
+      <li class="grid grid-key dialog-key-item">
+        <span>
+          <button type="button" class="button-disclosure button-checkbox button-checkbox-small" data-is-complete="true" data-is-editing="false">
+            <span class="is-complete">
+              <svg aria-hidden="true" class="icon icon-tick"><use xlink:href="#tick"></svg>
+            </span>
+          </button>
+        </span>
+        <span class="dialog-key-item-definition">
+          Collected:
+          <span class="dialog-key-item-action small-lc">Click on icon to expand item and edit collected amount.</span>
+        </span>
+      </li>
+    </ul>
+    <h3 class="dialog-heading small">Container icons</h3>
+    <ul class="dialog-key">
+      <? const { NRContainerTypes } = GccSheet.getInstance().getAllNamedRangeValues();
+      let typeArray = NRContainerTypes.map((item) => item.toLowerCase());
+      typeArray.forEach((type) => { ?>
+      <li class="grid grid-key dialog-key-item">
+        <span class="container-count grid grid-container-count container-count-<?= type ?>">
+          <span class="container-count-label small">1</span>
+          <span class="container-count-icon">
+            <svg aria-hidden="true" class="icon icon-<?!= type ?>"><use xlink:href="#<?!= type ?>"></svg>
+          </span>
+        </span>
+        <span><?= GccUtils.stringToCapitalised(type) ?> to collect (1)</span>
+      </li>
+      <? }) ?>
+    </ul>
+    <h3 class="dialog-heading small">Other icons</h3>
+    <ul class="dialog-key">
+      <li class="grid grid-key dialog-key-item">
+        <span>
+          <svg aria-hidden="true" class="icon icon-compass"><use xlink:href="#compass"></svg>
+        </span>
+        <span>View address in Google Maps</span>
+      </li>
+    </ul>
+  </div>
+  <div class="dialog-end dialog-tabtrap" tabindex="0"></div>
+</div>
+<!-- end dialog -->

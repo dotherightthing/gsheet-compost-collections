@@ -1,0 +1,20 @@
+<!-- start input -->
+<div class="input">
+  <label for="select-run-<?= runPart ?>" class="small label">Run <?= runPart.toUpperCase() ?></label>
+  <div class="select grid grid-select">
+    <select name="tplSelectedRunName<?= runPart.toUpperCase() ?>" id="select-run-<?= runPart ?>"<?!= extraAttrs?>>
+      <option value="" selected>Select</option>
+      <? tplRunGroups.forEach((runGroup) => {
+        const runGroupInstance = GccUtils.objectToClassInstance(runGroup, 'GccRunGroup');
+        const { id: runId, sheetName, runNames } = runGroupInstance; ?>
+        <optgroup label="<?= sheetName ?>" id="select-run-<?= runPart ?>-<?= runId ?>">
+          <? runNames.forEach((runName) => { ?>
+            <option value="<?= runName ?>"><?= runName.replace(' RUN', ''); ?></option>
+          <? }); ?>
+        </optgroup>
+      <? }); ?>
+    </select>
+    <span class="focus"></span>
+  </div>
+</div>
+<!-- end input -->

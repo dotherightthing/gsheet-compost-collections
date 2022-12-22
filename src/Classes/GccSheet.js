@@ -848,13 +848,17 @@ class GccSheet {
     const _container = runSheet.getRange(rowIndex, containerColumnIndex, 1, 1).getValue();
     const _quantity = runSheet.getRange(rowIndex, quantityColumnIndex, 1, 1).getValue();
 
-    // TODO will the instance exist yet if the administrator is not using the app, or only if another user has used the app before they administrate?
-    const container = GccContainer.getInstanceFromCache(_container, _quantity);
+    if ((_container !== '') && (Number(_quantity) > 0)) {
+      // TODO will the instance exist yet if the administrator is not using the app, or only if another user has used the app before they administrate?
+      const container = GccContainer.getInstanceFromCache(_container.toLowerCase(), _quantity);
 
-    // one row
-    GccSheet.setDateValidationCriteria(sheetName, dateHeadersRange, rowIndex, type, container, false);
+      // one row
+      GccSheet.setDateValidationCriteria(sheetName, dateHeadersRange, rowIndex, type, container, false);
 
-    return `Data validation rules applied to all visible date cells in row ${rowIndex}`;
+      return `Data validation rules applied to all visible date cells in row ${rowIndex}`;
+    }
+
+    return `Missing fields - Data validation rules NOT applied to all visible date cells in row ${rowIndex}`;
   }
 
   /**
@@ -964,22 +968,26 @@ class GccSheet {
 
         // apply data validation
         containers.forEach((_container, index) => {
-          const container = GccContainer.getInstanceFromCache(_container[0].toLowerCase(), quantities[index][0]); // get cached instance of GccContainer
-          const lastRow = (index === (containers.length - 1));
-          const rowIndex = startRowIndex + index;
-          const type = types[index][0];
+          const _quantity = quantities[index][0];
 
-          // If the instance was in the cache
-          // + bypass errors like 'Container with type "" and quantity "0" is not in cache'
-          if (container !== null) {
-            GccSheet.setDateValidationCriteria(
-              sheetName,
-              dateHeadersRange,
-              rowIndex,
-              type,
-              container,
-              lastRow,
-            );
+          if ((_container[0] !== '') && (Number(_quantity) > 0)) {
+            const container = GccContainer.getInstanceFromCache(_container[0].toLowerCase(), _quantity); // get cached instance of GccContainer
+            const lastRow = (index === (containers.length - 1));
+            const rowIndex = startRowIndex + index;
+            const type = types[index][0];
+
+            // If the instance was in the cache
+            // + bypass errors like 'Container with type "" and quantity "0" is not in cache'
+            if (container !== null) {
+              GccSheet.setDateValidationCriteria(
+                sheetName,
+                dateHeadersRange,
+                rowIndex,
+                type,
+                container,
+                lastRow,
+              );
+            }
           }
         });
       });

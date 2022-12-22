@@ -11,6 +11,20 @@ class GccUtils {
   /* Static methods */
 
   /**
+   * arrayUnique
+   *
+   * @summary Remove duplicate values from an array
+   * @param {Array} array - Array
+   * @returns {Array} array
+   * @memberof GccUtils
+   * @static
+   * @see {@link https://appdividend.com/2022/06/04/how-to-get-distinct-values-from-array-in-javascript/}
+   */
+  static arrayUnique(array) {
+    return [ ...new Set(array) ];
+  }
+
+  /**
    * classFactory
    *
    * @summary Create a non-singleton instance of a class using the Factory Abstract pattern.

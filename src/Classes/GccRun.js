@@ -311,7 +311,12 @@ class GccRun {
       containerTypes,
       containerVolumeFractions,
       name: runName,
+      runGroup,
     } = this;
+
+    const {
+      columnHeaderIndices,
+    } = runGroup;
 
     const collections = [];
 
@@ -327,65 +332,95 @@ class GccRun {
       typeRange,
     } = ranges;
 
+    // e.g. "customer"
+    const firstColumnHeader = Object.entries(columnHeaderIndices)[0][0];
+    const firstRange = ranges[`${firstColumnHeader}Range`];
+
     const addresses = addressRange.getValues();
     const containers = containerRange.getValues();
     const customers = customerRange.getValues();
     const dateValues = dateRange.getValues();
+    const firsts = firstRange.getValues();
     const notes = notesRange.getValues();
     const quantities = quantityRange.getValues();
     const types = typeRange.getValues();
 
     // store run stops
-    customers.every((name, i) => {
-      // cell data ends a few rows before the next row header
-      // an empty row indicates the end of the run
-      // so stop looping through customers
-      if (name[0] === '') {
-        return false;
-      }
 
+    for (let i = 0; i < addresses.length; i += 1) {
+      const address = addresses[i][0];
+      const collectionType = types[i][0];
+      const container = containers[i][0];
+      const containerType = container.replace(/\s/g, '').toLowerCase();
+      const customer = customers[i][0];
+      const dateValue = dateValues[i][0];
+      const first = firsts[i][0];
+      const note = notes[i][0];
       const quantity = quantities[i][0];
-      const type = containers[i][0].replace(/\s/g, '').toLowerCase();
-      let container = GccContainer.getInstanceFromCache(type, quantity);
 
-      if (container === null) {
-        container = new GccContainer({
-          capacities: containerCapacities,
-          nonVolumes: containerNonVolumes,
-          quantity,
-          type, // remove spaces (TODO?)
-          types: containerTypes,
-          volumeFractions: containerVolumeFractions,
-        });
+      // if the first cell is blank
+      // consider this to be the first empty row after the run
+      if (first === '') {
+        break;
       }
 
-      // an array of objects
-      // as getters, setters and methods of serverside class instances are not exposed to frontend
-      const collection = new GccCollection({
-        abbreviations,
-        address: addresses[i][0],
-        collectionMapLocale,
+      // else if the first cell is not blank
+      // but only one cell in the row is filled
+      // then consider the row to have been hijacked for some other purpose
+
+      // arrayUnique removes the item which 'first' refers to
+      const cellsContent = GccUtils.arrayUnique([
+        address,
+        collectionType,
         container,
-        dateFlag: (collectionDateFlags.indexOf(dateValues[i][0]) !== -1) ? dateValues[i][0] : '',
-        dateFlags: collectionDateFlags,
-        dateValue: dateValues[i][0],
-        name: name[0], // customerName
-        notes: notes[i][0],
-        runDate,
-        runName,
-        type: types[i][0],
-      });
+        customer,
+        first,
+        note,
+        quantity,
+      ]);
 
-      // tpl requires an object rather than a class instance
-      // as the parent class can't be accessed from the frontend
-      collection.container = GccUtils.classInstanceToObject(container);
-      const tplCollection = GccUtils.classInstanceToObject(collection);
+      // remove empty cells
+      const filledCells = cellsContent.filter((item) => item !== '');
 
-      collections.push(tplCollection);
+      if (filledCells.length > 1) {
+        let containerInstance = GccContainer.getInstanceFromCache(containerType, quantity);
 
-      // continue looping through customers
-      return true;
-    });
+        if (containerInstance === null) {
+          containerInstance = new GccContainer({
+            capacities: containerCapacities,
+            nonVolumes: containerNonVolumes,
+            quantity,
+            type: containerType, // remove spaces (TODO?)
+            types: containerTypes,
+            volumeFractions: containerVolumeFractions,
+          });
+        }
+
+        // an array of objects
+        // as getters, setters and methods of serverside class instances are not exposed to frontend
+        const collection = new GccCollection({
+          abbreviations,
+          address,
+          collectionMapLocale,
+          container: containerInstance,
+          dateFlag: (collectionDateFlags.indexOf(dateValues[i][0]) !== -1) ? dateValues[i][0] : '',
+          dateFlags: collectionDateFlags,
+          dateValue,
+          name: customer, // customerName
+          notes: note,
+          runDate,
+          runName,
+          type: collectionType,
+        });
+
+        // tpl requires an object rather than a class instance
+        // as the parent class can't be accessed from the frontend
+        collection.container = GccUtils.classInstanceToObject(containerInstance);
+        const tplCollection = GccUtils.classInstanceToObject(collection);
+
+        collections.push(tplCollection);
+      }
+    }
 
     // Note: this is passed to frontend, so getters cannot be used
     return collections;

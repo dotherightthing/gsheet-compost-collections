@@ -1347,6 +1347,7 @@ getInstanceFromCache
         * [.setDateValidationRows()](#GccSheet+setDateValidationRows) ⇒ <code>string</code>
         * [.showLog(log)](#GccSheet+showLog)
         * [.showNotification(message, title, duration)](#GccSheet+showNotification)
+        * [.showSidebarHelp(section)](#GccSheet+showSidebarHelp)
         * [.showVersionHistory()](#GccSheet+showVersionHistory)
     * _static_
         * [.getCellByString(sheetName, cellText)](#GccSheet.getCellByString) ⇒ <code>Range</code>
@@ -1730,6 +1731,18 @@ showNotification ('toast')
 | message | <code>string</code> |  | Message |
 | title | <code>string</code> | <code>&quot;GCC&quot;</code> | Title |
 | duration | <code>number</code> | <code>5</code> | Duration (seconds) |
+
+<a name="GccSheet+showSidebarHelp"></a>
+
+### gccSheet.showSidebarHelp(section)
+showSidebar
+
+**Kind**: instance method of [<code>GccSheet</code>](#GccSheet)  
+**Summary**: Show the sidebar, which is used to display contextual help.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| section | <code>string</code> | Help section |
 
 <a name="GccSheet+showVersionHistory"></a>
 

@@ -492,9 +492,9 @@ class GccSheet {
 
     const menuCache = ui.createMenu('Cache');
 
-    menuCache.addItem('View Cache', 'GsheetCompostCollections.gccMiddlewareCacheLog');
     menuCache.addItem('Clear Cache', 'GsheetCompostCollections.gccMiddlewareCacheClear');
-    menuCache.addItem('View Help for this section', 'GsheetCompostCollections.gccMiddlewareShowSidebarHelpCache');
+    menuCache.addItem('View Cache', 'GsheetCompostCollections.gccMiddlewareCacheLog');
+    menuCache.addItem('View Cache Help', 'GsheetCompostCollections.gccMiddlewareShowSidebarHelpCache');
     menu.addSubMenu(menuCache);
     menu.addSeparator();
 
@@ -1052,7 +1052,7 @@ class GccSheet {
    * @memberof GccSheet
    */
   showSidebarHelp(section) {
-    const widget = HtmlService.createHtmlOutputFromFile('SidebarHelpCache.html');
+    const widget = HtmlService.createHtmlOutputFromFile('_Help/SidebarHelpCache.html');
 
     widget.setTitle(`GCC Help: ${section}`);
 

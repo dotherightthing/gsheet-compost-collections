@@ -546,7 +546,7 @@ class GccTest {
             type: 2,
           },
           _columnHeaderRowIndex: 10,
-          _dateHeaderRangeA1Notation: 'G10:M10',
+          _dateHeaderRangeA1Notation: 'J10:P10',
           _dateHeaders: [
             {},
             {},
@@ -557,13 +557,13 @@ class GccTest {
             {},
           ],
           _dateHeadersFormatted: [
-            'Nov 2',
-            'Nov 9',
-            'Nov 16',
             'Nov 23',
             'Nov 30',
             'Dec 7',
             'Dec 14',
+            'Dec 21',
+            'Jan 6',
+            'Jan 13',
           ],
           _footer: 'End of collections. Do not edit this row.',
           _id: 'suburbs-run-wed',
@@ -600,7 +600,7 @@ class GccTest {
             type: 2,
           },
           _columnHeaderRowIndex: 10,
-          _dateHeaderRangeA1Notation: 'H10:M10',
+          _dateHeaderRangeA1Notation: 'J10:Q10',
           _dateHeaders: [
             {},
             {},
@@ -891,13 +891,13 @@ class GccTest {
       assert.propEqual(
         this.runGroups[0].getDates(),
         [
+          'Jan 13',
+          'Jan 6',
+          'Dec 21',
           'Dec 14',
           'Dec 7',
           'Nov 30',
           'Nov 23',
-          'Nov 16',
-          'Nov 9',
-          'Nov 2',
         ],
         'Array of visible suburbs run dates, filtered to this year',
       );
@@ -906,6 +906,8 @@ class GccTest {
       assert.propEqual(
         this.runGroups[1].getDates(),
         [
+          'Jan 6',
+          'Dec 16',
           'Dec 9',
           'Dec 2',
           'Nov 25',
@@ -977,7 +979,7 @@ class GccTest {
 
       assert.equal(
         this.sheets[0].getLastRowIndex(this.runGroup1._sheetName, this.runGroup0._footer),
-        107,
+        109,
         'Numeric index of last collection row in spreadsheet',
       );
     });
@@ -1052,7 +1054,7 @@ class GccTest {
     QUnit.test('validateRangeValues', (assert) => {
       assert.equal(
         GccSheet.validateRangeValues(
-          this.runGroup0RunSheet.getRange('H24'),
+          this.runGroup0RunSheet.getRange('J24'),
           'Whatever',
         ),
         'Range AC25 uses VALUE_IN_LIST validation and expects a value from the list "0, 1, 5, 10, 15, 20, 25, Not found, No access, Dropped (first), Collected (final), See group chat, ------, See notes, Back to normal, Drop, First collection, Skip, Final, COVID case, Cancelled, Pending". "Whatever" is not in this list.',
@@ -1061,7 +1063,7 @@ class GccTest {
 
       assert.equal(
         GccSheet.validateRangeValues(
-          this.runGroup0RunSheet.getRange('H17'),
+          this.runGroup0RunSheet.getRange('J17'),
           'Whatever',
         ),
         'Range AC15 uses CHECKBOX validation and expects a boolean value. "Whatever" is of type "string".',
@@ -1070,7 +1072,7 @@ class GccTest {
 
       assert.equal(
         GccSheet.validateRangeValues(
-          this.runGroup0RunSheet.getRange('H17'),
+          this.runGroup0RunSheet.getRange('J17'),
           '',
         ),
         'Range AC15 uses CHECKBOX validation and expects a boolean value. "" is of type "string".',
@@ -1079,7 +1081,7 @@ class GccTest {
 
       assert.equal(
         GccSheet.validateRangeValues(
-          this.runGroup0RunSheet.getRange('H24'),
+          this.runGroup0RunSheet.getRange('J24'),
           '',
         ),
         '',
@@ -1088,7 +1090,7 @@ class GccTest {
 
       assert.equal(
         GccSheet.validateRangeValues(
-          this.runGroup0RunSheet.getRange('H9'),
+          this.runGroup0RunSheet.getRange('J9'),
           '',
         ),
         '',
@@ -2168,26 +2170,28 @@ class GccTest {
     // Fri Nov 25 2022 00:00:00 GMT+1300 (New Zealand Daylight Time),
     // Fri Dec 02 2022 00:00:00 GMT+1300 (New Zealand Daylight Time),
     // Fri Dec 09 2022 00:00:00 GMT+1300 (New Zealand Daylight Time)
+    // Fri Dec 16 2022 00:00:00 GMT+1300 (New Zealand Daylight Time)
+    // Fri Jan 06 2022 00:00:00 GMT+1300 (New Zealand Daylight Time)
     this.stub('GccRunGroupInstance.getDateHeaders', [], [
-      'Wed Nov 02 2022 00:00:00 GMT+1300 (New Zealand Daylight Time)',
-      'Wed Nov 09 2022 00:00:00 GMT+1300 (New Zealand Daylight Time)',
-      'Wed Nov 16 2022 00:00:00 GMT+1300 (New Zealand Daylight Time)',
       'Wed Nov 23 2022 00:00:00 GMT+1300 (New Zealand Daylight Time)',
       'Wed Nov 30 2022 00:00:00 GMT+1300 (New Zealand Daylight Time)',
       'Wed Dec 07 2022 00:00:00 GMT+1300 (New Zealand Daylight Time)',
       'Wed Dec 14 2022 00:00:00 GMT+1300 (New Zealand Daylight Time)',
+      'Wed Dec 21 2022 00:00:00 GMT+1300 (New Zealand Daylight Time)',
+      'Wed Jan 06 2023 00:00:00 GMT+1300 (New Zealand Daylight Time)',
+      'Wed Jan 13 2023 00:00:00 GMT+1300 (New Zealand Daylight Time)',
     ]);
 
     // suburbs - town:
     // [ 'Nov 4', 'Nov 11', 'Nov 18', 'Nov 25', 'Dec 2', 'Dec 9' ]
     this.stub('GccRunGroupInstance.getDateHeaders', [ true ], [
-      'Nov 2',
-      'Nov 9',
-      'Nov 16',
       'Nov 23',
       'Nov 30',
       'Dec 7',
       'Dec 14',
+      'Dec 21',
+      'Jan 6',
+      'Jan 13',
     ]);
 
     this.stub('GccRunGroupInstance.getDateHeadersRange', [ 'a1Notation' ], 'A1:A1');

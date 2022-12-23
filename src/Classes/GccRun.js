@@ -471,6 +471,10 @@ class GccRun {
       if (runDate !== '') {
         const dateColumnIndex = GccSheet.getColumnIndex(sheetName, runDate);
 
+        if (dateColumnIndex === null) {
+          throw new Error(`GccRun.getCollectionRanges: "${runDate}" is not present in "${sheetName}"`);
+        }
+
         ranges.dateRange = runSheet.getRange(startRowIndex, dateColumnIndex, rowCount, 1);
       } else {
         ranges.dateRange = [];

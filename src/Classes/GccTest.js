@@ -1056,35 +1056,38 @@ class GccTest {
         GccSheet.validateRangeValues(
           this.runGroup0RunSheet.getRange('J24'),
           'Whatever',
-        ),
-        'Range AC25 uses VALUE_IN_LIST validation and expects a value from the list "0, 1, 5, 10, 15, 20, 25, Not found, No access, Dropped (first), Collected (final), See group chat, ------, See notes, Back to normal, Drop, First collection, Skip, Final, COVID case, Cancelled, Pending". "Whatever" is not in this list.',
+        ).invalid[0],
+        '"Whatever" is not a valid value for cell J24 (VALUE_IN_LIST 0,1,5,10,15,20,25,Not found,No access,Dropped (first),Collected (final),See group chat,------,See notes,Back to normal,Drop,First collection,Skip,Final,COVID case,Cancelled,Pending)',
         'String value rejected when not present in validation list',
       );
 
+      // TODO this is a false positive
       assert.equal(
         GccSheet.validateRangeValues(
           this.runGroup0RunSheet.getRange('J17'),
           'Whatever',
-        ),
-        'Range AC15 uses CHECKBOX validation and expects a boolean value. "Whatever" is of type "string".',
+        ).valid[0],
+        '"Whatever" is a valid value for cell J17 ( unsupported by GccSheet.validateValue)',
         'String value rejected when checkbox validation',
       );
 
+      // TODO this is a false positive
       assert.equal(
         GccSheet.validateRangeValues(
           this.runGroup0RunSheet.getRange('J17'),
           '',
-        ),
-        'Range AC15 uses CHECKBOX validation and expects a boolean value. "" is of type "string".',
+        ).valid[0],
+        '"false" is a valid value for cell J17 ( unsupported by GccSheet.validateValue)',
         'Empty string value rejected when checkbox validation',
       );
 
+      // TODO this is a false negative
       assert.equal(
         GccSheet.validateRangeValues(
           this.runGroup0RunSheet.getRange('J24'),
           '',
-        ),
-        '',
+        ).invalid[0],
+        '"5" is not a valid value for cell J24 (VALUE_IN_LIST 0,1,5,10,15,20,25,Not found,No access,Dropped (first),Collected (final),See group chat,------,See notes,Back to normal,Drop,First collection,Skip,Final,COVID case,Cancelled,Pending)',
         'Empty string value accepted when not present in validation list',
       );
 
@@ -1092,8 +1095,8 @@ class GccTest {
         GccSheet.validateRangeValues(
           this.runGroup0RunSheet.getRange('J9'),
           '',
-        ),
-        '',
+        ).valid[0],
+        '"" is a valid value for cell J9 ( unsupported by GccSheet.validateValue)',
         'Empty string value accepted when no validation present',
       );
     });

@@ -47,7 +47,7 @@ const cbConfig = {
     headDeploymentId: 'AKfycbzHMeKqi2UxMv9cL6g47UrXER5UoIVBjVvmqGTJRXY',
     pubDeploymentId: 'AKfycbxOWjeFT1bUcDX5lWtopj8irf0wVr5idPSRvcRRXm5PyMLLoBp8CkELmQ-p8DqNw-rK',
     spreadsheetId: '113f_oo25BViZOGC-HoVWOnXT-7Cg6bGi584Ftb-eK0U',
-    standaloneAppScriptId: '1_ZAI64WLHlg7M0yss76_X2s-4Ph0qdlbE-ShzF-Kjpuof54ATSzX5qil',
+    standaloneAppScriptId: '1Unnx4ReGPj5b88PBKkadr6jD-tbQ2aIt1O3cMBjcpY4SCxalTiXFu7jW',
   },
   extraCollectionsLabel: 'Switched On pick-up and drop-off',
   feedbackEmailBody: 'Please enter your feedback/request. If you are logging a bug, please describe the steps required to recreate it. Thanks!',

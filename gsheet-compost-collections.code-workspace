@@ -1,9 +1,12 @@
 {
 	"folders": [
-		{
-			"path": "."
-		}
-	],
+    {
+      "path": "."
+    },
+    {
+      "path": "../gsheet-compost-collections.wiki"
+    }
+  ],
 	"settings": {
     "files.associations": {
       "**/src/*.html": "html",

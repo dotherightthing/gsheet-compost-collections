@@ -8,6 +8,7 @@ class GccColor {
    * @public
    * @param {object} config                      - Module configuration.
    * @param {Array}  config.colorNamedRangeNames - Named range names (rather than values, as we use the cell colors)
+   * @todo Refactor colour theming to generic primary, secondary, tertiary etc
    */
   constructor(config = {}) {
     // select the relevant arguments from the config object passed in

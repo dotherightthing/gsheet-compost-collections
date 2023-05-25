@@ -300,6 +300,7 @@ class GccRun {
    * @memberof GccRun
    * @see {@link GccTest#runIntegrationTests}
    * @todo Store runName collection ranges (except date) with run
+   * @todo Row 19 on "Town Run (FRI)" is still not being processed
    */
   getCollections(runDate) {
     const {

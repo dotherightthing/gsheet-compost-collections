@@ -249,6 +249,10 @@ getVolumesAndDateFlags
 **Kind**: global class  
 **Summary**: Properties and methods relating to the colours used in the app and spreadsheet.  
 **Access**: public  
+**Todo**
+
+- [ ] Refactor colour theming to generic primary, secondary, tertiary etc
+
 
 * [GccColor](#GccColor)
     * [new GccColor(config)](#new_GccColor_new)
@@ -1036,6 +1040,7 @@ getCollections
 **Todo**
 
 - [ ] Store runName collection ranges (except date) with run
+- [ ] Row 19 on "Town Run (FRI)" is still not being processed
 
 
 | Param | Type | Description |
@@ -1974,6 +1979,8 @@ writeToSheetFromRunFormObject
 **Todo**
 
 - [ ] Is the key deletion used below still necessary?
+- [ ] Debug JavaScript error on submit
+- [ ] Reference to JavaScript.js.html is incorrect - what should it be?
 
 
 | Param | Type | Description |

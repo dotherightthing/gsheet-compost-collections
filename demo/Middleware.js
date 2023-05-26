@@ -14,7 +14,7 @@
  * @returns {*} - The GsheetCompostCollections library will load the web page.
  */
 function doGet() {
-  const appTemplate = GsheetCompostCollections.gccInit(cbConfig, false);
+  const appTemplate = GsheetCompostCollections.gccInit(cbConfig, true);
 
   return appTemplate;
 }

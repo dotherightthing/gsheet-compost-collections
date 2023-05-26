@@ -1,6 +1,6 @@
 /**
  * @file Config.gs
- * @summary Contaibner-bound configuration
+ * @summary Container-bound configuration
  * @see {@link https://github.com/dotherightthing/gsheet-compost-collections/blob/main/demo}
  */
 

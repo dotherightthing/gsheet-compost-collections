@@ -24,7 +24,7 @@ This will allow you to:
 ### 3. Add the app config and triggers
 
 1. Copy the contents of [demo/Config.js](https://github.com/dotherightthing/gsheet-compost-collections/blob/main/demo/Config.js) to `Code.gs` (`.js` files have a `.gs` extension in the Apps Script editor)
-2. Customise the `hostConfig` object to configure the app to your needs
+2. Customise the `cbConfig` object to configure the app to your needs
     * Further information on each configuration option can be found by opening
       [the manual](https://github.com/dotherightthing/gsheet-compost-collections/blob/main/MAN.md)
       and searching for the configuration option:
@@ -63,5 +63,5 @@ This will allow you to:
 
 ### 7. Test that everything is working
 
-1. Open the Google spreadsheet > Check that the `App Help` menu appears
+1. Open the Google spreadsheet > Check that the `GCC Help` menu appears
 2. Deploy > Test deployments > Web app > Click URL link > Check that the app loads

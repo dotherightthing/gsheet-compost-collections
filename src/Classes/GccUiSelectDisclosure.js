@@ -79,9 +79,9 @@ class GccUiSelectDisclosure {
     });
 
     pubsub.subscribe('runForm/loaded', (data) => {
-      const { formId } = data;
+      const { id } = data;
 
-      this.init(formId);
+      this.init(id);
     });
   }
 

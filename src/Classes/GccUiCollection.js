@@ -129,8 +129,8 @@ class GccUiCollection {
     });
 
     pubsub.subscribe('runForm/loaded', (data) => {
-      const { formId } = data;
-      const inputEls = document.querySelectorAll(`#${formId} [data-collection-id]`);
+      const { id } = data;
+      const inputEls = document.querySelectorAll(`#${id} [data-collection-id]`);
 
       inputEls.forEach((inputEl) => {
         const _this = inputEl;

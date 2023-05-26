@@ -288,14 +288,15 @@ class GccUiRunForm {
   handleSubmit(event) {
     event.preventDefault(); // prevents the page from redirecting to an inaccurate URL in the event of an exception
 
-    const formObject = event.currentTarget;
+    let formObject = event.currentTarget;
 
     // prevent DOM-detached ghost forms from accumulating after selecting different runs
     if (formObject.parentElement === null) {
       return;
     }
 
-    // gccUi used as 'this' is the form element
+    // convert formObject to a plain object
+    formObject = Object.fromEntries(new FormData(formObject).entries());
 
     // publish events for other modules to subscribe to
     pubsub.publish('runForm/saving');

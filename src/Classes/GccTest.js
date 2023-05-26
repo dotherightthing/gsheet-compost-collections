@@ -2465,11 +2465,11 @@ class GccTest {
     this.stub('GccSheet.getRowIndex', [ 'Suburbs Run (WED)', 'BERHAMPORE/NEWTOWN RUN' ], 61);
     this.stub('GccSheet.getRowIndex', [ 'Suburbs Run (WED)', 'NEWTOWN CENTRAL RUN' ], 80);
     this.stub('GccSheet.getRowIndex', [ 'Town Run (FRI)', 'SWITCHED ON PICK-UP (TOWN)' ], 11);
-    this.stub('GccSheet.getRowIndex', [ 'Town Run (FRI)', 'SWITCHED ON DROP-OFF (TOWN)' ], 19);
+    this.stub('GccSheet.getRowIndex', [ 'Town Run (FRI)', 'SWITCHED ON DROP-OFF (TOWN)' ], 18);
     this.stub('GccSheet.getRowIndex', [ 'Town Run (FRI)', 'NORTH A RUN' ], 23);
-    this.stub('GccSheet.getRowIndex', [ 'Town Run (FRI)', 'NORTH B RUN' ], 51);
-    this.stub('GccSheet.getRowIndex', [ 'Town Run (FRI)', 'SOUTH A RUN' ], 66);
-    this.stub('GccSheet.getRowIndex', [ 'Town Run (FRI)', 'SOUTH B RUN' ], 88);
+    this.stub('GccSheet.getRowIndex', [ 'Town Run (FRI)', 'NORTH B RUN' ], 52);
+    this.stub('GccSheet.getRowIndex', [ 'Town Run (FRI)', 'SOUTH A RUN' ], 68);
+    this.stub('GccSheet.getRowIndex', [ 'Town Run (FRI)', 'SOUTH B RUN' ], 90);
     this.stub('GccSheet.setRangeValidationCriteria', []);
     this.stub('GccSheet.validateRangeValues', [], {
       valid: [

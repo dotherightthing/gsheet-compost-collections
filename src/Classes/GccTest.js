@@ -2211,6 +2211,9 @@ class GccTest {
 
     // this.stub('GccSheet.getInstance', [], this.getSheetInstances()[0]);
 
+    this.stub('GccSheetInstance.getLastRowIndex', [ 'Suburbs Run (WED)', 'End of collections. Do not edit this row.' ], 100);
+    this.stub('GccSheetInstance.getLastRowIndex', [ 'Town Run (FRI)', 'End of collections. Do not edit this row.' ], 109);
+
     this.stub('GccSheetInstance.getNamedRange', [], [ [] ]);
     this.stub('GccSheetInstance.getNamedRangeBackgrounds', [ 'NRBrandColors' ], [
       [ '#b65529' ],

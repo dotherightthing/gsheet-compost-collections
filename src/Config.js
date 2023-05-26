@@ -42,10 +42,10 @@ const saConfig = { // eslint-disable-line no-unused-vars
   ],
   env: {
     cloudProjectId: 'gsheet-compost-collections-2',
-    containerBoundAppScriptId: '1h3jghLjpWGEE4ApYmtGxH_KYYp6xLku-6PTMfUB8AlJm5an0BoBTMWLt',
+    containerBoundAppScriptId: '1GopR15aeJdZwptMe_IDrIKNaEtEfRjvOsAUUlZJDa82QgvTcyCn-qSpk',
     headDeploymentId: 'AKfycbyXIo-wDHA4IIzSsMAmcT97XUiFPaMdsUaI2vPnLX1s',
     pubDeploymentId: 'AKfycbyFMw-ILDiJD6E1oWd7Gv6UkQSAkNZ5OezOcTAWjqoNgtkM2X5ZUDfK1Afp3Ih_mn0PYg',
-    spreadsheetId: '113f_oo25BViZOGC-HoVWOnXT-7Cg6bGi584Ftb-eK0U',
+    spreadsheetId: '1wsw8iria_gJ1OurlzKuNU91_g4Fg40Nbl3xPqO0a7X4',
     standaloneAppScriptId: '1Unnx4ReGPj5b88PBKkadr6jD-tbQ2aIt1O3cMBjcpY4SCxalTiXFu7jW',
   },
   extraCollectionsLabel: 'Switched On pick-up and drop-off',

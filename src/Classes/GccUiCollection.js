@@ -658,12 +658,6 @@ class GccUiCollection {
    * @memberof GccUiCollection
    */
   getCollectionStatus() {
-    const {
-      cancelled,
-      onHold,
-      pending,
-    } = this;
-
     const statusMap = new Map([
       [ 'cancelled', 'cancelled' ],
       [ 'onHold', 'skip' ],
@@ -672,8 +666,8 @@ class GccUiCollection {
 
     let collectionStatus = 'collect'; // default
 
-    [ cancelled, onHold, pending ].forEach((status) => {
-      if (status && statusMap.has(status)) {
+    [ 'cancelled', 'onHold', 'pending' ].forEach((status) => {
+      if (this[status] && statusMap.has(status)) {
         collectionStatus = statusMap.get(status);
       }
     });

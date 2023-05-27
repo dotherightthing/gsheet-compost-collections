@@ -9,7 +9,7 @@ class GccPage {
    * @param {object}  config                                      - Module configuration.
    * @param {string}  config.appName                              - App name (used in the feedback email).
    * @param {boolean} config.debug                                - Output debugging messages.
-   * @param {Array}   config.developerUserEmails                  - Email address of developers who manage this project (used to displays UI elements and specify recipients for feedback emails).
+   * @param {Array}   config.developerUserEmails                  - Email address of developers who manage this project (used to display UI elements and specify recipients for feedback emails).
    * @param {string}  config.extraCollectionsLabel                - Label for the optional pre/post run checkbox.
    * @param {string}  config.feedbackEmailBody                    - Message body for the feedback email.
    * @param {string}  config.helpLinks                            - Help links (used by Quick Start guide link and help dialog links; note that spreadsheet and Feedback links are appended in code; Quick Start guide link must come first.)

@@ -7,7 +7,7 @@ class GccEnv {
    * @summary Environment methods.
    * @public
    * @param {object} config                               - Module configuration.
-   * @param {Array}  config.developerUserEmails           - Email address of developers who manage this project (used to displays UI elements and specify recipients for feedback emails).
+   * @param {Array}  config.developerUserEmails           - Email address of developers who manage this project (used to display UI elements and specify recipients for feedback emails).
    * @param {object} config.env                           - Environment settings
    * @param {object} config.env.containerBoundAppScriptId - Script ID of the container-bound (spreadsheet-linked) project
    *                                                        sheets.google.com > (open spreadsheet) > Extensions > Apps Script > Project Settings (cog icon) > Script ID > Copy

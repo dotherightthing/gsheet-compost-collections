@@ -9,6 +9,8 @@ class GccEnv {
    * @param {object} config                               - Module configuration.
    * @param {Array}  config.developerUserEmails           - Email address of developers who manage this project (used to display UI elements and specify recipients for feedback emails).
    * @param {object} config.env                           - Environment settings
+   * @param {object} config.env.cloudProjectId            - Project ID from Google Cloud (used for GCC Help menu item links, see Middleware.js)
+   *                                                        https://console.cloud.google.com/home/dashboard > Select a project (dropdown menu) > ID (copy)
    * @param {object} config.env.containerBoundAppScriptId - Script ID of the container-bound (spreadsheet-linked) project
    *                                                        sheets.google.com > (open spreadsheet) > Extensions > Apps Script > Project Settings (cog icon) > Script ID > Copy
    * @param {object} config.env.headDeploymentId          - Head Deployment ID from the container-bound or standalone project, depending on which one you are testing

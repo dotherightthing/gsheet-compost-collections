@@ -252,11 +252,14 @@ class GccRunGroup {
         }
       }
 
-      return dateHeaderFormatted;
+      return {
+        dateHeaderFormatted,
+        dateHeaderDate,
+      };
     });
 
     // filter out empty cells
-    runDates = runDates.filter((dateHeader) => (dateHeader !== ''));
+    runDates = runDates.filter((dateHeader) => (dateHeader.dateHeaderFormatted !== ''));
 
     // latest first
     runDates = runDates.reverse();
@@ -388,7 +391,12 @@ class GccRunGroup {
     tplRunDates = tplRunDates.reverse();
 
     tplRunDates.every((runDate) => {
-      const runDateDate = new Date(`${runDate} ${todayDate.getFullYear()}`); // MMM DD YYYY
+      const {
+        dateHeaderFormatted,
+        dateHeaderDate,
+      } = runDate;
+
+      const runDateDate = new Date(`${dateHeaderFormatted} ${dateHeaderDate.getFullYear()}`); // MMM DD YYYY
 
       // compare dates, ignoring the time difference
       // toDateString = DDD MMM DD YYY
@@ -401,7 +409,7 @@ class GccRunGroup {
       const dateIsAfterToday = runDateDate.getTime() > todayDate.getTime();
 
       if (dateIsToday || dateIsAfterToday) {
-        nextRunDate = runDate;
+        nextRunDate = dateHeaderFormatted;
         // stop looping
         return false;
       }

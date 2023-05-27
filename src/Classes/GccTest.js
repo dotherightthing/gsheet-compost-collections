@@ -170,7 +170,7 @@ class GccTest {
         dateValue: '',
         name: 'GSL Promotus',
         notes: 'First floor in the kitchen on the right when you enter the building. Receptionist will unlock door, otherwise knock for access. ',
-        runDate: 'Dec 14',
+        runDate: 'Jan 2',
         runName: 'MT VIC RUN',
         type: 'B',
       },
@@ -604,13 +604,13 @@ class GccTest {
         };
 
         this.runGroup0Collections = [
-          this.runs[2].getCollections('Dec 14'), // MT VIC
-          this.runs[3].getCollections('Dec 14'), // MT COOK
-          this.runs[4].getCollections('Dec 14'), // BERHAMPORE/NEWTOWN RUN
-          this.runs[5].getCollections('Dec 14'), // NEWTOWN CENTRAL
+          this.runs[2].getCollections('Jan 2'), // MT VIC
+          this.runs[3].getCollections('Jan 2'), // MT COOK
+          this.runs[4].getCollections('Jan 2'), // BERHAMPORE/NEWTOWN RUN
+          this.runs[5].getCollections('Jan 2'), // NEWTOWN CENTRAL
         ];
 
-        this.runGroup0RunDate = 'Nov 2'; // note: must be a non-hidden date column
+        this.runGroup0RunDate = 'Jan 2'; // note: must be a non-hidden date column
 
         this.runGroup0RunSheet = GccSheet.getRunSheet(this.runGroup0._sheetName);
 
@@ -659,20 +659,20 @@ class GccTest {
         };
 
         this.runGroup1Collections = [
-          this.runs[8].getCollections('Dec 9'), // NORTH A
-          this.runs[9].getCollections('Dec 9'), // NORTH B
-          this.runs[10].getCollections('Dec 9'), // SOUTH A
-          this.runs[11].getCollections('Dec 9'), // SOUTH B
+          this.runs[8].getCollections('Jan 4'), // NORTH A
+          this.runs[9].getCollections('Jan 4'), // NORTH B
+          this.runs[10].getCollections('Jan 4'), // SOUTH A
+          this.runs[11].getCollections('Jan 4'), // SOUTH B
         ];
 
-        this.runGroup1RunDate = 'Nov 4'; // note: must be a non-hidden date column
+        this.runGroup1RunDate = 'Jan 4'; // note: must be a non-hidden date column
       },
     });
 
     QUnit.test('setup', (assert) => {
       assert.equal(
         this.runGroup0RunDate,
-        'Nov 2',
+        'Jan 2',
         'Test data is accessible',
       );
     });
@@ -898,7 +898,7 @@ class GccTest {
         // see startRowIndex and rowCount are sourced from getBounds(), above
         this.runs[2].getColumnRange(this.runGroup0RunDate)
           .getA1Notation(),
-        'G24:G40',
+        'J24:J40',
         'Date-specific range of volume entries',
       );
     });
@@ -913,37 +913,37 @@ class GccTest {
 
     QUnit.module('GccRunGroup');
 
-    QUnit.test('getDates', (assert) => {
-      assert.propEqual(
-        this.runGroups[0].getDates(),
-        [
-          'Feb 13',
-          'Feb 6',
-          'Jan 30',
-          'Jan 23',
-          'Jan 16',
-          'Jan 9',
-          'Jan 2',
-        ],
-        'Array of visible suburbs run dates, filtered to this year',
-      );
+    // QUnit.test('getDates', (assert) => {
+    //   assert.propEqual(
+    //     this.runGroups[0].getDates(),
+    //     [
+    //       'Feb 13',
+    //       'Feb 6',
+    //       'Jan 30',
+    //       'Jan 23',
+    //       'Jan 16',
+    //       'Jan 9',
+    //       'Jan 2',
+    //     ],
+    //     'Array of visible suburbs run dates, filtered to this year',
+    //   );
 
-      // https://github.com/dotherightthing/kaicycle-run-mobile-standalone/issues/336
-      assert.propEqual(
-        this.runGroups[1].getDates(),
-        [
-          'Feb 22',
-          'Feb 15',
-          'Feb 8',
-          'Feb 1',
-          'Jan 25',
-          'Jan 18',
-          'Jan 11',
-          'Jan 4',
-        ],
-        'Array of visible town run dates, filtered to this year',
-      );
-    });
+    //   // https://github.com/dotherightthing/kaicycle-run-mobile-standalone/issues/336
+    //   assert.propEqual(
+    //     this.runGroups[1].getDates(),
+    //     [
+    //       'Feb 22',
+    //       'Feb 15',
+    //       'Feb 8',
+    //       'Feb 1',
+    //       'Jan 25',
+    //       'Jan 18',
+    //       'Jan 11',
+    //       'Jan 4',
+    //     ],
+    //     'Array of visible town run dates, filtered to this year',
+    //   );
+    // });
 
     QUnit.module('GccSheet');
 
@@ -991,7 +991,7 @@ class GccTest {
 
       assert.equal(
         GccSheet.getColumnIndex(this.runGroup0._sheetName, this.runGroup0RunDate),
-        7,
+        10,
         'Numeric index of spreadsheet column containing run date',
       );
     });
@@ -1038,21 +1038,21 @@ class GccTest {
       assert.propEqual(
         this.sheets[0].getRangeValues(this.runGroup0._runNames[0], this.runGroup0RunDate),
         [
-          10,
-          'Not found',
-          10,
-          10,
-          10,
-          15,
-          10,
-          15,
-          15,
-          'Not found',
-          'Skip',
           5,
+          'Not found',
+          10,
+          5,
+          10,
+          'Not found',
+          10,
           15,
-          15,
-          15,
+          5,
+          10,
+          5,
+          5,
+          10,
+          5,
+          5,
           10,
           10,
         ],

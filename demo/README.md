@@ -13,13 +13,13 @@ This will allow you to:
 
 1. Open a Google spreadsheet
 2. Extensions > Apps Script
-3. Click on `Untitled project` to rename it > `GCC CB` (`Gsheet Compost Collections container-bound`) (or something else)
+3. Click on `Untitled project` to rename it > `GCC Configuration` (or something else)
 
 ### 2. Add the Apps Script config
 
 1. Project settings > General settings > Check `Show "appsscript.json" manifest file in editor`
 2. Copy the contents of [demo/appsscript.json](https://github.com/dotherightthing/gsheet-compost-collections/blob/main/demo/appsscript.json) to `appsscript.json`
-3. If you have edited the codebase to create your own standalone project, replace the Script ID in `appsscript.json` with your own
+3. Replace the Script ID in `appsscript.json` with your own (see <https://github.com/dotherightthing/gsheet-compost-collections/wiki/Information-for-Developers> - *Create an Apps Script project*)
 
 ### 3. Add the app config and triggers
 
@@ -28,7 +28,7 @@ This will allow you to:
     * Further information on each configuration option can be found by opening
       [the manual](https://github.com/dotherightthing/gsheet-compost-collections/blob/main/MAN.md)
       and searching for the configuration option:
-      e.g. To find out what the `organisationName` does in Firefox: *Edit > Find in page > `config.organisationName`*
+      e.g. To find out what `organisationName` is used for *Edit > Find in page >* (Firefox) `config.organisationName`
 
 ### 4. Add the middleware communication layer
 
@@ -57,11 +57,28 @@ This will allow you to:
    5. Failure notification settings: `Notify me immediately`
    6. Save
 
-### 6. Create an initial deployment of the Apps Script project to enable testing
+### 6. Create a test deployment to test that everything is working
 
-1. Deploy > New deployment > Select type: `Web app` > Description: `Initial deployment` > Execute as: `User accessing the web app` > Who has access: `Only myself` > Deploy
+1. Add youself as a test user - see <https://github.com/dotherightthing/gsheet-compost-collections/wiki/Information-for-Administrators#b-provide-access-to-a-user-of-the-mobile-app-or-the-spreadsheet>
+2. Open the Google spreadsheet > Check that the `GCC Help` menu appears
+3. Deploy > Test deployments > Web app > URL > Copy
+4. Paste the URL into a web browser
+5. At the prompt, click *Review permissions* > click on your account name > scroll down > click *Allow*
+6. Check that the app loads
+7. If there is an error, go to <https://script.google.com/> > Open project > Executions > click on the Failed execution
 
-### 7. Test that everything is working
+### 7. Create an initial deployment to create a snapshot of the working configuration
 
-1. Open the Google spreadsheet > Check that the `GCC Help` menu appears
-2. Deploy > Test deployments > Web app > Click URL link > Check that the app loads
+Create a versioned deployment to protect users from changes to the container-bound Apps Script project.
+
+1. Deploy > New deployment
+2. Select type: `Web app`
+3. Description: A short phrase describing the main changes, or use `Initial deployment` if this is the first deployment
+4. Execute as: `User accessing the web app`
+5. Who has access: `Only myself`
+6. Deploy
+7. Web app > URL > Copy
+8. Paste the URL into a web browser
+9. At the prompt, click *Review permissions* > click on your account name > scroll down > click *Allow*
+10. Check that the app loads
+11. If there is an error, go to <https://script.google.com/> > Open project > Executions > click on the Failed execution

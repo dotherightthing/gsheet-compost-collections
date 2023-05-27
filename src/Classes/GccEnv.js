@@ -13,9 +13,9 @@ class GccEnv {
    *                                                        https://console.cloud.google.com/home/dashboard > Select a project (dropdown menu) > ID (copy)
    * @param {object} config.env.containerBoundAppScriptId - Script ID of the container-bound (spreadsheet-linked) project
    *                                                        sheets.google.com > (open spreadsheet) > Extensions > Apps Script > Project Settings (cog icon) > Script ID > Copy
-   * @param {object} config.env.headDeploymentId          - Head Deployment ID from the container-bound or standalone project, depending on which one you are testing
+   * @param {object} config.env.headDeploymentId          - Head Deployment ID from the container-bound project
    *                                                        sheets.google.com > (open spreadsheet) > Extensions > Apps Script > Deploy > Test deployments > Select type > Web app > Head Deployment ID > Copy
-   * @param {object} config.env.pubDeploymentId           - Deployment ID from the container-bound or standalone project, depending on which one you are testing
+   * @param {object} config.env.pubDeploymentId           - Deployment ID from the container-bound project
    *                                                        sheets.google.com > (open spreadsheet) > Extensions > Apps Script > Deploy > Manage deployments > Initial deployment > Deployment ID > Copy
    *                                                        (note: fill this in after created the initial deployment)
    * @param {object} config.env.spreadsheetId             - SPREADSHEET_ID from the spreadsheet URL:

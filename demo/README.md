@@ -29,6 +29,7 @@ This will allow you to:
       [the manual](https://github.com/dotherightthing/gsheet-compost-collections/blob/main/MAN.md)
       and searching for the configuration option:
       e.g. To find out what `organisationName` is used for *Edit > Find in page >* (Firefox) `config.organisationName`
+      e.g. To find out what `env.headDeploymentId` is used for *Edit > Find in page >* (Firefox) `config.env.headDeploymentId`
 
 ### 4. Add the middleware communication layer
 

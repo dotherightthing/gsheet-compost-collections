@@ -97,11 +97,6 @@ class GccUtils {
       return cachedConfig;
     }
 
-    // else if standalone config available
-    if (GccValidate.isObject(saConfig) && GccValidate.isObject(devConfig)) {
-      return { ...saConfig, ...devConfig };
-    }
-
     // else if container-bound config available
     if (GccValidate.isObject(cbConfig) && GccValidate.isObject(devConfig)) {
       return { ...cbConfig, ...devConfig };

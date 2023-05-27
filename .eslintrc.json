@@ -49,7 +49,6 @@
     "pubsub": "readonly",
     "cbConfig": "readonly",
     "devConfig": "readonly",
-    "saConfig": "readonly",
     "gccInit": "readonly",
     "sinon": "readonly",
     "QUnit": "readonly"

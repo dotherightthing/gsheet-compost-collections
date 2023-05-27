@@ -23,7 +23,7 @@ function doGet(e) {
     return gccIntegrationTests(appConfig);
   }
 
-  const appTemplate = gccInit(saConfig, true);
+  const appTemplate = gccLanding();
 
   return appTemplate;
 }
@@ -31,12 +31,12 @@ function doGet(e) {
 /**
  * gccInit
  *
- * @param {object} appConfig - App config (saConfig|cbConfig)
+ * @param {object} cbConfig - App config (container-bound)
  * @param {boolean} isBrowser - Whether the function was called from a web browser (or the spreadsheet)
  * @returns {*} - HTML Template
  */
-function gccInit(appConfig, isBrowser) {
-  const config = { ...appConfig, ...devConfig };
+function gccInit(cbConfig, isBrowser) {
+  const config = { ...cbConfig, ...devConfig };
 
   GccUtils.setAppConfig(config);
 
@@ -45,4 +45,18 @@ function gccInit(appConfig, isBrowser) {
   }
 
   return true;
+}
+
+/**
+ * gccLanding
+ *
+ * @summary Display a landing page when the standalone app is loaded directly rather than as a library
+ * @returns {*} - HTML Template
+ */
+function gccLanding() {
+  let tpl = HtmlService.createTemplateFromFile('Index');
+
+  tpl = tpl.evaluate();
+
+  return tpl;
 }

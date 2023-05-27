@@ -339,7 +339,7 @@ class GccPage {
     // HtmlTemplate object
     let tpl = HtmlService.createTemplateFromFile(pageTemplate);
 
-    if (pageTemplate === 'Index') {
+    if (pageTemplate === 'App') {
       // create variables object
       const tplVariables = {
         tplColorStyles: GccColor.getInstance().getColorStyles(),

@@ -285,6 +285,8 @@ class GccRun {
       runRowCount = lastRowIndex - rowAfterRunNameRowIndex + lastRowSelf;
     }
 
+    // rowCount includes blank/hijacked rows
+    // these are filtered out by getCollections
     return {
       startRowIndex: rowAfterRunNameRowIndex,
       rowCount: runRowCount,
@@ -321,6 +323,8 @@ class GccRun {
 
     const collections = [];
 
+    // rowCount includes blank/hijacked rows
+    // these are filtered out below
     const ranges = this.getCollectionRanges(runDate);
 
     const {
@@ -442,6 +446,8 @@ class GccRun {
       runGroup,
     } = this;
 
+    // rowCount includes blank/hijacked rows
+    // these are filtered out by getCollections
     const {
       startRowIndex,
       rowCount,

@@ -15,52 +15,64 @@ class GccTest {
     this.expectations = {
       runs: [
         {
+          testId: 'SWITCHED ON PICK-UP (SUBURBS)',
           startRowIndex: 13,
-          rowCount: 1,
+          rowCount: 1, // including blank/hijacked rows
         },
         {
+          testId: 'SWITCHED ON DROP-OFF (SUBURBS)',
           startRowIndex: 17,
-          rowCount: 4,
+          rowCount: 4, // including blank/hijacked rows
         },
         {
+          testId: 'MT VIC RUN',
           startRowIndex: 24,
-          rowCount: 17,
+          rowCount: 17, // including blank/hijacked rows
         },
         {
+          testId: 'MT COOK RUN',
           startRowIndex: 44,
-          rowCount: 15,
+          rowCount: 15, // including blank/hijacked rows
         },
         {
+          testId: 'BERHAMPORE/NEWTOWN RUN',
           startRowIndex: 62,
-          rowCount: 16,
+          rowCount: 16, // including blank/hijacked rows
         },
         {
+          testId: 'NEWTOWN CENTRAL RUN',
           startRowIndex: 81,
-          rowCount: 20,
+          rowCount: 20, // including blank/hijacked rows
         },
         {
+          testId: 'SWITCHED ON PICK-UP (TOWN)',
           startRowIndex: 12,
-          rowCount: 4,
+          rowCount: 4, // including blank/hijacked rows
         },
         {
+          testId: 'SWITCHED ON DROP-OFF (TOWN)',
           startRowIndex: 19,
-          rowCount: 2,
+          rowCount: 2, // including blank/hijacked rows
         },
         {
+          testId: 'NORTH A RUN',
           startRowIndex: 24,
-          rowCount: 25,
+          rowCount: 26, // including blank/hijacked rows
         },
         {
-          startRowIndex: 52,
-          rowCount: 12,
+          testId: 'NORTH B RUN',
+          startRowIndex: 53,
+          rowCount: 13, // including blank/hijacked rows
         },
         {
-          startRowIndex: 67,
-          rowCount: 19,
+          testId: 'SOUTH A RUN',
+          startRowIndex: 69,
+          rowCount: 19, // including blank/hijacked rows
         },
         {
-          startRowIndex: 89,
-          rowCount: 19,
+          testId: 'SOUTH B RUN',
+          startRowIndex: 91,
+          rowCount: 19, // including blank/hijacked rows
         },
       ],
     };
@@ -1766,116 +1778,18 @@ class GccTest {
 
     QUnit.module('GccRun');
 
+    // note: rowCount should include blank/hijacked rows
     QUnit.test('getBounds', (assert) => {
-      assert.propEqual(
-        this.runs[0].getBounds(),
-        {
-          startRowIndex: this.expectations.runs[0].startRowIndex,
-          rowCount: this.expectations.runs[0].rowCount,
-        },
-        'Run 0 - expected startRowIndex and rowCount',
-      );
-
-      assert.propEqual(
-        this.runs[1].getBounds(),
-        {
-          startRowIndex: this.expectations.runs[1].startRowIndex,
-          rowCount: this.expectations.runs[1].rowCount,
-        },
-        'Run 1 - expected startRowIndex and rowCount',
-      );
-
-      assert.propEqual(
-        this.runs[2].getBounds(),
-        {
-          startRowIndex: this.expectations.runs[2].startRowIndex,
-          rowCount: this.expectations.runs[2].rowCount,
-        },
-        'Run 2 - expected startRowIndex and rowCount',
-      );
-
-      assert.propEqual(
-        this.runs[3].getBounds(),
-        {
-          startRowIndex: this.expectations.runs[3].startRowIndex,
-          rowCount: this.expectations.runs[3].rowCount,
-        },
-        'Run 3 - expected startRowIndex and rowCount',
-      );
-
-      assert.propEqual(
-        this.runs[4].getBounds(),
-        {
-          startRowIndex: this.expectations.runs[4].startRowIndex,
-          rowCount: this.expectations.runs[4].rowCount,
-        },
-        'Run 4 - expected startRowIndex and rowCount',
-      );
-
-      assert.propEqual(
-        this.runs[5].getBounds(),
-        {
-          startRowIndex: this.expectations.runs[5].startRowIndex,
-          rowCount: this.expectations.runs[5].rowCount,
-        },
-        'Run 5 - expected startRowIndex and rowCount',
-      );
-
-      // Town
-
-      assert.propEqual(
-        this.runs[6].getBounds(),
-        {
-          startRowIndex: this.expectations.runs[6].startRowIndex,
-          rowCount: this.expectations.runs[6].rowCount,
-        },
-        'Run 6 - expected startRowIndex and rowCount',
-      );
-
-      assert.propEqual(
-        this.runs[7].getBounds(),
-        {
-          startRowIndex: this.expectations.runs[7].startRowIndex,
-          rowCount: this.expectations.runs[7].rowCount,
-        },
-        'Run 7 - expected startRowIndex and rowCount',
-      );
-
-      assert.propEqual(
-        this.runs[8].getBounds(),
-        {
-          startRowIndex: this.expectations.runs[8].startRowIndex,
-          rowCount: this.expectations.runs[8].rowCount,
-        },
-        'Run 8 - expected startRowIndex and rowCount',
-      );
-
-      assert.propEqual(
-        this.runs[9].getBounds(),
-        {
-          startRowIndex: this.expectations.runs[9].startRowIndex,
-          rowCount: this.expectations.runs[9].rowCount,
-        },
-        'Run 9 - expected startRowIndex and rowCount',
-      );
-
-      assert.propEqual(
-        this.runs[10].getBounds(),
-        {
-          startRowIndex: this.expectations.runs[10].startRowIndex,
-          rowCount: this.expectations.runs[10].rowCount,
-        },
-        'Run 10 - expected startRowIndex and rowCount',
-      );
-
-      assert.propEqual(
-        this.runs[11].getBounds(),
-        {
-          startRowIndex: this.expectations.runs[11].startRowIndex,
-          rowCount: this.expectations.runs[11].rowCount,
-        },
-        'Run 11 - expected startRowIndex and rowCount',
-      );
+      this.expectations.runs.forEach((run, i) => {
+        assert.propEqual(
+          this.runs[i].getBounds(),
+          {
+            startRowIndex: run.startRowIndex,
+            rowCount: run.rowCount,
+          },
+          `${run.testId} - expected startRowIndex and rowCount`,
+        );
+      });
     });
 
     QUnit.module('GccUiCollection');

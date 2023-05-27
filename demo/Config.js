@@ -64,7 +64,6 @@ const cbConfig = {
   imageFavicon: 'https://images.squarespace-cdn.com/content/v1/5d4cabb489e9b50001bdc242/1565671952937-SDYC2M12R5SVXYR6DCSK/favicon.png',
   imageLogo: 'https://images.squarespace-cdn.com/content/v1/5d4cabb489e9b50001bdc242/1565305834548-6J2L4NN68WIWMYUPPMWO/kaicycle-logo-color-large.png?format=200w',
   organisationName: 'Demo',
-  pageTemplate: 'App',
   pageTitle: 'Compost Collections',
   runBlankRowsAfter: 2,
   runGroupCount: 2,

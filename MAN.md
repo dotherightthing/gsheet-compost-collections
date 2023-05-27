@@ -547,13 +547,14 @@ getInstanceFromCache
 | Param | Type | Description |
 | --- | --- | --- |
 | config | <code>object</code> | Module configuration. |
-| config.developerUserEmails | <code>Array</code> | Email address of developers who manage this project (used to displays UI elements and specify recipients for feedback emails). |
+| config.developerUserEmails | <code>Array</code> | Email address of developers who manage this project (used to display UI elements and specify recipients for feedback emails). |
 | config.env | <code>object</code> | Environment settings |
+| config.env.cloudProjectId | <code>object</code> | Project ID from Google Cloud (used for GCC Help menu item links, see Middleware.js)                                                        https://console.cloud.google.com/home/dashboard > Select a project (dropdown menu) > ID (copy) |
 | config.env.containerBoundAppScriptId | <code>object</code> | Script ID of the container-bound (spreadsheet-linked) project                                                        sheets.google.com > (open spreadsheet) > Extensions > Apps Script > Project Settings (cog icon) > Script ID > Copy |
-| config.env.headDeploymentId | <code>object</code> | Head Deployment ID from the container-bound or standalone project, depending on which one you are testing                                                        script.google.com > (open relevant project) > Deploy > Test deployments > Select type > Web app > Head Deployment ID > Copy |
-| config.env.pubDeploymentId | <code>object</code> | Deployment ID from the container-bound or standalone project, depending on which one you are testing                                                        script.google.com > (open relevant project) > Deploy > Manage deployments > Initial deployment > Deployment ID > Copy |
+| config.env.headDeploymentId | <code>object</code> | Head Deployment ID from the container-bound or standalone project, depending on which one you are testing                                                        sheets.google.com > (open spreadsheet) > Extensions > Apps Script > Deploy > Test deployments > Select type > Web app > Head Deployment ID > Copy |
+| config.env.pubDeploymentId | <code>object</code> | Deployment ID from the container-bound or standalone project, depending on which one you are testing                                                        sheets.google.com > (open spreadsheet) > Extensions > Apps Script > Deploy > Manage deployments > Initial deployment > Deployment ID > Copy                                                        (note: fill this in after created the initial deployment) |
 | config.env.spreadsheetId | <code>object</code> | SPREADSHEET_ID from the spreadsheet URL:                                                        https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit#gid=0 |
-| config.env.standaloneAppScriptId | <code>object</code> | Script ID of the standalone (library) project                                                        script.google.com > (open standalone project) > Project Settings (cog icon) > Script ID > Copy |
+| config.env.standaloneAppScriptId | <code>object</code> | Script ID of the standalone (library) project                                                        script.google.com > (open standalone project) > Project Settings (cog icon) > Script ID > Copy                                                        (note: this also needs to be set in appsscript.json > dependencies > libraries > libraryId) |
 
 <a name="GccEnv+containerBoundAppScriptId"></a>
 
@@ -700,7 +701,7 @@ getInstance
 | config | <code>object</code> | Module configuration. |
 | config.appName | <code>string</code> | App name (used in the feedback email). |
 | config.debug | <code>boolean</code> | Output debugging messages. |
-| config.developerUserEmails | <code>Array</code> | Email address of developers who manage this project (used to displays UI elements and specify recipients for feedback emails). |
+| config.developerUserEmails | <code>Array</code> | Email address of developers who manage this project (used to display UI elements and specify recipients for feedback emails). |
 | config.extraCollectionsLabel | <code>string</code> | Label for the optional pre/post run checkbox. |
 | config.feedbackEmailBody | <code>string</code> | Message body for the feedback email. |
 | config.helpLinks | <code>string</code> | Help links (used by Quick Start guide link and help dialog links; note that spreadsheet and Feedback links are appended in code; Quick Start guide link must come first.) |

@@ -31,6 +31,7 @@ function gccMiddleware(classMethod, ...args) {
     [ 'GccPageInstance', GccPage.getInstance() ],
     [ 'GccSheet', GccSheet ],
     [ 'GccSheetInstance', GccSheet.getInstance() ],
+    [ 'GccTest', GccTest ],
   ]);
 
   const [
@@ -315,6 +316,19 @@ function gccMiddlewareOpenLinkAppStable() {
  */
 function gccMiddlewareOpenLinkCodeDocumentation() {
   return gccMiddleware('GccSheet.openLink', 'https://github.com/dotherightthing/gsheet-compost-collections/blob/main/MAN.md');
+}
+
+/**
+ * gccMiddlewareOpenLinkCodeIntegrationTests
+ *
+ * @summary Called from GCC Help menu
+ * @returns {*} Performs function
+ */
+function gccMiddlewareOpenLinkCodeIntegrationTests() {
+  const { env } = GccUtils.getAppConfig('gccMiddlewareOpenLinkAppStable');
+  const { headDeploymentId } = env;
+
+  return gccMiddleware('GccSheet.openLink', `https://script.google.com/macros/s/${headDeploymentId}/dev/test`);
 }
 
 /**

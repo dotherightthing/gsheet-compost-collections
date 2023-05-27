@@ -8,10 +8,14 @@
 /**
  * gccIntegrationTests
  *
- * @param {object} appConfig App config
+ * @param {object} cbConfig App config (container-bound)
  * @returns {*} - HTML
  */
-function gccIntegrationTests(appConfig) {
+function gccIntegrationTests(cbConfig) {
+  const appConfig = { ...cbConfig, ...devConfig };
+
+  GccUtils.setAppConfig(appConfig);
+
   const gccTest = new GccTest(appConfig);
 
   // QUnitGS2 is a wrapper for the main QUnit object, which can be accessed directly with "QUnit"
@@ -26,13 +30,4 @@ function gccIntegrationTests(appConfig) {
   QUnit.start();
 
   return QUnitGS2.getHtml();
-}
-
-/**
- * @function getResultsFromServer
- * @summary Retrieve test results when ready.
- * @returns {*} - Test results
- */
-function getResultsFromServer() { // eslint-disable-line no-unused-vars
-  return QUnitGS2.getResultsFromServer();
 }

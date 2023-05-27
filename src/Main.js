@@ -13,16 +13,9 @@
  * doGet
  *
  * @summary Called when the user loads the web app in a web browser. This autostarts the app.
- * @param {object} e - An event parameter that can contain information about any request parameters.
  * @returns {string} - App template
  */
-function doGet(e) {
-  if (e.pathInfo === 'test') {
-    const appConfig = GccUtils.getAppConfig('doGet');
-
-    return gccIntegrationTests(appConfig);
-  }
-
+function doGet() {
   const appTemplate = gccLanding();
 
   return appTemplate;
@@ -36,9 +29,9 @@ function doGet(e) {
  * @returns {*} - HTML Template
  */
 function gccInit(cbConfig, isBrowser) {
-  const config = { ...cbConfig, ...devConfig };
+  const appConfig = { ...cbConfig, ...devConfig };
 
-  GccUtils.setAppConfig(config);
+  GccUtils.setAppConfig(appConfig);
 
   if (isBrowser) {
     return GccPage.getInstance().createHtmlTemplate();

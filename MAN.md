@@ -44,12 +44,10 @@
 ## Functions
 
 <dl>
-<dt><a href="#gccIntegrationTests">gccIntegrationTests(appConfig)</a> ⇒ <code>*</code></dt>
+<dt><a href="#gccIntegrationTests">gccIntegrationTests(cbConfig)</a> ⇒ <code>*</code></dt>
 <dd><p>gccIntegrationTests</p>
 </dd>
-<dt><a href="#getResultsFromServer">getResultsFromServer()</a> ⇒ <code>*</code></dt>
-<dd></dd>
-<dt><a href="#doGet">doGet()</a> ⇒ <code>*</code></dt>
+<dt><a href="#doGet">doGet(e)</a> ⇒ <code>*</code></dt>
 <dd><p>doGet</p>
 </dd>
 <dt><a href="#gccMiddleware">gccMiddleware(classMethod, ...args)</a> ⇒ <code>*</code></dt>
@@ -61,6 +59,8 @@
 <dt><a href="#gccSheetHandleOpen">gccSheetHandleOpen()</a> ⇒ <code>*</code></dt>
 <dd><p>gccSheetHandleOpen</p>
 </dd>
+<dt><a href="#getResultsFromServer">getResultsFromServer()</a> ⇒ <code>*</code></dt>
+<dd></dd>
 </dl>
 
 <a name="GccCollection"></a>
@@ -1996,27 +1996,30 @@ writeToSheetFromRunFormObject
 
 * [GccTest](#GccTest)
     * [new GccTest(config)](#new_GccTest_new)
-    * [.config](#GccTest+config) : <code>object</code>
-    * [.expectations](#GccTest+expectations) : <code>object</code>
-    * [.stubbedMap](#GccTest+stubbedMap) : <code>Map</code>
-    * [.getCollectionInstances()](#GccTest+getCollectionInstances) ⇒ <code>Array</code>
-    * [.getColorInstances()](#GccTest+getColorInstances) ⇒ <code>Array</code>
-    * [.getContainerInstances()](#GccTest+getContainerInstances) ⇒ <code>Array</code>
-    * [.getEnvInstances()](#GccTest+getEnvInstances) ⇒ <code>Array</code>
-    * [.getPageInstances()](#GccTest+getPageInstances) ⇒ <code>Array</code>
-    * [.getRunInstances()](#GccTest+getRunInstances) ⇒ <code>Array</code>
-    * [.getRunGroupInstances()](#GccTest+getRunGroupInstances) ⇒ <code>Array</code>
-    * [.getSheetInstances()](#GccTest+getSheetInstances) ⇒ <code>Array</code>
-    * [.getUtilsInstances()](#GccTest+getUtilsInstances) ⇒ <code>Array</code>
-    * [.runIntegrationTests(QUnit)](#GccTest+runIntegrationTests)
-    * [.runUnitTests(QUnit)](#GccTest+runUnitTests)
-    * [.stub(classMethod, args, returnValue)](#GccTest+stub)
-    * [.stubGccCache()](#GccTest+stubGccCache)
-    * [.stubGccCollection()](#GccTest+stubGccCollection)
-    * [.stubGccEnv()](#GccTest+stubGccEnv)
-    * [.stubGccRun()](#GccTest+stubGccRun)
-    * [.stubGccRunGroup()](#GccTest+stubGccRunGroup)
-    * [.stubGccSheet()](#GccTest+stubGccSheet)
+    * _instance_
+        * [.config](#GccTest+config) : <code>object</code>
+        * [.expectations](#GccTest+expectations) : <code>object</code>
+        * [.stubbedMap](#GccTest+stubbedMap) : <code>Map</code>
+        * [.getCollectionInstances()](#GccTest+getCollectionInstances) ⇒ <code>Array</code>
+        * [.getColorInstances()](#GccTest+getColorInstances) ⇒ <code>Array</code>
+        * [.getContainerInstances()](#GccTest+getContainerInstances) ⇒ <code>Array</code>
+        * [.getEnvInstances()](#GccTest+getEnvInstances) ⇒ <code>Array</code>
+        * [.getPageInstances()](#GccTest+getPageInstances) ⇒ <code>Array</code>
+        * [.getRunInstances()](#GccTest+getRunInstances) ⇒ <code>Array</code>
+        * [.getRunGroupInstances()](#GccTest+getRunGroupInstances) ⇒ <code>Array</code>
+        * [.getSheetInstances()](#GccTest+getSheetInstances) ⇒ <code>Array</code>
+        * [.getUtilsInstances()](#GccTest+getUtilsInstances) ⇒ <code>Array</code>
+        * [.runIntegrationTests(QUnit)](#GccTest+runIntegrationTests)
+        * [.runUnitTests(QUnit)](#GccTest+runUnitTests)
+        * [.stub(classMethod, args, returnValue)](#GccTest+stub)
+        * [.stubGccCache()](#GccTest+stubGccCache)
+        * [.stubGccCollection()](#GccTest+stubGccCollection)
+        * [.stubGccEnv()](#GccTest+stubGccEnv)
+        * [.stubGccRun()](#GccTest+stubGccRun)
+        * [.stubGccRunGroup()](#GccTest+stubGccRunGroup)
+        * [.stubGccSheet()](#GccTest+stubGccSheet)
+    * _static_
+        * [.getQUnitGS2()](#GccTest.getQUnitGS2) ⇒ <code>object</code>
 
 <a name="new_GccTest_new"></a>
 
@@ -2187,6 +2190,17 @@ stubGccRunGroup
 stubGccSheet
 
 **Kind**: instance method of [<code>GccTest</code>](#GccTest)  
+<a name="GccTest.getQUnitGS2"></a>
+
+### GccTest.getQUnitGS2() ⇒ <code>object</code>
+The QUnitGS2 callback function getResultsFromServer() has to reside in the container-bound app
+             as only that has the datasource and configuration information to load the test page.
+             But QUnitGS2 is only a dependency of the standalone app, not of the container-bound app.
+             The solution is to pass QUnitGS2 from the standalone app to the container-bound app.
+
+**Kind**: static method of [<code>GccTest</code>](#GccTest)  
+**Summary**: Get QUnitGS2  
+**Returns**: <code>object</code> - QUnitGS2 - QUnitGS2 testing framework  
 <a name="GccUi"></a>
 
 ## GccUi
@@ -3755,7 +3769,7 @@ getInstance
 
 <a name="gccIntegrationTests"></a>
 
-## gccIntegrationTests(appConfig) ⇒ <code>\*</code>
+## gccIntegrationTests(cbConfig) ⇒ <code>\*</code>
 gccIntegrationTests
 
 **Kind**: global function  
@@ -3763,22 +3777,21 @@ gccIntegrationTests
 
 | Param | Type | Description |
 | --- | --- | --- |
-| appConfig | <code>object</code> | App config |
+| cbConfig | <code>object</code> | App config (container-bound) |
 
-<a name="getResultsFromServer"></a>
-
-## getResultsFromServer() ⇒ <code>\*</code>
-**Kind**: global function  
-**Summary**: Retrieve test results when ready.  
-**Returns**: <code>\*</code> - - Test results  
 <a name="doGet"></a>
 
-## doGet() ⇒ <code>\*</code>
+## doGet(e) ⇒ <code>\*</code>
 doGet
 
 **Kind**: global function  
 **Summary**: Function which runs when the web app is visited in a web browser. Do not edit.  
 **Returns**: <code>\*</code> - - The GsheetCompostCollections library will load the web page.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| e | <code>object</code> | An event parameter that can contain information about any request parameters. |
+
 <a name="gccMiddleware"></a>
 
 ## gccMiddleware(classMethod, ...args) ⇒ <code>\*</code>
@@ -3818,3 +3831,9 @@ gccSheetHandleOpen
  'Installable Trigger' (Triggers > Add Trigger)
   Differs from a 'Simple Trigger' (i.e. handleEdit in Main.gs) in that it can access services that require authorization.  
 **Returns**: <code>\*</code> - callback  
+<a name="getResultsFromServer"></a>
+
+## getResultsFromServer() ⇒ <code>\*</code>
+**Kind**: global function  
+**Summary**: Retrieve test results when ready.  
+**Returns**: <code>\*</code> - - Test results  

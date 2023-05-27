@@ -18,61 +18,73 @@ class GccTest {
           testId: 'SWITCHED ON PICK-UP (SUBURBS)',
           startRowIndex: 13,
           rowCount: 1, // including blank/hijacked rows
+          blankOrHijackedRows: 0,
         },
         {
           testId: 'SWITCHED ON DROP-OFF (SUBURBS)',
           startRowIndex: 17,
           rowCount: 4, // including blank/hijacked rows
+          blankOrHijackedRows: 0,
         },
         {
           testId: 'MT VIC RUN',
           startRowIndex: 24,
           rowCount: 17, // including blank/hijacked rows
+          blankOrHijackedRows: 0,
         },
         {
           testId: 'MT COOK RUN',
           startRowIndex: 44,
           rowCount: 15, // including blank/hijacked rows
+          blankOrHijackedRows: 0,
         },
         {
           testId: 'BERHAMPORE/NEWTOWN RUN',
           startRowIndex: 62,
           rowCount: 16, // including blank/hijacked rows
+          blankOrHijackedRows: 0,
         },
         {
           testId: 'NEWTOWN CENTRAL RUN',
           startRowIndex: 81,
           rowCount: 20, // including blank/hijacked rows
+          blankOrHijackedRows: 0,
         },
         {
           testId: 'SWITCHED ON PICK-UP (TOWN)',
           startRowIndex: 12,
           rowCount: 4, // including blank/hijacked rows
+          blankOrHijackedRows: 0,
         },
         {
           testId: 'SWITCHED ON DROP-OFF (TOWN)',
           startRowIndex: 19,
           rowCount: 2, // including blank/hijacked rows
+          blankOrHijackedRows: 0,
         },
         {
           testId: 'NORTH A RUN',
           startRowIndex: 24,
           rowCount: 26, // including blank/hijacked rows
+          blankOrHijackedRows: 1,
         },
         {
           testId: 'NORTH B RUN',
           startRowIndex: 53,
           rowCount: 13, // including blank/hijacked rows
+          blankOrHijackedRows: 1,
         },
         {
           testId: 'SOUTH A RUN',
           startRowIndex: 69,
           rowCount: 19, // including blank/hijacked rows
+          blankOrHijackedRows: 0,
         },
         {
           testId: 'SOUTH B RUN',
           startRowIndex: 91,
           rowCount: 19, // including blank/hijacked rows
+          blankOrHijackedRows: 0,
         },
       ],
     };
@@ -726,7 +738,7 @@ class GccTest {
     QUnit.test('getCollections', (assert) => {
       assert.equal(
         this.runGroup0Collections[0].length,
-        this.expectations.runs[2].rowCount,
+        this.expectations.runs[2].rowCount - this.expectations.runs[2].blankOrHijackedRows,
         'Run 2 - Number of collections',
       );
 
@@ -744,7 +756,7 @@ class GccTest {
 
       assert.equal(
         this.runGroup0Collections[1].length,
-        this.expectations.runs[3].rowCount,
+        this.expectations.runs[3].rowCount - this.expectations.runs[3].blankOrHijackedRows,
         'Run 3 - Number of collections',
       );
 
@@ -762,7 +774,7 @@ class GccTest {
 
       assert.equal(
         this.runGroup0Collections[2].length,
-        this.expectations.runs[4].rowCount,
+        this.expectations.runs[4].rowCount - this.expectations.runs[4].blankOrHijackedRows,
         'Run 4 - Number of collections',
       );
 
@@ -780,7 +792,7 @@ class GccTest {
 
       assert.equal(
         this.runGroup0Collections[3].length,
-        this.expectations.runs[5].rowCount,
+        this.expectations.runs[5].rowCount - this.expectations.runs[5].blankOrHijackedRows,
         'Run 5 - Number of collections',
       );
 
@@ -808,7 +820,7 @@ class GccTest {
 
       assert.equal(
         this.runGroup1Collections[0].length,
-        this.expectations.runs[8].rowCount,
+        this.expectations.runs[8].rowCount - this.expectations.runs[8].blankOrHijackedRows,
         'Run 8 - Number of collections',
       );
 
@@ -826,7 +838,7 @@ class GccTest {
 
       assert.equal(
         this.runGroup1Collections[1].length,
-        this.expectations.runs[9].rowCount,
+        this.expectations.runs[9].rowCount - this.expectations.runs[9].blankOrHijackedRows,
         'Run 9 - Number of collections',
       );
 
@@ -844,7 +856,7 @@ class GccTest {
 
       assert.equal(
         this.runGroup1Collections[2].length,
-        this.expectations.runs[10].rowCount,
+        this.expectations.runs[10].rowCount - this.expectations.runs[10].blankOrHijackedRows,
         'Run 10 - Number of collections',
       );
 
@@ -862,7 +874,7 @@ class GccTest {
 
       assert.equal(
         this.runGroup1Collections[3].length,
-        this.expectations.runs[11].rowCount,
+        this.expectations.runs[11].rowCount - this.expectations.runs[11].blankOrHijackedRows,
         'Run 11 - Number of collections',
       );
 
@@ -2394,4 +2406,20 @@ class GccTest {
   }
 
   /* Static methods */
+
+  /**
+   * getQUnitGS2
+   *
+   * @summary Get QUnitGS2
+   * @description The QUnitGS2 callback function getResultsFromServer() has to reside in the container-bound app
+   *              as only that has the datasource and configuration information to load the test page.
+   *              But QUnitGS2 is only a dependency of the standalone app, not of the container-bound app.
+   *              The solution is to pass QUnitGS2 from the standalone app to the container-bound app.
+   * @returns {object} QUnitGS2 - QUnitGS2 testing framework
+   * @memberof GccTest
+   * @static
+   */
+  static getQUnitGS2() {
+    return QUnitGS2;
+  }
 }

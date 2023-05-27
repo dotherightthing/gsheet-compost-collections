@@ -11,10 +11,17 @@
  * doGet
  *
  * @summary Function which runs when the web app is visited in a web browser. Do not edit.
+ * @param {object} e - An event parameter that can contain information about any request parameters.
  * @returns {*} - The GsheetCompostCollections library will load the web page.
  */
-function doGet() {
-  const appTemplate = GsheetCompostCollections.gccInit(cbConfig, true);
+function doGet(e) {
+  let appTemplate;
+
+  if (e.pathInfo === 'test') {
+    appTemplate = GsheetCompostCollections.gccIntegrationTests(cbConfig);
+  } else {
+    appTemplate = GsheetCompostCollections.gccInit(cbConfig, true);
+  }
 
   return appTemplate;
 }
@@ -56,4 +63,15 @@ function gccSheetHandleOpen() {
   GsheetCompostCollections.gccInit(cbConfig, false);
 
   return GsheetCompostCollections.gccMiddleware('GccSheetInstance.handleOpen', cbConfig);
+}
+
+/**
+ * @function getResultsFromServer
+ * @summary Retrieve test results when ready.
+ * @returns {*} - Test results
+ */
+function getResultsFromServer() { // eslint-disable-line no-unused-vars
+  const QUnitGS2 = GsheetCompostCollections.gccMiddleware('GccTest.getQUnitGS2');
+
+  return QUnitGS2.getResultsFromServer();
 }

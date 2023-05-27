@@ -98,8 +98,10 @@ class GccUtils {
     }
 
     // else if container-bound config available
-    if (GccValidate.isObject(cbConfig) && GccValidate.isObject(devConfig)) {
-      return { ...cbConfig, ...devConfig };
+    if (typeof cbConfig !== 'undefined') {
+      if (GccValidate.isObject(cbConfig) && GccValidate.isObject(devConfig)) {
+        return { ...cbConfig, ...devConfig };
+      }
     }
 
     if (allowEmpty) {

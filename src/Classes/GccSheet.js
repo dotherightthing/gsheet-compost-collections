@@ -505,6 +505,7 @@ class GccSheet {
     menuCode.addItem('Open Code Repository (in new window)', 'GsheetCompostCollections.gccMiddlewareOpenLinkCodeRepository');
     menuCode.addItem('Open Code Documentation (in new window)', 'GsheetCompostCollections.gccMiddlewareOpenLinkCodeDocumentation');
     menuCode.addItem('Report a Code Issue (in new window)', 'GsheetCompostCollections.gccMiddlewareOpenLinkCodeIssue');
+    menuCode.addItem('Open Integration Tests (in new window)', 'GsheetCompostCollections.gccMiddlewareOpenLinkCodeIntegrationTests');
     menu.addSubMenu(menuCode);
 
     return menu;

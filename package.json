@@ -10,15 +10,12 @@
     "man": "npx jsdoc2md --template ./templates/MAN.hbs --files ./src/**/*.js* ./demo/**/*.js* > ./MAN.md",
     "openEditor": "npm run push && npx clasp open",
     "openPreview": "npm run push && npx clasp open --webapp --deploymentId $npm_package_config_headDeploymentId",
-    "openIntegrationTests": "node scripts/openIntegrationTests.js",
     "openUnitTests": "node scripts/openUnitTests.js",
     "postinstall": "node ./scripts/htmlify.js",
     "prepare": "husky install",
     "prepareTest": "node scripts/prepareTest.js",
-    "publish": "./scripts/publish.sh ${npm_package_config_pubDeploymentId} \"${npm_config_gccmessage}\"",
+    "publish": "npm run prepareTest --test=false && ./scripts/publish.sh ${npm_package_config_pubDeploymentId} \"${npm_config_gccmessage}\" && npm run prepareTest --test=true",
     "push": "npm run timestamp && node ./scripts/htmlify.js && npm run helpHtml && npx clasp push",
-    "push:integration": "npm run timestamp && npm run prepareTest --test=true && npm run push && npm run prepareTest --test=false",
-    "test:integration": "npm run prepareTest --test=true && npm run push && npm run openIntegrationTests && npm run prepareTest --test=false",
     "test:unit": "npm run openUnitTests",
     "timestamp": "node ./scripts/timestamp.js"
   },
@@ -58,7 +55,6 @@
     "stylelint-selector-bem-pattern": "^2.1.1"
   },
   "config": {
-    "headDeploymentId": "AKfycbyxM2ltZEO96jjk4yC6xE9STW_KVQwBKOxzBtyUHAwJ",
     "pubDeploymentId": "",
     "htmlify": {
       "node_modules/pubsub.js": [

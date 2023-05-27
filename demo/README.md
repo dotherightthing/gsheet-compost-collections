@@ -28,7 +28,7 @@ This will allow you to:
     * Further information on each configuration option can be found by opening
       [the manual](https://github.com/dotherightthing/gsheet-compost-collections/blob/main/MAN.md)
       and searching for the configuration option:
-      e.g. In Firefox: Edit > Find in page > `organisationName`
+      e.g. To find out what the `organisationName` does in Firefox: *Edit > Find in page > `config.organisationName`*
 
 ### 4. Add the middleware communication layer
 

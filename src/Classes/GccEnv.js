@@ -14,13 +14,15 @@ class GccEnv {
    * @param {object} config.env.containerBoundAppScriptId - Script ID of the container-bound (spreadsheet-linked) project
    *                                                        sheets.google.com > (open spreadsheet) > Extensions > Apps Script > Project Settings (cog icon) > Script ID > Copy
    * @param {object} config.env.headDeploymentId          - Head Deployment ID from the container-bound or standalone project, depending on which one you are testing
-   *                                                        script.google.com > (open relevant project) > Deploy > Test deployments > Select type > Web app > Head Deployment ID > Copy
+   *                                                        sheets.google.com > (open spreadsheet) > Extensions > Apps Script > Deploy > Test deployments > Select type > Web app > Head Deployment ID > Copy
    * @param {object} config.env.pubDeploymentId           - Deployment ID from the container-bound or standalone project, depending on which one you are testing
-   *                                                        script.google.com > (open relevant project) > Deploy > Manage deployments > Initial deployment > Deployment ID > Copy
+   *                                                        sheets.google.com > (open spreadsheet) > Extensions > Apps Script > Deploy > Manage deployments > Initial deployment > Deployment ID > Copy
+   *                                                        (note: fill this in after created the initial deployment)
    * @param {object} config.env.spreadsheetId             - SPREADSHEET_ID from the spreadsheet URL:
    *                                                        https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit#gid=0
    * @param {object} config.env.standaloneAppScriptId     - Script ID of the standalone (library) project
    *                                                        script.google.com > (open standalone project) > Project Settings (cog icon) > Script ID > Copy
+   *                                                        (note: this also needs to be set in appsscript.json > dependencies > libraries > libraryId)
    */
   constructor(config = {}) {
     // select the relevant arguments from the config object passed in

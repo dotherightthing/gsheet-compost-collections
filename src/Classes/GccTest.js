@@ -833,7 +833,9 @@ class GccTest {
       );
 
       assert.equal(
-        this.runGroup1Collections[0][this.expectations.runs[8].rowCount - 1].address,
+        this.runGroup1Collections[0][
+          this.expectations.runs[8].rowCount - this.expectations.runs[8].blankOrHijackedRows - 1
+        ].address,
         'Level 1, 22-28 Willeston St',
         'Run 8 - Last customer\'s address',
       );
@@ -851,7 +853,9 @@ class GccTest {
       );
 
       assert.equal(
-        this.runGroup1Collections[1][this.expectations.runs[9].rowCount - 1].address,
+        this.runGroup1Collections[1][
+          this.expectations.runs[9].rowCount - this.expectations.runs[9].blankOrHijackedRows - 1
+        ].address,
         '1/39 Ghuznee St',
         'Run 9 - Last customer\'s address',
       );
@@ -869,7 +873,9 @@ class GccTest {
       );
 
       assert.equal(
-        this.runGroup1Collections[2][this.expectations.runs[10].rowCount - 1].address,
+        this.runGroup1Collections[2][
+          this.expectations.runs[10].rowCount - this.expectations.runs[10].blankOrHijackedRows - 1
+        ].address,
         'Level 1, 12 Jessie St',
         'Run 10 - Last customer\'s address',
       );
@@ -887,7 +893,9 @@ class GccTest {
       );
 
       assert.equal(
-        this.runGroup1Collections[3][this.expectations.runs[11].rowCount - 1].address,
+        this.runGroup1Collections[3][
+          this.expectations.runs[11].rowCount - this.expectations.runs[11].blankOrHijackedRows - 1
+        ].address,
         '5 Eva St',
         'Run 11 - Last customer\'s address',
       );

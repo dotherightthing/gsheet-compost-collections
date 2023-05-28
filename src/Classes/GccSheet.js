@@ -505,7 +505,8 @@ class GccSheet {
     menuCode.addItem('Open Code Repository (in new window)', 'GsheetCompostCollections.gccMiddlewareOpenLinkCodeRepository');
     menuCode.addItem('Open Code Documentation (in new window)', 'GsheetCompostCollections.gccMiddlewareOpenLinkCodeDocumentation');
     menuCode.addItem('Report a Code Issue (in new window)', 'GsheetCompostCollections.gccMiddlewareOpenLinkCodeIssue');
-    menuCode.addItem('Open Integration Tests (in new window)', 'GsheetCompostCollections.gccMiddlewareOpenLinkCodeIntegrationTests');
+    menuCode.addItem('Run Integration Tests (in new window)', 'GsheetCompostCollections.gccMiddlewareOpenLinkCodeIntegrationTests');
+    menuCode.addItem('Run Unit Tests (in new window)', 'GsheetCompostCollections.gccMiddlewareOpenLinkCodeUnitTests');
     menu.addSubMenu(menuCode);
 
     return menu;
@@ -1252,14 +1253,20 @@ class GccSheet {
    * @see {@link https://gist.github.com/tanaikech/9115c70eb83558d3af2eea656e4d9c67}
    */
   static openLink(linkUrl) {
-    /* eslint-disable */
+    /* eslint-disable no-multi-str */
+    /* eslint-disable no-useless-concat */
+    /* eslint-disable prefer-template */
+    /* eslint-disable quotes */
     const js = " \
-      <script> \
+      <" + "script> \
         window.open('" + linkUrl + "', '_blank'); \
         google.script.host.close(); \
-      </script> \
+      <" + "/script> \
     ";
-    /* eslint-enable */
+    /* eslint-enable no-multi-str */
+    /* eslint-enable no-useless-concat */
+    /* eslint-enable prefer-template */
+    /* eslint-enable quotes */
 
     const htmlOutput = HtmlService
       .createHtmlOutput(js)
@@ -1280,14 +1287,20 @@ class GccSheet {
    * @see {@link https://gist.github.com/tanaikech/9115c70eb83558d3af2eea656e4d9c67}
    */
   static openLinkPhoneSize(linkUrl) {
-    /* eslint-disable */
+    /* eslint-disable no-multi-str */
+    /* eslint-disable no-useless-concat */
+    /* eslint-disable prefer-template */
+    /* eslint-disable quotes */
     const js = " \
-      <script> \
+      <" + "script> \
         window.open('" + linkUrl + "', '_blank', 'width=320, height=568'); \
         google.script.host.close(); \
-      </script> \
+      <" + "/script> \
     ";
-    /* eslint-enable */
+    /* eslint-enable no-multi-str */
+    /* eslint-enable no-useless-concat */
+    /* eslint-enable prefer-template */
+    /* eslint-enable quotes */
 
     const htmlOutput = HtmlService
       .createHtmlOutput(js)

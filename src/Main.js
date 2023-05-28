@@ -41,6 +41,20 @@ function gccInit(cbConfig, isBrowser) {
 }
 
 /**
+ * gccUnitTestInit
+ *
+ * @param {object} cbConfig - App config (container-bound)
+ * @returns {*} - HTML Template
+ */
+function gccUnitTestInit(cbConfig) {
+  const appConfig = { ...cbConfig, ...devConfig };
+
+  GccUtils.setAppConfig(appConfig);
+
+  return GccPage.getInstance().createUnitTestHtmlTemplate();
+}
+
+/**
  * gccLanding
  *
  * @summary Display a landing page when the standalone app is loaded directly rather than as a library

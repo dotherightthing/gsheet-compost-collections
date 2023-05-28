@@ -1,0 +1,25 @@
+<script id="unit-test-init">
+/**
+ * @file UnitTestInit.js.html
+ * @summary Client side scripting for the GCC web app.
+ *  Instances are generated so that classes can subscribe to pubsub events and respond accordingly.
+ */
+window.pubsub = {
+  publish: () => {},
+  subscribe: () => {},
+};
+
+const appConfig = JSON.parse('<?= tplAppConfig ?>');
+
+const gccUnitTests = new GccTest(appConfig);
+
+gccUnitTests.stubGccSheet(); // first
+
+gccUnitTests.stubGccEnv();
+gccUnitTests.stubGccCache();
+gccUnitTests.stubGccCollection();
+gccUnitTests.stubGccRun();
+gccUnitTests.stubGccRunGroup();
+
+gccUnitTests.runUnitTests(QUnit);
+</script>

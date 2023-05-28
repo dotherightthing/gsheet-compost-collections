@@ -10,13 +10,11 @@
     "man": "npx jsdoc2md --template ./templates/MAN.hbs --files ./src/**/*.js* ./demo/**/*.js* > ./MAN.md",
     "openEditor": "npm run push && npx clasp open",
     "openPreview": "npm run push && npx clasp open --webapp --deploymentId $npm_package_config_headDeploymentId",
-    "openUnitTests": "node scripts/openUnitTests.js",
     "postinstall": "node ./scripts/htmlify.js",
     "prepare": "husky install",
     "prepareTest": "node scripts/prepareTest.js",
     "publish": "npm run prepareTest --test=false && ./scripts/publish.sh ${npm_package_config_pubDeploymentId} \"${npm_config_gccmessage}\" && npm run prepareTest --test=true",
     "push": "npm run timestamp && node ./scripts/htmlify.js && npm run helpHtml && npx clasp push",
-    "test:unit": "npm run openUnitTests",
     "timestamp": "node ./scripts/timestamp.js"
   },
   "repository": {
@@ -60,7 +58,28 @@
       "node_modules/pubsub.js": [
         "pubsub.js"
       ],
+      "node_modules/qunit/qunit": [
+        "qunit.css",
+        "qunit.js"
+      ],
+      "node_modules/sinon/pkg": [
+        "sinon.js"
+      ],
+      "src": [
+        "Config.js",
+        "Main.js",
+        "Middleware.js"
+      ],
       "src/Classes": [
+        "GccCache.js",
+        "GccCollection.js",
+        "GccColor.js",
+        "GccContainer.js",
+        "GccEnv.js",
+        "GccPage.js",
+        "GccRun.js",
+        "GccRunGroup.js",
+        "GccSheet.js",
         "GccUi.js",
         "GccUiCollection.js",
         "GccUiCss.js",
@@ -70,6 +89,8 @@
         "GccUiRunForm.js",
         "GccUiSelectDisclosure.js",
         "GccUiSelectForm.js",
+        "GccUser.js",
+        "GccTest.js",
         "GccUtils.js",
         "GccValidate.js"
       ]

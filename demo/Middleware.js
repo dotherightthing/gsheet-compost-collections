@@ -17,8 +17,10 @@
 function doGet(e) {
   let appTemplate;
 
-  if (e.pathInfo === 'test') {
+  if (e.pathInfo === 'testi') {
     appTemplate = GsheetCompostCollections.gccIntegrationTests(cbConfig);
+  } else if (e.pathInfo === 'testu') {
+    appTemplate = GsheetCompostCollections.gccUnitTestInit(cbConfig);
   } else {
     appTemplate = GsheetCompostCollections.gccInit(cbConfig, true);
   }

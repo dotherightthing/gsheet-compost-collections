@@ -363,6 +363,32 @@ class GccPage {
   }
 
   /**
+   * createUnitTestHtmlTemplate
+   *
+   * @summary Generates an HtmlTemplate object from the HTML file
+   * @returns {object} page Page
+   * @memberof GccPage
+   */
+  createUnitTestHtmlTemplate() {
+    // HtmlTemplate object
+    let tpl = HtmlService.createTemplateFromFile('Tests/Unit');
+
+    const appConfig = GccUtils.getAppConfig('GCC Unit Tests');
+
+    const tplVariables = {
+      tplAppConfig: JSON.stringify(appConfig), // pass config to the frontend
+    };
+
+    // merge variables object into the template object
+    // tpl = { ...tpl, ...tplVariables };
+    tpl = Object.assign(tpl, tplVariables);
+
+    tpl = tpl.evaluate();
+
+    return tpl;
+  }
+
+  /**
    * getHelpLinks
    *
    * @summary Get links used in Help dialog.

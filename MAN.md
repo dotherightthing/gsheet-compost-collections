@@ -685,6 +685,7 @@ getInstance
         * [.runGroups](#GccPage+runGroups) : <code>object</code>
         * [.addMetaTags(tpl)](#GccPage+addMetaTags) ⇒ <code>object</code>
         * [.createHtmlTemplate()](#GccPage+createHtmlTemplate) ⇒ <code>object</code>
+        * [.createUnitTestHtmlTemplate()](#GccPage+createUnitTestHtmlTemplate) ⇒ <code>object</code>
         * [.getHelpLinks()](#GccPage+getHelpLinks) ⇒ <code>Array</code>
         * [.getFeedbackMailtoLink()](#GccPage+getFeedbackMailtoLink) ⇒ <code>string</code>
         * [.getHtmlAndVariablesFromRunDateFormObject(formObj)](#GccPage+getHtmlAndVariablesFromRunDateFormObject) ⇒ <code>object</code>
@@ -832,6 +833,14 @@ createHtmlTemplate
 - [https://developers.google.com/apps-script/reference/html/html-template](https://developers.google.com/apps-script/reference/html/html-template)
 - [https://www.youtube.com/watch?v=VyNJtjH84Aw](https://www.youtube.com/watch?v=VyNJtjH84Aw)
 
+<a name="GccPage+createUnitTestHtmlTemplate"></a>
+
+### gccPage.createUnitTestHtmlTemplate() ⇒ <code>object</code>
+createUnitTestHtmlTemplate
+
+**Kind**: instance method of [<code>GccPage</code>](#GccPage)  
+**Summary**: Generates an HtmlTemplate object from the HTML file  
+**Returns**: <code>object</code> - page Page  
 <a name="GccPage+getHelpLinks"></a>
 
 ### gccPage.getHelpLinks() ⇒ <code>Array</code>

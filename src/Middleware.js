@@ -325,10 +325,23 @@ function gccMiddlewareOpenLinkCodeDocumentation() {
  * @returns {*} Performs function
  */
 function gccMiddlewareOpenLinkCodeIntegrationTests() {
-  const { env } = GccUtils.getAppConfig('gccMiddlewareOpenLinkAppStable');
+  const { env } = GccUtils.getAppConfig('gccMiddlewareOpenLinkCodeIntegrationTests');
   const { headDeploymentId } = env;
 
-  return gccMiddleware('GccSheet.openLink', `https://script.google.com/macros/s/${headDeploymentId}/dev/test`);
+  return gccMiddleware('GccSheet.openLink', `https://script.google.com/macros/s/${headDeploymentId}/dev/testi`);
+}
+
+/**
+ * gccMiddlewareOpenLinkCodeUnitTests
+ *
+ * @summary Called from GCC Help menu
+ * @returns {*} Performs function
+ */
+function gccMiddlewareOpenLinkCodeUnitTests() {
+  const { env } = GccUtils.getAppConfig('gccMiddlewareOpenLinkCodeUnitTests');
+  const { headDeploymentId } = env;
+
+  return gccMiddleware('GccSheet.openLink', `https://script.google.com/macros/s/${headDeploymentId}/dev/testu`);
 }
 
 /**

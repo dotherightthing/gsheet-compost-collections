@@ -50,6 +50,7 @@
     "cbConfig": "readonly",
     "devConfig": "readonly",
     "gccInit": "readonly",
+    "gccUnitTestInit": "readonly",
     "sinon": "readonly",
     "QUnit": "readonly"
   },

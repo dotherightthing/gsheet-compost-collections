@@ -3,57 +3,41 @@
   <head>
     <meta charset="utf-8">
     <title>GCC Unit Tests</title>
-    <link rel="stylesheet" href="../../node_modules/qunit/qunit/qunit.css">
+    <base target="_top">
+    <?!= GccPage.include('Htmlified/Qunit.css'); ?>
   </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <?!= GccPage.include('Htmlified/Qunit.js'); ?>
+    <?!= GccPage.include('Htmlified/Sinon.js'); ?>
+    <?!= GccPage.include('Htmlified/GccCache.js'); ?>
+    <?!= GccPage.include('Htmlified/GccCollection.js'); ?>
+    <?!= GccPage.include('Htmlified/GccColor.js'); ?>
+    <?!= GccPage.include('Htmlified/GccContainer.js'); ?>
+    <?!= GccPage.include('Htmlified/GccEnv.js'); ?>
+    <?!= GccPage.include('Htmlified/GccPage.js'); ?>
+    <?!= GccPage.include('Htmlified/GccRun.js'); ?>
+    <?!= GccPage.include('Htmlified/GccRunGroup.js'); ?>
+    <?!= GccPage.include('Htmlified/GccSheet.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUi.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiCollection.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiCss.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiDialog.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiLoader.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiRun.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiRunForm.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiSelectDisclosure.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUiSelectForm.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUser.js'); ?>
+    <?!= GccPage.include('Htmlified/GccTest.js'); ?>
+    <?!= GccPage.include('Htmlified/GccUtils.js'); ?>
+    <?!= GccPage.include('Htmlified/GccValidate.js'); ?>
+    <?!= GccPage.include('Htmlified/Config.js'); ?>
+    <?!= GccPage.include('Htmlified/Main.js'); ?>
+    <?!= GccPage.include('Htmlified/Middleware.js'); ?>
+    <?!= GccPage.include('UnitTestInit.js', {
+      tplAppConfig,
+    }); ?>
+  </body>
 </html>
-<body>
-  <div id="qunit"></div>
-  <div id="qunit-fixture"></div>
-  <script src="../../node_modules/qunit/qunit/qunit.js"></script>
-  <script src="../../node_modules/sinon/pkg/sinon.js"></script>
-  <script src="../Classes/GccCache.js"></script>
-  <script src="../Classes/GccCollection.js"></script>
-  <script src="../Classes/GccColor.js"></script>
-  <script src="../Classes/GccContainer.js"></script>
-  <script src="../Classes/GccEnv.js"></script>
-  <script src="../Classes/GccPage.js"></script>
-  <script src="../Classes/GccRun.js"></script>
-  <script src="../Classes/GccRunGroup.js"></script>
-  <script src="../Classes/GccSheet.js"></script>
-  <script src="../Classes/GccUi.js"></script>
-  <script src="../Classes/GccUiCollection.js"></script>
-  <script src="../Classes/GccUiCss.js"></script>
-  <script src="../Classes/GccUiDialog.js"></script>
-  <script src="../Classes/GccUiLoader.js"></script>
-  <script src="../Classes/GccUiRun.js"></script>
-  <script src="../Classes/GccUiRunForm.js"></script>
-  <script src="../Classes/GccUiSelectDisclosure.js"></script>
-  <script src="../Classes/GccUiSelectForm.js"></script>
-  <script src="../Classes/GccUser.js"></script>
-  <script src="../Classes/GccTest.js"></script>
-  <script src="../Classes/GccUtils.js"></script>
-  <script src="../Classes/GccValidate.js"></script>
-  <script src="../Config.js"></script>
-  <script src="../Main.js"></script>
-  <script src="../Middleware.js"></script>
-  <script>
-    window.pubsub = {
-      publish: () => {},
-      subscribe: () => {},
-    };
-
-    const appConfig = GccUtils.getAppConfig('GCC Unit Tests');
-
-    const gccUnitTests = new GccTest(appConfig);
-
-    gccUnitTests.stubGccSheet(); // first
-
-    gccUnitTests.stubGccEnv();
-    gccUnitTests.stubGccCache();
-    gccUnitTests.stubGccCollection();
-    gccUnitTests.stubGccRun();
-    gccUnitTests.stubGccRunGroup();
-
-    gccUnitTests.runUnitTests(QUnit);
-  </script>
-</body>

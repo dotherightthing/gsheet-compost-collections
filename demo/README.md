@@ -13,7 +13,7 @@ This will allow you to:
 
 1. Open a Google spreadsheet
 2. Extensions > Apps Script
-3. Click on `Untitled project` to rename it > `GCC Configuration` (or something else)
+3. Click on `Untitled project` to rename it > `GCC Config for SS 1` (hint: including the spreadsheet name will help you distinguish multiple instances in Google Drive)
 
 ### 2. Add the Apps Script config
 

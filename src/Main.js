@@ -45,10 +45,12 @@ function gccInit(cbConfig, isBrowser) {
  * @returns {*} - HTML
  */
 function gccInitIntegrationTests(cbConfig) {
+  GccCache.clearCache();
+
   GccUtils.setAppConfig({ ...cbConfig, ...devConfig });
 
-  const config = GccUtils.getAppConfig('gccInitIntegrationTests');
-  const gccTest = new GccTest(config);
+  // pass directly to avoid a call to the cache (Properties Service)
+  const gccTest = new GccTest({ ...cbConfig, ...devConfig });
 
   // QUnitGS2 is a wrapper for the main QUnit object, which can be accessed directly with "QUnit"
   const { QUnit } = QUnitGS2;

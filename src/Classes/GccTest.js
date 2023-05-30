@@ -534,13 +534,6 @@ class GccTest {
    * @memberof GccTest
    */
   runIntegrationTests(QUnit) {
-    // const {
-    //   config: appConfig,
-    // } = this;
-
-    GccCache.clearCache();
-    // GccUtils.setAppConfig(appConfig);
-
     QUnit.module('Test data', {
       before: () => {
         this.runs = this.getRunInstances();

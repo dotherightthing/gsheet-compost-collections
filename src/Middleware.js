@@ -26,20 +26,26 @@
  *  }
  */
 function gccMiddleware(classMethod, ...args) {
-  const classMap = new Map([
-    [ 'GccCache', GccCache ],
-    [ 'GccPageInstance', GccPage.getInstance() ],
-    [ 'GccSheet', GccSheet ],
-    [ 'GccSheetInstance', GccSheet.getInstance() ],
-    [ 'GccTest', GccTest ],
-  ]);
-
   const [
     className,
     methodName,
   ] = classMethod.split('.');
 
-  const instance = classMap.get(className);
+  let instance;
+
+  if (className === 'GccCache') {
+    instance = GccCache;
+  } else if (className === 'GccPageInstance') {
+    instance = GccPage.getInstance();
+  } else if (className === 'GccSheet') {
+    instance = GccSheet;
+  } else if (className === 'GccSheetInstance') {
+    instance = GccSheet.getInstance();
+  } else if (className === 'GccTest') {
+    instance = GccTest;
+  } else if (className === 'GccUtils') {
+    instance = GccUtils;
+  }
 
   if (typeof instance[methodName] === 'function') {
     if (args.length) {

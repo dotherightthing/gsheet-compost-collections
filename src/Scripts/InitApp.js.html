@@ -1,9 +1,10 @@
 <script id="src-scripts-appinit-js">
-// note: this file cannot exist in a non-htmlified version as it would be parsed by the GAS server and throw errors
 /**
  * @file InitApp.js.html
  * @summary Client side scripting for the GCC web app.
  *  Instances are generated so that classes can subscribe to pubsub events and respond accordingly.
+ *  Note: this file cannot exist in a non-htmlified version
+ *  as it would be parsed by the GAS server and throw errors.
  */
 const appConfig = JSON.parse('<?= tplAppConfig ?>');
 

@@ -81,7 +81,8 @@ class GccUtils {
   /**
    * getAppConfig
    *
-   * @summary Get the app config object, from the app cache if possible, otherwise from the raw config files.
+   * @summary Get the app config object, from the app cache if possible, otherwise from the container-bound config.
+   * @description The global container-bound cbConfig variable is not available in all contexts. Caching (via the Properties Service) makes it available.
    * @param {string} dependency - Dependency, e.g. 'GccRun', 'GccPage.getInstance' etc
    * @param {boolean} allowEmpty - Whether to throw an error if the config is missing
    * @returns {object} appConfig

@@ -45,7 +45,7 @@ const devConfig = { // eslint-disable-line no-unused-vars
       usage: 'Collection Inputs',
     },
   ],
-  pageTemplate: 'App',
+  pageTemplate: 'Templates/App',
   uiCss: { // GccUi
     fixedPositionIds: [
       'header',

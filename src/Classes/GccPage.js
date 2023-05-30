@@ -327,23 +327,26 @@ class GccPage {
    */
   createHtmlTemplate() {
     const {
-      config,
-      developerUserEmails,
-      imageLogo,
-      organisationName,
-      extraCollectionsLabel,
-      runGroups,
       pageTemplate,
     } = this;
 
     // HtmlTemplate object
     let tpl = HtmlService.createTemplateFromFile(pageTemplate);
 
-    if (pageTemplate === 'App') {
+    if (pageTemplate === 'Templates/App') {
+      const {
+        config,
+        developerUserEmails,
+        imageLogo,
+        organisationName,
+        extraCollectionsLabel,
+        runGroups,
+      } = this;
+
       // create variables object
       const tplVariables = {
+        tplAppConfig: JSON.stringify(config), // pass entire config to the frontend
         tplColorStyles: GccColor.getInstance().getColorStyles(),
-        tplConfig: JSON.stringify(config), // pass entire config to the frontend
         tplCompanyLogo: imageLogo,
         tplCompanyName: organisationName,
         tplDeveloperUserEmails: developerUserEmails,
@@ -370,13 +373,15 @@ class GccPage {
    * @memberof GccPage
    */
   createUnitTestHtmlTemplate() {
-    // HtmlTemplate object
-    let tpl = HtmlService.createTemplateFromFile('Tests/Unit');
+    const {
+      config,
+    } = this;
 
-    const appConfig = GccUtils.getAppConfig('GCC Unit Tests');
+    // HtmlTemplate object
+    let tpl = HtmlService.createTemplateFromFile('Templates/UnitTests');
 
     const tplVariables = {
-      tplAppConfig: JSON.stringify(appConfig), // pass config to the frontend
+      tplAppConfig: JSON.stringify(config), // pass config to the frontend
     };
 
     // merge variables object into the template object

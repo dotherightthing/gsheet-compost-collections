@@ -1,21 +1,22 @@
-<script id="init">
+<script id="src-scripts-appinit-js">
+// note: this file cannot exist in a non-htmlified version as it would be parsed by the GAS server and throw errors
 /**
- * @file Init.js.html
+ * @file InitApp.js.html
  * @summary Client side scripting for the GCC web app.
  *  Instances are generated so that classes can subscribe to pubsub events and respond accordingly.
  */
-const config = JSON.parse('<?= tplConfig ?>');
+const appConfig = JSON.parse('<?= tplAppConfig ?>');
 
 // used by other classes
 // note: backend file copied into frontend dependencies
 // note: GccUtils is also included, but doesn't require an instance
-GccUi.getInstance(config);
-GccUiCss.getInstance(config);
-GccUiDialog.getInstance(config);
-GccUiLoader.getInstance(config);
-GccUiRunForm.getInstance(config);
-GccUiSelectDisclosure.getInstance(config);
-GccUiSelectForm.getInstance(config);
+GccUi.getInstance(appConfig);
+GccUiCss.getInstance(appConfig);
+GccUiDialog.getInstance(appConfig);
+GccUiLoader.getInstance(appConfig);
+GccUiRunForm.getInstance(appConfig);
+GccUiSelectDisclosure.getInstance(appConfig);
+GccUiSelectForm.getInstance(appConfig);
 
 document.onreadystatechange = () => {
   // Polyfill for forEach

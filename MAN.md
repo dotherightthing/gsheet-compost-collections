@@ -44,9 +44,6 @@
 ## Functions
 
 <dl>
-<dt><a href="#gccIntegrationTests">gccIntegrationTests(cbConfig)</a> ⇒ <code>*</code></dt>
-<dd><p>gccIntegrationTests</p>
-</dd>
 <dt><a href="#doGet">doGet(e)</a> ⇒ <code>*</code></dt>
 <dd><p>doGet</p>
 </dd>
@@ -3775,18 +3772,6 @@ getInstance
 | Param | Type | Description |
 | --- | --- | --- |
 | config | <code>object</code> | Config |
-
-<a name="gccIntegrationTests"></a>
-
-## gccIntegrationTests(cbConfig) ⇒ <code>\*</code>
-gccIntegrationTests
-
-**Kind**: global function  
-**Returns**: <code>\*</code> - - HTML  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| cbConfig | <code>object</code> | App config (container-bound) |
 
 <a name="doGet"></a>
 

@@ -2,7 +2,7 @@
 <html lang="en-NZ">
   <head>
     <base target="_top">
-    <?!= GccPage.include('Stylesheet.css', {
+    <?!= GccPage.include('Styles/App.css', {
       tplColorStyles,
       tplCompanyLogo,
     }); ?>
@@ -94,8 +94,8 @@
     <?!= GccPage.include('Htmlified/GccUiSelectForm.js'); ?>
     <?!= GccPage.include('Htmlified/GccUtils.js'); ?>
     <?!= GccPage.include('Htmlified/GccValidate.js'); ?>
-    <?!= GccPage.include('Init.js', {
-      tplConfig,
+    <?!= GccPage.include('Scripts/InitApp.js', {
+      tplAppConfig,
     }); ?>
   </body>
 </html>

@@ -18,9 +18,9 @@ function doGet(e) {
   let appTemplate;
 
   if (e.pathInfo === 'testi') {
-    appTemplate = GsheetCompostCollections.gccIntegrationTests(cbConfig);
+    appTemplate = GsheetCompostCollections.gccInitIntegrationTests(cbConfig);
   } else if (e.pathInfo === 'testu') {
-    appTemplate = GsheetCompostCollections.gccUnitTestInit(cbConfig);
+    appTemplate = GsheetCompostCollections.gccInitUnitTests(cbConfig);
   } else {
     appTemplate = GsheetCompostCollections.gccInit(cbConfig, true);
   }
@@ -64,7 +64,7 @@ function gccSheetHandleEdit(e) {
 function gccSheetHandleOpen() {
   GsheetCompostCollections.gccInit(cbConfig, false);
 
-  return GsheetCompostCollections.gccMiddleware('GccSheetInstance.handleOpen', cbConfig);
+  return GsheetCompostCollections.gccMiddleware('GccSheetInstance.handleOpen');
 }
 
 /**

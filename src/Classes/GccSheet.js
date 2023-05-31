@@ -710,6 +710,7 @@ class GccSheet {
   /**
    * handleChangedColumnValue
    *
+   * @summary Update the date validation (dropdown options) when relevant fields (container & quantity) are edited
    * @param {object} e Event object
    * @param {string} columnName Column name
    * @memberof GccSheet

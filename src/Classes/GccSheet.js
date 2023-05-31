@@ -209,7 +209,7 @@ class GccSheet {
    */
   cacheLog() {
     let log = GccCache.logCache();
-    log = JSON.stringify(log, null, 2);
+    log = JSON.stringify(log, null, '\t');
 
     return this.showLog(log);
   }
@@ -1012,7 +1012,8 @@ class GccSheet {
 
     // container-bound script
     if (scriptTypeAbbr === 'CB') {
-      const html = `<pre>${log}</pre>`;
+      const html = `<style>pre { font-size: .85em; tab-size: 2; white-space: pre-wrap; }</style>
+      <pre>${log}</pre>`;
 
       const htmlOutput = HtmlService
         .createHtmlOutput(html)

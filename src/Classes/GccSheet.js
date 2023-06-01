@@ -848,14 +848,13 @@ class GccSheet {
     // getRange(row, column, number of rows, number of columns)
     const dateHeadersRange = runSheet.getRange(dateHeaderRangeA1Notation);
     const type = runSheet.getRange(rowIndex, typeColumnIndex, 1, 1).getValue();
-    const _container = runSheet.getRange(rowIndex, containerColumnIndex, 1, 1).getValue();
-    const _quantity = runSheet.getRange(rowIndex, quantityColumnIndex, 1, 1).getValue();
+    const containerType = runSheet.getRange(rowIndex, containerColumnIndex, 1, 1).getValue().toLowerCase();
+    const containerQuantity = Number(runSheet.getRange(rowIndex, quantityColumnIndex, 1, 1).getValue());
 
-    if ((_container !== '') && (Number(_quantity) > 0)) {
-      // TODO will the instance exist yet if the administrator is not using the app, or only if another user has used the app before they administrate?
-      const container = GccContainer.getInstanceFromCache(_container.toLowerCase(), _quantity);
+    if ((containerType !== '') && (containerQuantity > 0)) {
+      const container = GccContainer.getInstanceFromCache(containerType, containerQuantity);
 
-      // one row
+      // process a single row
       GccSheet.setDateValidationCriteria(
         sheetName,
         dateHeadersRange,

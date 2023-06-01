@@ -331,7 +331,7 @@ class GccUiDialog {
     } else if (event.target.getAttribute('id') === cacheClearButtonId) {
       this.cacheClear();
     } else if (event.target.getAttribute('id') === updateDateValidationId) {
-      this.setDateValidation();
+      this.setDateValidation(); // note: this differs from GccSheet.setDateValidation
     }
   }
 

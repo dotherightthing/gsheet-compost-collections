@@ -117,6 +117,7 @@ class GccUtils {
    *
    * @summary Set the app config object
    * @param {object} appConfig App config
+   * @returns {object} appConfig
    * @memberof GccUtils
    * @static
    */
@@ -128,6 +129,8 @@ class GccUtils {
     if (GccValidate.isObject(appConfig)) {
       GccCache.setCacheItem(cacheKey, appConfig, true);
     }
+
+    return appConfig;
   }
 
   /**

@@ -708,57 +708,6 @@ class GccSheet {
   }
 
   /**
-   * handleChangedColumnValue
-   *
-   * @summary Update the date validation (dropdown options) when relevant fields (container & quantity) are edited
-   * @param {object} e Event object
-   * @param {string} columnName Column name
-   * @memberof GccSheet
-   * @todo Get index of last date and run if edit was to the column to the right of this (line 70)
-   */
-  handleChangedColumnValue(e, columnName) {
-    // If the edited sheet is not the suburbs or town runSheet, then exit
-    // cannot use GccSheet.getRunSheet(sheetName); here as it calls SpreadsheetApp.openById
-    // which throws a permission error
-    // see https://stackoverflow.com/a/55279525/6850747
-    const sheetName = e.source.getSheetName();
-    const runGroup = GccRunGroup.getInstanceFromCache(sheetName);
-
-    if (runGroup === null) {
-      // console.log(`Edit ignored - ${sheetName} not in runGroups`);
-      return;
-    }
-
-    // If the Variables sheet is missing, then exit
-    // const variablesSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Variables');
-
-    // if (variablesSheet === null) {
-    //   console.log('Edit ignored - Variables sheet missing');
-    //   return;
-    // }
-
-    const activeRange = e.source.getActiveRange();
-    const activeColIndex = activeRange.getColumn();
-    const activeRowIndex = activeRange.getRow();
-
-    const { columnHeaderIndices } = runGroup;
-    let targetColIndex = columnHeaderIndices[columnName];
-
-    if (typeof targetColIndex === 'undefined') {
-      targetColIndex = GccSheet.getColumnIndex(sheetName, columnName);
-    }
-
-    if ((activeColIndex === targetColIndex) && (activeRowIndex > 1)) {
-      // const newValue = activeRange.getValue();
-      // console.log('column #%s edited - new value = %s', activeColIndex, newValue);
-
-      if ((columnName === 'Container') || (columnName === 'Quantity')) {
-        GccSheet.setDateValidation(runGroup, activeRowIndex);
-      }
-    }
-  }
-
-  /**
    * handleEdit
    *
    * @summary Run when the spreadsheet is edited.
@@ -767,8 +716,48 @@ class GccSheet {
    * @todo Clear cache if any/specific fields edited
    */
   handleEdit(e) { // eslint-disable-line no-unused-vars
-    this.handleChangedColumnValue(e, 'Container');
-    this.handleChangedColumnValue(e, 'Quantity');
+    const sheetName = e.source.getSheetName();
+    let runGroup = GccRunGroup.getInstanceFromCache(sheetName);
+
+    // if the sheet was edited before the app was opened (for the first time or after clearing the cache)
+    if (runGroup === null) {
+      const {
+        NRRunGroups,
+      } = GccSheet.getInstance().getAllNamedRangeValues();
+
+      const NRRunGroup = NRRunGroups.filter((nrRunGroup) => nrRunGroup.sheetName === sheetName);
+
+      runGroup = GccRun.getRunGroup(NRRunGroup.runNames[0]);
+    }
+
+    const activeRange = e.source.getActiveRange();
+    const activeColIndex = activeRange.getColumn();
+    const activeRowIndex = activeRange.getRow();
+    const sheet = activeRange.getSheet();
+
+    const {
+      columnHeaderRowIndex,
+      dateHeadersFormatted,
+      runBounds,
+    } = runGroup;
+
+    const columnHeader = sheet.getRange(columnHeaderRowIndex, activeColIndex);
+    const columnName = columnHeader.getValue();
+
+    console.log('columnName', columnName);
+
+    if (activeRowIndex > 1) {
+      // const newValue = activeRange.getValue();
+      // console.log('column #%s edited - new value = %s', activeColIndex, newValue);
+
+      // Update the date validation (dropdown options) when relevant fields (container & quantity) are edited
+      if ((columnName === 'Container') || (columnName === 'Quantity')) {
+        console.log('setDateValidation', runGroup, activeRowIndex);
+        GccSheet.setDateValidation(runGroup, activeRowIndex);
+      } else if (dateHeadersFormatted.includes(columnName)) {
+        console.log('edited run has bounds', runBounds.startRowIndex, runBounds.rowCount);
+      }
+    }
   }
 
   /**

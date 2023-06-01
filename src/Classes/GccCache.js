@@ -170,10 +170,12 @@ class GccCache { // eslint-disable-line no-unused-vars
       return;
     }
 
-    let properties = PropertiesService.getDocumentProperties();
+    // hide stored properties (only script properties are visible in the GAS Project Settings)
+    // these can still be viewed via: GCC Help > Cache > View Cache
+    const properties = PropertiesService.getDocumentProperties();
 
     if (properties === null) {
-      properties = PropertiesService.getScriptProperties();
+      return;
     }
 
     // get existing cache

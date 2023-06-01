@@ -1346,15 +1346,13 @@ getInstanceFromCache
         * [.getNamedRange(name)](#GccSheet+getNamedRange) ⇒ <code>Range</code>
         * [.getNamedRangeBackgrounds(name)](#GccSheet+getNamedRangeBackgrounds) ⇒ <code>Array</code>
         * [.getNamedRangeFontColors(name)](#GccSheet+getNamedRangeFontColors) ⇒ <code>Array</code>
-        * [.getNamedRangeRunGroups()](#GccSheet+getNamedRangeRunGroups) ⇒ <code>Array</code>
         * [.getNamedRangeValue(name)](#GccSheet+getNamedRangeValue) ⇒ <code>\*</code>
         * [.getNamedRangeValues(name, onlyFirst)](#GccSheet+getNamedRangeValues) ⇒ <code>Array</code>
         * [.getRangeValues(runName, runDate)](#GccSheet+getRangeValues) ⇒ <code>Array</code>
+        * [.getRunGroups()](#GccSheet+getRunGroups) ⇒ <code>Array</code>
         * [.getTimeZone()](#GccSheet+getTimeZone) ⇒ <code>string</code>
-        * [.handleChangedColumnValue(e, columnName)](#GccSheet+handleChangedColumnValue)
         * [.handleEdit(e)](#GccSheet+handleEdit)
         * [.handleOpen()](#GccSheet+handleOpen)
-        * [.setDateValidation(runGroup, [rowIndex])](#GccSheet+setDateValidation)
         * [.setDateValidationRow(runGroup, [rowIndex])](#GccSheet+setDateValidationRow) ⇒ <code>string</code>
         * [.setDateValidationRows()](#GccSheet+setDateValidationRows) ⇒ <code>string</code>
         * [.showLog(log)](#GccSheet+showLog)
@@ -1370,6 +1368,7 @@ getInstanceFromCache
         * [.openLink(linkUrl)](#GccSheet.openLink)
         * [.openLinkPhoneSize(linkUrl)](#GccSheet.openLinkPhoneSize)
         * [.setConditionalFormatting(runName)](#GccSheet.setConditionalFormatting)
+        * [.setDateValidation(runGroup, [rowIndex])](#GccSheet.setDateValidation)
         * [.setDateValidationCriteria(sheetName, dateHeadersRange, rowIndex, type, container, lastRow)](#GccSheet.setDateValidationCriteria)
         * [.setRangeValidationCriteria(range, criteriaType, criteriaValues, allowInvalid)](#GccSheet.setRangeValidationCriteria)
         * [.validateRangeValues(range, replacementValues)](#GccSheet.validateRangeValues) ⇒ <code>object</code>
@@ -1385,6 +1384,7 @@ getInstanceFromCache
 | config | <code>object</code> | Module configuration. |
 | config.appName | <code>string</code> | App name (used in the feedback email). |
 | config.computedNamedRangeNames | <code>Array</code> | Named ranges which are computed by the app. |
+| config.containerVolumeFractions | <code>string</code> | Container volume fractions (used in spreadsheet date dropdowns and app collection volume dropdowns). |
 | config.dateFormat | <code>string</code> | Date format (used to locate the next run date) |
 | config.debug | <code>boolean</code> | Output debugging messages. |
 | config.namedRangeItems | <code>Array</code> | { name, description, validation } of the named ranges set in the spreadsheet (an array of objects). |
@@ -1564,19 +1564,6 @@ getNamedRangeFontColors
 | --- | --- | --- |
 | name | <code>string</code> | Name |
 
-<a name="GccSheet+getNamedRangeRunGroups"></a>
-
-### gccSheet.getNamedRangeRunGroups() ⇒ <code>Array</code>
-getNamedRangeRunGroups
-
-**Kind**: instance method of [<code>GccSheet</code>](#GccSheet)  
-**Summary**: Build runGroups object from named ranges. Called once by GccSheet.getAllNamedRangeValues.  
-**Returns**: <code>Array</code> - runGroups  
-**Todo**
-
-- [ ] Change postRunExtras to postRunExtrasName
-- [ ] Change preRunExtras to preRunExtrasName
-
 <a name="GccSheet+getNamedRangeValue"></a>
 
 ### gccSheet.getNamedRangeValue(name) ⇒ <code>\*</code>
@@ -1618,6 +1605,19 @@ getRangeValues
 | runName | <code>string</code> | Run name |
 | runDate | <code>string</code> | Run date |
 
+<a name="GccSheet+getRunGroups"></a>
+
+### gccSheet.getRunGroups() ⇒ <code>Array</code>
+getRunGroups
+
+**Kind**: instance method of [<code>GccSheet</code>](#GccSheet)  
+**Summary**: Build runGroups object from named ranges. Called once by GccSheet.getAllNamedRangeValues.  
+**Returns**: <code>Array</code> - runGroups  
+**Todo**
+
+- [ ] Change postRunExtras to postRunExtrasName
+- [ ] Change preRunExtras to preRunExtrasName
+
 <a name="GccSheet+getTimeZone"></a>
 
 ### gccSheet.getTimeZone() ⇒ <code>string</code>
@@ -1625,22 +1625,6 @@ getTimeZone
 
 **Kind**: instance method of [<code>GccSheet</code>](#GccSheet)  
 **Returns**: <code>string</code> - timezone Region/City  
-<a name="GccSheet+handleChangedColumnValue"></a>
-
-### gccSheet.handleChangedColumnValue(e, columnName)
-handleChangedColumnValue
-
-**Kind**: instance method of [<code>GccSheet</code>](#GccSheet)  
-**Todo**
-
-- [ ] Get index of last date and run if edit was to the column to the right of this (line 70)
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| e | <code>object</code> | Event object |
-| columnName | <code>string</code> | Column name |
-
 <a name="GccSheet+handleEdit"></a>
 
 ### gccSheet.handleEdit(e)
@@ -1664,7 +1648,7 @@ handleOpen
 
 **Kind**: instance method of [<code>GccSheet</code>](#GccSheet)  
 **Summary**: Add custom menu when the spreadsheet is opened.
-For each namedRangeItem there must be a matching function in gsheet-compost-collections/src/Middleware.js, see example below  
+ For each namedRangeItem there must be a matching function in gsheet-compost-collections/src/Middleware.js, see example below  
 **Todo**
 
 - [ ] Only show App Links if user has access
@@ -1678,19 +1662,6 @@ function gccMiddlewareFocusNRDateFlags() {
   return gccMiddleware('GccSheet.focusNR', 'NRDateFlags');
 }
 ```
-<a name="GccSheet+setDateValidation"></a>
-
-### gccSheet.setDateValidation(runGroup, [rowIndex])
-setDateValidation
-
-**Kind**: instance method of [<code>GccSheet</code>](#GccSheet)  
-**Summary**: Apply data validation rules to all visible date cells in one row or all rows.  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| runGroup | <code>object</code> | <code></code> | Run group |
-| [rowIndex] | <code>number</code> \| <code>null</code> | <code></code> | Row index |
-
 <a name="GccSheet+setDateValidationRow"></a>
 
 ### gccSheet.setDateValidationRow(runGroup, [rowIndex]) ⇒ <code>string</code>
@@ -1715,7 +1686,7 @@ setDateValidationRows
 **Returns**: <code>string</code> - Success message  
 **Todo**
 
-- [ ] Document why preRunExtras and postRunExtras are added below rather than in getNamedRangeRunGroups, e.g. to limit what appears in Run A/B dropdown?
+- [ ] Document why preRunExtras and postRunExtras are added below rather than in getRunGroups, e.g. to limit what appears in Run A/B dropdown?
 
 <a name="GccSheet+showLog"></a>
 
@@ -1895,6 +1866,19 @@ setConditionalFormatting
 | --- | --- | --- |
 | runName | <code>string</code> | Run name |
 
+<a name="GccSheet.setDateValidation"></a>
+
+### GccSheet.setDateValidation(runGroup, [rowIndex])
+setDateValidation
+
+**Kind**: static method of [<code>GccSheet</code>](#GccSheet)  
+**Summary**: Apply data validation rules to all visible date cells in one row or all rows.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| runGroup | <code>object</code> | <code></code> | Run group |
+| [rowIndex] | <code>number</code> \| <code>null</code> | <code></code> | Row index |
+
 <a name="GccSheet.setDateValidationCriteria"></a>
 
 ### GccSheet.setDateValidationCriteria(sheetName, dateHeadersRange, rowIndex, type, container, lastRow)
@@ -1986,8 +1970,7 @@ writeToSheetFromRunFormObject
 **Todo**
 
 - [ ] Is the key deletion used below still necessary?
-- [ ] Debug JavaScript error on submit
-- [ ] Reference to JavaScript.js.html is incorrect - what should it be?
+- [ ] Reference to JavaScript.js.html (??) is incorrect - what should it be?
 
 
 | Param | Type | Description |

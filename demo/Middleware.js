@@ -50,7 +50,7 @@ function gccMiddleware(classMethod, ...args) {
  * @returns {*} callback
  */
 function gccSheetHandleEdit(e) {
-  return GsheetCompostCollections.gccMiddleware('GccSheetInstance.handleEdit', e);
+  return GsheetCompostCollections.gccMiddleware('GccSheet.handleEdit', e, cbConfig);
 }
 
 /**

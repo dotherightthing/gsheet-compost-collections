@@ -800,28 +800,6 @@ class GccSheet {
   }
 
   /**
-   * setDateValidation
-   *
-   * @summary Apply data validation rules to all visible date cells in one row or all rows.
-   * @param {object} runGroup Run group
-   * @param {number|null} [rowIndex] Row index
-   * @memberof GccSheet
-   */
-  setDateValidation(runGroup = null, rowIndex = null) {
-    GccSheet.getInstance().showNotification('Updating collection inputs');
-
-    GccCache.clearCacheItem(''); // '' deletes '_cache' while retaining '_cache_config'
-
-    if ((runGroup !== null) && (rowIndex !== null)) {
-      // one row
-      GccSheet.getInstance().setDateValidationRow(runGroup, rowIndex);
-    } else {
-      // all rows
-      GccSheet.getInstance().setDateValidationRows();
-    }
-  }
-
-  /**
    * setDateValidationRow
    *
    * @summary Apply data validation rules to all visible date cells in one row.
@@ -1367,6 +1345,29 @@ class GccSheet {
     });
 
     runSheet.setConditionalFormatRules(rules);
+  }
+
+  /**
+   * setDateValidation
+   *
+   * @summary Apply data validation rules to all visible date cells in one row or all rows.
+   * @param {object} runGroup Run group
+   * @param {number|null} [rowIndex] Row index
+   * @memberof GccSheet
+   * @static
+   */
+  static setDateValidation(runGroup = null, rowIndex = null) {
+    GccSheet.getInstance().showNotification('Updating collection inputs');
+
+    GccCache.clearCacheItem(''); // '' deletes '_cache' while retaining '_cache_config'
+
+    if ((runGroup !== null) && (rowIndex !== null)) {
+      // one row
+      GccSheet.getInstance().setDateValidationRow(runGroup, rowIndex);
+    } else {
+      // all rows
+      GccSheet.getInstance().setDateValidationRows();
+    }
   }
 
   /**

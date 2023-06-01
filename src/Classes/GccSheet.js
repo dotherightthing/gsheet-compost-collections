@@ -775,7 +775,7 @@ class GccSheet {
    * handleOpen
    *
    * @summary Add custom menu when the spreadsheet is opened.
-   * For each namedRangeItem there must be a matching function in gsheet-compost-collections/src/Middleware.js, see example below
+   *  For each namedRangeItem there must be a matching function in gsheet-compost-collections/src/Middleware.js, see example below
    * @memberof GccSheet
    * @todo Only show App Links if user has access
    * @todo Document how to add the Named Ranges to the spreadsheet

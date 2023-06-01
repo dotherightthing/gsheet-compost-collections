@@ -1351,7 +1351,6 @@ getInstanceFromCache
         * [.getRangeValues(runName, runDate)](#GccSheet+getRangeValues) ⇒ <code>Array</code>
         * [.getRunGroups()](#GccSheet+getRunGroups) ⇒ <code>Array</code>
         * [.getTimeZone()](#GccSheet+getTimeZone) ⇒ <code>string</code>
-        * [.handleEdit(e)](#GccSheet+handleEdit)
         * [.handleOpen()](#GccSheet+handleOpen)
         * [.setDateValidationRow(runGroup, [rowIndex])](#GccSheet+setDateValidationRow) ⇒ <code>string</code>
         * [.setDateValidationRows()](#GccSheet+setDateValidationRows) ⇒ <code>string</code>
@@ -1365,6 +1364,7 @@ getInstanceFromCache
         * [.getInstance(config)](#GccSheet.getInstance) ⇒ [<code>GccSheet</code>](#GccSheet)
         * [.getRowIndex(sheetName, cellText)](#GccSheet.getRowIndex) ⇒ <code>number</code>
         * [.getRunSheet(sheetName)](#GccSheet.getRunSheet) ⇒ <code>object</code>
+        * [.handleEdit(e, cbConfig)](#GccSheet.handleEdit)
         * [.openLink(linkUrl)](#GccSheet.openLink)
         * [.openLinkPhoneSize(linkUrl)](#GccSheet.openLinkPhoneSize)
         * [.setConditionalFormatting(runName)](#GccSheet.setConditionalFormatting)
@@ -1625,22 +1625,6 @@ getTimeZone
 
 **Kind**: instance method of [<code>GccSheet</code>](#GccSheet)  
 **Returns**: <code>string</code> - timezone Region/City  
-<a name="GccSheet+handleEdit"></a>
-
-### gccSheet.handleEdit(e)
-handleEdit
-
-**Kind**: instance method of [<code>GccSheet</code>](#GccSheet)  
-**Summary**: Run when the spreadsheet is edited.  
-**Todo**
-
-- [ ] Clear cache if any/specific fields edited
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| e | <code>object</code> | Event object |
-
 <a name="GccSheet+handleOpen"></a>
 
 ### gccSheet.handleOpen()
@@ -1820,6 +1804,24 @@ getRunSheet
 | Param | Type | Description |
 | --- | --- | --- |
 | sheetName | <code>object</code> | Sheet name |
+
+<a name="GccSheet.handleEdit"></a>
+
+### GccSheet.handleEdit(e, cbConfig)
+handleEdit
+
+**Kind**: static method of [<code>GccSheet</code>](#GccSheet)  
+**Summary**: Run when the spreadsheet is edited.  
+**Todo**
+
+- [ ] Clear cache if any/specific fields edited
+- [ ] Determine which field in which run was edited so we can update the UI (#50)
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| e | <code>object</code> | Event object |
+| cbConfig | <code>object</code> | Container-bound config |
 
 <a name="GccSheet.openLink"></a>
 

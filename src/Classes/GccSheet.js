@@ -839,7 +839,7 @@ class GccSheet {
    * @summary Apply data validation rules to all visible date cells in all rows. Used on handleOpen, rather than when a particular row has been updated.
    * @returns {string} Success message
    * @memberof GccSheet
-   * @todo Document why preRunExtras and postRunExtras are added below rather than in getNamedRangeRunGroups, e.g. to limit what appears in Run A/B dropdown?
+   * @todo Document why preRunExtras and postRunExtras are added below rather than in getRunGroups, e.g. to limit what appears in Run A/B dropdown?
    */
   setDateValidationRows() {
     const {

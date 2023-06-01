@@ -366,12 +366,35 @@ class GccContainer {
   static getInstanceFromCache(type, quantity) {
     const cacheKey = `container-${type}-${quantity}`; // -${format}`;
     const cachedObj = GccCache.getCacheItem(cacheKey);
+    let instance;
 
-    if (cachedObj === null) {
-      return null;
+    const sheet = GccSheet.getInstance();
+
+    if (cachedObj !== null) {
+      instance = GccUtils.objectToClassInstance(cachedObj, 'GccContainer');
+    } else {
+      // if a cell is edited, a new combination of container type-quantity may need to be generated
+      const {
+        volumeFractions,
+      } = sheet.config;
+
+      // named ranges
+      const {
+        NRContainerCapacities,
+        NRContainerTypes,
+        NRNonVolumes,
+      } = sheet.getAllNamedRangeValues();
+
+      // instantiate new container (this will then be automatically cached)
+      instance = new GccContainer({
+        capacities: NRContainerCapacities,
+        nonVolumes: NRNonVolumes,
+        quantity,
+        type,
+        types: NRContainerTypes,
+        volumeFractions,
+      });
     }
-
-    const instance = GccUtils.objectToClassInstance(cachedObj, 'GccContainer');
 
     return instance;
   }

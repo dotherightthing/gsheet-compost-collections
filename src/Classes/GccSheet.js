@@ -318,7 +318,7 @@ class GccSheet {
       }
     });
 
-    namedRangeValues.NRRunGroups = this.getNamedRangeRunGroups();
+    namedRangeValues.NRRunGroups = this.getRunGroups();
 
     GccCache.setCacheItem(cacheKey, namedRangeValues);
 
@@ -573,64 +573,6 @@ class GccSheet {
   }
 
   /**
-   * getNamedRangeRunGroups
-   *
-   * @summary Build runGroups object from named ranges. Called once by GccSheet.getAllNamedRangeValues.
-   * @returns {Array} runGroups
-   * @memberof GccSheet
-   * @todo Change postRunExtras to postRunExtrasName
-   * @todo Change preRunExtras to preRunExtrasName
-   */
-  getNamedRangeRunGroups() {
-    const {
-      dateFormat,
-      runGroupCount,
-      runGroupRunCount,
-    } = this;
-
-    const NRRunGroups = [];
-    let g;
-    let r;
-
-    // get named ranges for NRRunGroup1, NRRunGroup2 etc
-    for (g = 1; g <= runGroupCount; g += 1) {
-      const columnHeaders = `NRRunGroup${g}ColumnHeaders`;
-      const columnHeaderValues = this.getNamedRangeValues(columnHeaders);
-      const columnHeaderRange = this.getNamedRange(columnHeaders);
-      const runNames = [];
-      const columnHeaderIndices = {};
-      const columnHeaderColIndex = columnHeaderRange.getColumn();
-      const columnHeaderRowIndex = columnHeaderRange.getRow();
-
-      for (r = 1; r <= runGroupRunCount; r += 1) {
-        const runName = this.getNamedRangeValue(`NRRunGroup${g}RunHeader${r}`);
-
-        runNames.push(runName);
-      }
-
-      columnHeaderValues.forEach((columnHeader, i) => {
-        columnHeaderIndices[columnHeader.toLowerCase()] = columnHeaderColIndex + i;
-      });
-
-      const runGroup = new GccRunGroup({
-        dateFormat,
-        footer: this.getNamedRangeValue(`NRRunGroup${g}Footer`),
-        preRunExtras: this.getNamedRangeValue(`NRRunGroup${g}PreRunHeader`),
-        postRunExtras: this.getNamedRangeValue(`NRRunGroup${g}PostRunHeader`),
-        runNames,
-        sheetName: columnHeaderRange.getSheet().getName(),
-        columnHeaderIndices,
-        columnHeaderRowIndex,
-      });
-
-      NRRunGroups.push(runGroup);
-    }
-
-    // note: results are cached by calling function
-    return NRRunGroups;
-  }
-
-  /**
    * getNamedRangeValue
    *
    * @param {string} name Name
@@ -686,6 +628,64 @@ class GccSheet {
     }
 
     return valuesArr;
+  }
+
+  /**
+   * getRunGroups
+   *
+   * @summary Build runGroups object from named ranges. Called once by GccSheet.getAllNamedRangeValues.
+   * @returns {Array} runGroups
+   * @memberof GccSheet
+   * @todo Change postRunExtras to postRunExtrasName
+   * @todo Change preRunExtras to preRunExtrasName
+   */
+  getRunGroups() {
+    const {
+      dateFormat,
+      runGroupCount,
+      runGroupRunCount,
+    } = this;
+
+    const NRRunGroups = [];
+    let g;
+    let r;
+
+    // get named ranges for NRRunGroup1, NRRunGroup2 etc
+    for (g = 1; g <= runGroupCount; g += 1) {
+      const columnHeaders = `NRRunGroup${g}ColumnHeaders`;
+      const columnHeaderValues = this.getNamedRangeValues(columnHeaders);
+      const columnHeaderRange = this.getNamedRange(columnHeaders);
+      const runNames = [];
+      const columnHeaderIndices = {};
+      const columnHeaderColIndex = columnHeaderRange.getColumn();
+      const columnHeaderRowIndex = columnHeaderRange.getRow();
+
+      for (r = 1; r <= runGroupRunCount; r += 1) {
+        const runName = this.getNamedRangeValue(`NRRunGroup${g}RunHeader${r}`);
+
+        runNames.push(runName);
+      }
+
+      columnHeaderValues.forEach((columnHeader, i) => {
+        columnHeaderIndices[columnHeader.toLowerCase()] = columnHeaderColIndex + i;
+      });
+
+      const runGroup = new GccRunGroup({
+        dateFormat,
+        footer: this.getNamedRangeValue(`NRRunGroup${g}Footer`),
+        preRunExtras: this.getNamedRangeValue(`NRRunGroup${g}PreRunHeader`),
+        postRunExtras: this.getNamedRangeValue(`NRRunGroup${g}PostRunHeader`),
+        runNames,
+        sheetName: columnHeaderRange.getSheet().getName(),
+        columnHeaderIndices,
+        columnHeaderRowIndex,
+      });
+
+      NRRunGroups.push(runGroup);
+    }
+
+    // note: results are cached by calling function
+    return NRRunGroups;
   }
 
   /**

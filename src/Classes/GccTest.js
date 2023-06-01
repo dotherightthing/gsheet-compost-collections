@@ -2269,7 +2269,7 @@ class GccTest {
       [ '#000000' ],
       [ '#000000' ],
     ]);
-    this.stub('GccSheetInstance.getNamedRangeRunGroups', [], [
+    this.stub('GccSheetInstance.getRunGroups', [], [
       {
         _columnHeaderIndices: {
           customer: 1,

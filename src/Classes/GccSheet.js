@@ -728,9 +728,9 @@ class GccSheet {
         NRRunGroups,
       } = GccSheet.getInstance().getAllNamedRangeValues();
 
-      const NRRunGroup = NRRunGroups.filter((nrRunGroup) => nrRunGroup.sheetName === sheetName);
-
-      runGroup = GccRun.getRunGroup(NRRunGroup.runNames[0]);
+      ([
+        runGroup,
+      ] = NRRunGroups.filter((nrRunGroup) => nrRunGroup.sheetName === sheetName));
     }
 
     const activeRange = e.source.getActiveRange();
@@ -740,14 +740,10 @@ class GccSheet {
 
     const {
       columnHeaderRowIndex,
-      dateHeadersFormatted,
-      runBounds,
     } = runGroup;
 
     const columnHeader = sheet.getRange(columnHeaderRowIndex, activeColIndex);
     const columnName = columnHeader.getValue();
-
-    console.log('columnName', columnName);
 
     if (activeRowIndex > 1) {
       // const newValue = activeRange.getValue();
@@ -755,10 +751,7 @@ class GccSheet {
 
       // Update the date validation (dropdown options) when relevant fields (container & quantity) are edited
       if ((columnName === 'Container') || (columnName === 'Quantity')) {
-        console.log('setDateValidation', runGroup, activeRowIndex);
         GccSheet.setDateValidation(runGroup, activeRowIndex);
-      } else if (dateHeadersFormatted.includes(columnName)) {
-        console.log('edited run has bounds', runBounds.startRowIndex, runBounds.rowCount);
       }
     }
   }

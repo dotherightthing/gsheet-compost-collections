@@ -378,7 +378,7 @@ class GccCollection {
       const volumesValues = volumes.slice(1).map((volume) => volume.value);
 
       // sorting is in code order
-      // but frontend may shows different sorting to 'help' user (5, 50, 55)
+      // but frontend may use different sorting to 'help' the user (e.g. 5, 50, 55)
       volumesAndDateFlags = [ ...volumesValues, '------', ...dateFlags ].join();
     }
 

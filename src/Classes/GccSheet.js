@@ -856,7 +856,14 @@ class GccSheet {
       const container = GccContainer.getInstanceFromCache(_container.toLowerCase(), _quantity);
 
       // one row
-      GccSheet.setDateValidationCriteria(sheetName, dateHeadersRange, rowIndex, type, container, false);
+      GccSheet.setDateValidationCriteria(
+        sheetName,
+        dateHeadersRange,
+        rowIndex,
+        type,
+        container,
+        false,
+      );
 
       return `Data validation rules applied to all visible date cells in row ${rowIndex}`;
     }
@@ -1183,14 +1190,14 @@ class GccSheet {
    * @see {@link https://stackoverflow.com/a/50285439}
    */
   static getInstance(config) {
-    let _config = config;
+    let appConfig = config;
 
     if (!this.instance) {
-      if (typeof _config === 'undefined') {
-        _config = GccUtils.getAppConfig('GccSheet.getInstance');
+      if (typeof appConfig === 'undefined') {
+        appConfig = GccUtils.getAppConfig('GccSheet.getInstance');
       }
 
-      this.instance = new GccSheet(_config);
+      this.instance = new GccSheet(appConfig);
     }
 
     return this.instance;
@@ -1814,6 +1821,8 @@ class GccSheet {
             newValues.push(formObject[key]);
           });
 
+          // only write 'dirty' (edited) fields back to the spreadsheet
+          // to avoid polluting the edit history
           newValues.forEach((_newValue, i) => {
             // offset(rowOffset, columnOffset, numRows)
             const oldValue = oldValues[i].toString(); // convert spreadsheet value to string for comparison

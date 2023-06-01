@@ -439,7 +439,7 @@ function gccMiddlewareOpenLinkWiki() {
  * @returns {*} Performs function
  */
 function gccMiddlewareSetDateValidation() {
-  return gccMiddleware('GccSheetInstance.setDateValidation');
+  return gccMiddleware('GccSheet.setDateValidation');
 }
 
 /**

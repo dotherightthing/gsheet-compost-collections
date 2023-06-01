@@ -5,21 +5,23 @@ class GccSheet {
   /**
    * @class
    * @summary Properties and methods relating to querying of the spreadsheet.
-   * @param {object}  config                         - Module configuration.
-   * @param {string}  config.appName                 - App name (used in the feedback email).
-   * @param {Array}   config.computedNamedRangeNames - Named ranges which are computed by the app.
-   * @param {string}  config.dateFormat              - Date format (used to locate the next run date)
-   * @param {boolean} config.debug                   - Output debugging messages.
-   * @param {Array}   config.namedRangeItems         - { name, description, validation } of the named ranges set in the spreadsheet (an array of objects).
-   * @param {number}  config.runBlankRowsAfter       - Number of blank rows after a run (used to calculate run bounds).
-   * @param {number}  config.runGroupCount           - Number of NRRunGroup items to process.
-   * @param {number}  config.runGroupRunCount        - Number of NRRunGroupRunHeader items to process.
+   * @param {object}  config                          - Module configuration.
+   * @param {string}  config.appName                  - App name (used in the feedback email).
+   * @param {Array}   config.computedNamedRangeNames  - Named ranges which are computed by the app.
+   * @param {string}  config.containerVolumeFractions - Container volume fractions (used in spreadsheet date dropdowns and app collection volume dropdowns).
+   * @param {string}  config.dateFormat               - Date format (used to locate the next run date)
+   * @param {boolean} config.debug                    - Output debugging messages.
+   * @param {Array}   config.namedRangeItems          - { name, description, validation } of the named ranges set in the spreadsheet (an array of objects).
+   * @param {number}  config.runBlankRowsAfter        - Number of blank rows after a run (used to calculate run bounds).
+   * @param {number}  config.runGroupCount            - Number of NRRunGroup items to process.
+   * @param {number}  config.runGroupRunCount         - Number of NRRunGroupRunHeader items to process.
    */
   constructor(config = {}) {
     // select the relevant arguments from the config object passed in
     const {
       appName,
       computedNamedRangeNames,
+      containerVolumeFractions,
       dateFormat,
       debug,
       helpLinks,
@@ -32,6 +34,7 @@ class GccSheet {
     Object.assign(this, {
       appName,
       computedNamedRangeNames,
+      containerVolumeFractions,
       dateFormat,
       debug,
       helpLinks,

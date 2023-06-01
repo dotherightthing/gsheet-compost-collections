@@ -374,9 +374,6 @@ class GccContainer {
       instance = GccUtils.objectToClassInstance(cachedObj, 'GccContainer');
     } else {
       // if a cell is edited, a new combination of container type-quantity may need to be generated
-      const {
-        volumeFractions,
-      } = sheet.config;
 
       // named ranges
       const {
@@ -392,7 +389,7 @@ class GccContainer {
         quantity,
         type,
         types: NRContainerTypes,
-        volumeFractions,
+        volumeFractions: sheet.containerVolumeFractions,
       });
     }
 

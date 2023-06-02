@@ -17,37 +17,24 @@ See:
 - [x] audit colours
 - [x] refactor to style by area of UI
 - [ ] flatten colors - remove semi-opaque overlays
+- [ ] rename NRBrandColors to areas of UI
 - [ ] use fg/bg combination in NRBrandColors as per NRDateFlags/NRNonVolumes
 -------------------------------------- */
 
 :root {
   --rgb-black: 0, 0, 0;
   --rgb-white: 255, 255, 255;
-  --rgb-brightgreen: 0, 255, 0;
-  --rgb-skyblue: 145, 194, 222;
-  --rgb-red: 255, 0, 0;
-
-  --rgb-darkgreen: 28, 32, 24;
-  --rgb-lightgreen: 251, 252, 250;
-
-  --rgb-lightergrey: 215, 215, 215;
-  --rgb-lightgrey: 204, 204, 204;
-  --rgb-midgrey: 153, 153, 153;
-  --rgb-darkgrey: 50, 50, 50;
-  --rgb-darkergrey: 40, 40, 40;
 
   --brand-border: rgba(var(--color-green-bg-rgb), .25);
-  --brand-darkgreen-border: rgba(var(--rgb-darkgreen), .5);
+  --brand-darkgreen-border: rgba(28, 32, 24, .5);
 
-  --bg-dark: rgb(var(--rgb-black));
-  --bg-light: rgb(var(--rgb-lightgreen));
+  --bg-light: rgba(251, 252, 250, 1);
   --bg-midlight: rgba(var(--rgb-white), .8);
-  --bg-non-ui: rgb(var(--rgb-lightergrey));
 
   --border-shadow: rgba(var(--rgb-black), .15);
 
-  --checkbox-border: rgb(var(--rgb-black));
-  --checkbox-icon: rgb(var(--rgb-black));
+  --checkbox-border: rgba(var(--rgb-black), 1);
+  --checkbox-icon: rgba(var(--rgb-black), 1);
 
   --gutter: .75rem;
   --gutter-half: calc(var(--gutter) / 2);
@@ -59,8 +46,8 @@ See:
   --input-checkbox-width: 1.5rem;
   --input-checkbox-small-width: .9rem;
 
-  --text-dark: rgb(var(--rgb-darkgreen));
-  --text-light: rgb(var(--rgb-white));
+  --text-dark: rgba(28, 32, 24, 1);
+  --text-light: rgba(var(--rgb-white), 1);
   --text-midlight: rgba(var(--rgb-white), .8);
   --text-tertiary: rgba(var(--rgb-black), .8);
   --text-underline-border: var(--color-darkgreen-bg-100);
@@ -74,7 +61,7 @@ See:
 
   /* UI areas (A-Z) */
 
-  --body-bg: rgba(var(--rgb-darkergrey), 1);
+  --body-bg: rgba(40, 40, 40, 1);
   --body-text: var(--text-dark);
 
   --collection-bg: rgba(var(--color-darkgreen-bg-rgb), .05);
@@ -87,7 +74,7 @@ See:
 
   --container-count-text: var(--text-light);
 
-  --dialog-button-bg: rgba(var(--rgb-lightgrey), .75);
+  --dialog-button-bg: rgba(204, 204, 204, .75);
   --dialog-button-text: rgba(var(--rgb-black), 1);
   --dialog-button-text-shadow: rgba(var(--rgb-white), .4);
   --dialog-dark-header-border: rgba(var(--rgb-white), .3);
@@ -97,7 +84,7 @@ See:
   --font-sans-serif: Arial, sans-serif;
   --font-sans-serif-brand: 'Source Sans Pro', sans-serif;
 
-  --footer-bg: var(--bg-non-ui);
+  --footer-bg: rgba(215, 215, 215, 1);
   --footer-text: var(--text-tertiary);
   --footer-border: var(--brand-border);
   --footer-link-text: var(--text-tertiary);
@@ -118,7 +105,7 @@ See:
   --input-outline: var(--color-yellow-bg-100);
 
   --loader-text: var(--text-midlight);
-  --loader-select-text: rgb(var(--rgb-black));
+  --loader-select-text: rgba(var(--rgb-black), 1);
 
   --notes-text: var(--text-tertiary);
   --notes-border: var(--brand-darkgreen-border);
@@ -133,7 +120,7 @@ See:
   --run-bg: var(--bg-light);
 
   /* duplicates?
-  --run-header-bg: rgb(var(--rgb-darkgrey));
+  --run-header-bg: rgba(50, 50, 50, 1);
   --run-header-text: var(--bg-light);
   */
 
@@ -147,8 +134,8 @@ See:
   --submit-border: var(--color-darkgreen-bg-100);
   --submit-text: var(--text-light);
 
-  --submit-status-bg: rgb(var(--rgb-darkgrey));
-  --submit-status-border: rgb(var(--rgb-darkgrey));
+  --submit-status-bg: rgba(50, 50, 50, 1);
+  --submit-status-border: rgba(50, 50, 50, 1);
   --submit-status-text: var(--bg-light);
 
   --submit-status-bg-saving: rgba(var(--color-yellow-bg-rgb), 1);

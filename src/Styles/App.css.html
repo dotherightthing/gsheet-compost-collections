@@ -1,3 +1,8 @@
+<!--
+tplColorStyles:
+--nruicolor-name-bg-100 = background/fill color for 'name' element @ 100% opacity
+--nruicolor-name-fg-100 = foreground/text color for 'name' element @ 100% opacity
+-->
 <?!= tplColorStyles ?>
 <style id="heights"></style>
 <style>
@@ -17,15 +22,15 @@ See:
 - [x] audit colours
 - [x] refactor to style by area of UI
 - [ ] flatten colors - remove semi-opaque overlays
-- [ ] rename NRBrandColors to areas of UI
-- [ ] use fg/bg combination in NRBrandColors as per NRDateFlags/NRNonVolumes
+- [ ] rename NRUiColors to areas of UI
+- [ ] use fg/bg combination in NRUiColors as per NRDateFlags/NRNonVolumes
 -------------------------------------- */
 
 :root {
   --rgb-black: 0, 0, 0;
   --rgb-white: 255, 255, 255;
 
-  --brand-border: rgba(var(--color-green-bg-rgb), .25);
+  --brand-border: rgba(var(--nruicolor-green-bg-rgb), .25);
   --brand-darkgreen-border: rgba(28, 32, 24, .5);
 
   --bg-light: rgba(251, 252, 250, 1);
@@ -50,7 +55,7 @@ See:
   --text-light: rgba(var(--rgb-white), 1);
   --text-midlight: rgba(var(--rgb-white), .8);
   --text-tertiary: rgba(var(--rgb-black), .8);
-  --text-underline-border: var(--color-darkgreen-bg-100);
+  --text-underline-border: var(--nruicolor-darkgreen-bg-100);
 
   /* above .count */
   --z-index-submit: 2;
@@ -64,18 +69,23 @@ See:
   --body-bg: rgba(40, 40, 40, 1);
   --body-text: var(--text-dark);
 
-  --collection-bg: rgba(var(--color-darkgreen-bg-rgb), .05);
+  --collection-bg: rgba(var(--nruicolor-darkgreen-bg-rgb), .05);
   --collection-border: var(--brand-border);
-  --collection-border-left: rgba(var(--color-green-bg-rgb), .5);
+  --collection-border-left: rgba(var(--nruicolor-green-bg-rgb), .5);
   --collection-input-border: var(--brand-darkgreen-border);
-  --collection-button-bg-disabled: rgba(var(--color-darkgreen-bg-rgb), .05);
-  --collection-button-bg-incomplete: rgba(var(--color-yellow-bg-rgb), .2);
-  --collection-button-bg-complete: rgba(var(--color-green-bg-rgb), .2);
+  --collection-button-bg-disabled: rgba(var(--nruicolor-darkgreen-bg-rgb), .05);
+  --collection-button-bg-incomplete: rgba(var(--nruicolor-yellow-bg-rgb), .2);
+  --collection-button-bg-complete: rgba(var(--nruicolor-green-bg-rgb), .2);
 
   --container-count-text: var(--text-light);
 
-  --dialog-button-bg: rgba(204, 204, 204, .75);
-  --dialog-button-text: rgba(var(--rgb-black), 1);
+  /* help -> dialog */
+
+  --dialog-dark-button-bg: var(--nruicolor-dialog-dark-button-bg-100);
+  --dialog-dark-button-text: var(--nruicolor-dialog-dark-button-fg-100);
+  --dialog-light-button-bg: var(--nruicolor-dialog-light-button-bg-100);
+  --dialog-light-button-text: var(--nruicolor-dialog-light-button-fg-100);
+
   --dialog-button-text-shadow: rgba(var(--rgb-white), .4);
   --dialog-dark-header-border: rgba(var(--rgb-white), .3);
   --dialog-dark-console-bg: rgba(var(--rgb-white), .1);
@@ -89,10 +99,10 @@ See:
   --footer-border: var(--brand-border);
   --footer-link-text: var(--text-tertiary);
 
-  --grid-legend-border: var(--color-darkgreen-bg-100);
-  --grid-key-border: rgba(var(--color-darkgreen-bg-rgb), .2);
+  --grid-legend-border: var(--nruicolor-darkgreen-bg-100);
+  --grid-key-border: rgba(var(--nruicolor-darkgreen-bg-rgb), .2);
 
-  --header-bg: var(--color-green-bg-100);
+  --header-bg: var(--nruicolor-green-bg-100);
   --header-bg-overlay-top: rgba(var(--rgb-white), .7);
   --header-bg-overlay-bottom: rgba(var(--rgb-white), .4);
   --header-padding-top: 1.2rem;
@@ -101,8 +111,8 @@ See:
 
   --input-bg: var(--text-light);
   --input-large-bg: var(--bg-midlight);
-  --input-border: var(--color-darkgreen-bg-100);
-  --input-outline: var(--color-yellow-bg-100);
+  --input-border: var(--nruicolor-darkgreen-bg-100);
+  --input-outline: var(--nruicolor-yellow-bg-100);
 
   --loader-text: var(--text-midlight);
   --loader-select-text: rgba(var(--rgb-black), 1);
@@ -124,21 +134,21 @@ See:
   --run-header-text: var(--bg-light);
   */
 
-  --run-header-bg: var(--color-green-bg-100);
+  --run-header-bg: var(--nruicolor-green-bg-100);
   --run-header-text: var(--text-light);
-  --run-header-label-bg: var(--color-darkgreen-bg-100);
+  --run-header-label-bg: var(--nruicolor-darkgreen-bg-100);
   --run-header-item-bg: rgba(var(--rgb-black), .25);
   --run-header-item-border: var(--brand-darkgreen-border);
 
-  --submit-bg: var(--color-darkgreen-bg-100);
-  --submit-border: var(--color-darkgreen-bg-100);
+  --submit-bg: var(--nruicolor-darkgreen-bg-100);
+  --submit-border: var(--nruicolor-darkgreen-bg-100);
   --submit-text: var(--text-light);
 
   --submit-status-bg: rgba(50, 50, 50, 1);
   --submit-status-border: rgba(50, 50, 50, 1);
   --submit-status-text: var(--bg-light);
 
-  --submit-status-bg-saving: rgba(var(--color-yellow-bg-rgb), 1);
+  --submit-status-bg-saving: rgba(var(--nruicolor-yellow-bg-rgb), 1);
   --submit-status-text-saving: rgba(var(--rgb-black), 1);
 }
 
@@ -538,7 +548,7 @@ header {
 
   background:
     linear-gradient(var(--header-bg-overlay-top), var(--header-bg-overlay-bottom)),
-    var(--color-green-bg-100);
+    var(--nruicolor-green-bg-100);
   padding-top: var(--header-padding-top);
   padding-bottom: var(--header-padding-bottom);
   /* h1 */
@@ -1455,13 +1465,21 @@ body[data-child-is-loading='true'] {
 
 .dialog-button {
   display: inline-block;
-  background-color: var(--dialog-button-bg);
-  color: var(--dialog-button-text);
   line-height: 1.2;
   text-shadow: 0 1px 1px var(--dialog-button-text-shadow);
   padding: var(--gutter-half);
   padding-right: calc(var(--gutter-half) + var(--gutter-sixth));
   border-radius: .25rem;
+}
+
+.dialog-dark .dialog-button {
+  background-color: var(--dialog-dark-button-bg);
+  color: var(--dialog-dark-button-text);
+}
+
+.dialog-light .dialog-button {
+  background-color: var(--dialog-light-button-bg);
+  color: var(--dialog-light-button-text);
 }
 
 .dialog-button[data-is-loading='false'] .loader-icon {
@@ -1514,7 +1532,7 @@ Emulating the kaicycle logo
 -------------------------------------- */
 
 .brand-heading {
-  color: var(--color-green-bg-100);
+  color: var(--nruicolor-green-bg-100);
   font-family: var(--font-sans-serif-brand);
   font-size: 1.7rem;
   line-height: .8;
@@ -1527,7 +1545,7 @@ Emulating the kaicycle logo
 }
 
 .brand-heading > :nth-child(even) {
-  color: var(--color-darkgreen-bg-100);
+  color: var(--nruicolor-darkgreen-bg-100);
 }
 
 /* ----------------------------------------

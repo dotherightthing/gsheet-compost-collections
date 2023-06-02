@@ -2155,7 +2155,7 @@ class GccTest {
     this.stub('GccSheetInstance.getLastRowIndex', [ 'Town Run (FRI)', 'End of collections. Do not edit this row.' ], 109);
 
     this.stub('GccSheetInstance.getNamedRange', [], [ [] ]);
-    this.stub('GccSheetInstance.getNamedRangeBackgrounds', [ 'NRBrandColors' ], [
+    this.stub('GccSheetInstance.getNamedRangeBackgrounds', [ 'NRUiColors' ], [
       [ '#b65529' ],
       [ '#53612b' ],
       [ '#719537' ],
@@ -2212,7 +2212,7 @@ class GccTest {
       [ '#ffffff' ],
       [ '#ffffff' ],
     ]);
-    this.stub('GccSheetInstance.getNamedRangeFontColors', [ 'NRBrandColors' ], [
+    this.stub('GccSheetInstance.getNamedRangeFontColors', [ 'NRUiColors' ], [
       [ '#000000' ],
       [ '#000000' ],
       [ '#000000' ],
@@ -2366,7 +2366,7 @@ class GccTest {
     this.stub('GccSheetInstance.getNamedRangeValue', [ 'NRRunGroup2RunHeader3' ], 'SOUTH A RUN');
     this.stub('GccSheetInstance.getNamedRangeValue', [ 'NRRunGroup2RunHeader4' ], 'SOUTH B RUN');
     this.stub('GccSheetInstance.getNamedRangeValue', [ 'NRRunGroup2Footer' ], 'End of collections. Do not edit this row.');
-    this.stub('GccSheetInstance.getNamedRangeValues', [ 'NRBrandColors' ], [
+    this.stub('GccSheetInstance.getNamedRangeValues', [ 'NRUiColors' ], [
       'brown',
       'darkgreen',
       'green',

@@ -119,25 +119,25 @@ class GccColor {
 
         if (style === 'backgroundColor') {
           cssVariables += `
---color-${value}-bg-rgb: ${r}, ${g}, ${b};
---color-${value}-bg-100: rgba(var(--color-${value}-bg-rgb), 1);`;
+--nruicolor-${value}-bg-rgb: ${r}, ${g}, ${b};
+--nruicolor-${value}-bg-100: rgba(var(--nruicolor-${value}-bg-rgb), 1);`;
 
           cssSelectors += `.color-${value}-bg {
-  background-color: rgba(var(--color-${value}-bg-rgb), 1);
+  background-color: rgba(var(--nruicolor-${value}-bg-rgb), 1);
 }
 .color-${value}-bg-light {
-  background-color: rgba(var(--color-${value}-bg-rgb), .05);
+  background-color: rgba(var(--nruicolor-${value}-bg-rgb), .05);
 }
 .color-${value}-border {
-  border-color: rgba(var(--color-${value}-bg-rgb), .5);
+  border-color: rgba(var(--nruicolor-${value}-bg-rgb), .5);
 }`;
         } else if (style === 'color') {
           cssVariables += `
---color-${value}-fg-rgb: ${r}, ${g}, ${b};
---color-${value}-fg-100: rgba(var(--color-${value}-fg-rgb), 1);`;
+--nruicolor-${value}-fg-rgb: ${r}, ${g}, ${b};
+--nruicolor-${value}-fg-100: rgba(var(--nruicolor-${value}-fg-rgb), 1);`;
 
           cssSelectors += `.color-${value}-fg {
-  color: rgba(var(--color-${value}-fg-rgb), 1);
+  color: rgba(var(--nruicolor-${value}-fg-rgb), 1);
 }`;
         }
       });

@@ -79,13 +79,13 @@ function gccMiddlewareCacheLog() {
 }
 
 /**
- * gccMiddlewareFocusNRBrandColors
+ * gccMiddlewareFocusNRUiColors
  *
  * @summary Called from GCC Help menu
  * @returns {*} Performs function
  */
-function gccMiddlewareFocusNRBrandColors() {
-  return gccMiddleware('GccSheetInstance.focusNR', 'NRBrandColors');
+function gccMiddlewareFocusNRUiColors() {
+  return gccMiddleware('GccSheetInstance.focusNR', 'NRUiColors');
 }
 
 /**

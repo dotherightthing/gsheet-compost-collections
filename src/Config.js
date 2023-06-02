@@ -9,13 +9,13 @@
 // developer configuration - changes here may require changes in the internals
 const devConfig = { // eslint-disable-line no-unused-vars
   colorNamedRangeNames: [
-    'NRBrandColors',
+    'NRUiColors',
     'NRDateFlags',
     'NRNonVolumes',
   ],
   namedRangeItems: [
     {
-      name: 'NRBrandColors',
+      name: 'NRUiColors',
       description: 'Brand Colours',
       validation: [],
       usage: 'App Interface',

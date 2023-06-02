@@ -1797,7 +1797,7 @@ class GccTest {
     QUnit.test('getFeedbackMailtoLink', (assert) => {
       assert.equal(
         this.pages[0].getFeedbackMailtoLink('Feedback'),
-        'mailto:dan@dotherightthing.co.nz?subject=Gsheet%20Compost%20Collections%20-%20Feedback%20(DEV)&amp;body=Please%20enter%20your%20feedback/request.%20If%20you%20are%20logging%20a%20bug,%20please%20describe%20the%20steps%20required%20to%20recreate%20it.%20Thanks!%0D%0A%0D%0A',
+        'mailto:dotherightthingnz@gmail.com?subject=Gsheet%20Compost%20Collections%20-%20Feedback%20(DEV)&amp;body=Please%20enter%20your%20feedback/request.%20If%20you%20are%20logging%20a%20bug,%20please%20describe%20the%20steps%20required%20to%20recreate%20it.%20Thanks!%0D%0A%0D%0A',
         'Mailto link is well formed',
       );
     });

@@ -234,24 +234,17 @@ class GccEnv {
   /**
    * isDeveloper
    *
-   * @summary Test whether the current user is a developer of the standalone project.
+   * @summary Test whether the current user is a developer.
    * @returns {boolean} isDeveloper
    * @memberof GccEnv
    */
   isDeveloper() {
     const {
       developerUserEmails,
-      env,
     } = this;
 
-    const { scriptTypeAbbr } = env;
-    let isDeveloper = false;
-
-    if (scriptTypeAbbr === 'SA') {
-      const userEmail = Session.getActiveUser().getEmail();
-
-      isDeveloper = developerUserEmails.includes(userEmail);
-    }
+    const userEmail = Session.getActiveUser().getEmail();
+    const isDeveloper = developerUserEmails.includes(userEmail);
 
     return isDeveloper;
   }

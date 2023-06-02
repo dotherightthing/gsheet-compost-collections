@@ -39,7 +39,7 @@ const cbConfig = {
   dateFormat: 'MMM d',
   debug: false,
   developerUserEmails: [
-    'dan@dotherightthing.co.nz',
+    'dotherightthingnz@gmail.com',
   ],
   env: {
     cloudProjectId: 'gsheet-compost-collections-2',

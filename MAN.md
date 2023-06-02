@@ -624,7 +624,7 @@ isDev
 isDeveloper
 
 **Kind**: instance method of [<code>GccEnv</code>](#GccEnv)  
-**Summary**: Test whether the current user is a developer of the standalone project.  
+**Summary**: Test whether the current user is a developer.  
 **Returns**: <code>boolean</code> - isDeveloper  
 <a name="GccEnv+isStable"></a>
 

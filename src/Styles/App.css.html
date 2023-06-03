@@ -51,10 +51,8 @@ See:
   --input-checkbox-width: 1.5rem;
   --input-checkbox-small-width: .9rem;
 
-  --text-dark: rgba(28, 32, 24, 1);
   --text-light: rgba(var(--rgb-white), 1);
   --text-midlight: rgba(var(--rgb-white), .8);
-  --text-tertiary: rgba(var(--rgb-black), .8);
   --text-underline-border: var(--nruicolor-collections-bg-100);
 
   /* above .count */
@@ -66,13 +64,15 @@ See:
 
   /* UI areas (A-Z) */
 
-  --body-text: var(--text-dark);
   --body-bg: var(--nruicolor-body-bg-100);
+  --body-text: var(--nruicolor-body-fg-100); /* for a11y - always overridden by child elements */
 
   --collection-bg: rgba(var(--nruicolor-collections-bg-rgb), .05);
   --collection-border: var(--brand-border);
   --collection-border-left: rgba(var(--nruicolor-header-bg-rgb), .5);
   --collection-input-border: var(--brand-collections-border);
+  --collection-text: var(--nruicolor-collections-fg-100);
+
   --collection-button-bg-disabled: rgba(var(--nruicolor-collections-bg-rgb), .05);
   --collection-button-bg-incomplete: rgba(var(--nruicolor-active-bg-rgb), .2);
   --collection-button-bg-complete: rgba(var(--nruicolor-header-bg-rgb), .2);
@@ -112,6 +112,7 @@ See:
   --header-bg: var(--nruicolor-header-bg-100);
   --header-bg-overlay-top: rgba(var(--rgb-white), .7);
   --header-bg-overlay-bottom: rgba(var(--rgb-white), .4);
+  --header-text: var(--nruicolor-header-fg-100);
   --header-padding-top: 1.2rem;
   --header-padding-bottom: .35rem;
   --header-border: rgba(var(--rgb-white), .3);
@@ -552,6 +553,7 @@ header {
   background:
     linear-gradient(var(--header-bg-overlay-top), var(--header-bg-overlay-bottom)),
     var(--nruicolor-header-bg-100);
+  color: var(--header-text);
   padding-top: var(--header-padding-top);
   padding-bottom: var(--header-padding-bottom);
   /* h1 */
@@ -756,6 +758,7 @@ select,
 .fieldset-liner {
   /* AP for label */
   position: relative;
+  color: var(--collection-text);
   padding: var(--gutter) var(--gutter) var(--gutter) calc(var(--gutter) + var(--gutter-half));
 }
 

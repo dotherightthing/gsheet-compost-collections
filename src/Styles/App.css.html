@@ -52,7 +52,6 @@ See:
   --input-checkbox-small-width: .9rem;
 
   --text-light: rgba(var(--rgb-white), 1);
-  --text-midlight: rgba(var(--rgb-white), .8);
   --text-underline-border: var(--nruicolor-collections-bg-100);
 
   /* above .count */
@@ -120,10 +119,8 @@ See:
   --input-bg: var(--text-light);
   --input-large-bg: var(--bg-midlight);
   --input-border: var(--nruicolor-collections-bg-100);
+  --input-loader-text: rgba(var(--rgb-black), 1);
   --input-outline: var(--nruicolor-active-bg-100);
-
-  --loader-text: var(--text-midlight);
-  --loader-select-text: rgba(var(--rgb-black), 1);
 
   --notes-text: rgba(var(--nruicolor-footer-fg-rgb), .8);
   --notes-border: var(--brand-collections-border);
@@ -1198,15 +1195,15 @@ a.small,
 }
 
 .loader {
-  color: var(--loader-text);
+  color: var(--dialog-dark-text);
 }
 
 .loader.overlay {
-  color: var(--loader-text);
+  color: var(--dialog-dark-text);
 }
 
 .loader.select {
-  color: var(--loader-select-text);
+  color: var(--input-loader-text);
 }
 
 .loader.submit-status {

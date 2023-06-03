@@ -81,14 +81,21 @@ See:
 
   /* help -> dialog */
 
+  --dialog-dark-bg: rgba(var(--nruicolor-dialog-dark-bg-rgb), .95);
+  --dialog-dark-text: rgba(var(--nruicolor-dialog-dark-fg-rgb), .8); /* was --text-midlight */
+
   --dialog-dark-button-bg: var(--nruicolor-dialog-dark-button-bg-100);
   --dialog-dark-button-text: var(--nruicolor-dialog-dark-button-fg-100);
+  --dialog-dark-console-bg: rgba(var(--rgb-white), .1);
+  --dialog-dark-header-border: rgba(var(--rgb-white), .3);
+
+  --dialog-light-bg: var(--nruicolor-dialog-light-bg-100);
+  --dialog-light-text: var(--nruicolor-dialog-light-fg-100);
+
   --dialog-light-button-bg: var(--nruicolor-dialog-light-button-bg-100);
   --dialog-light-button-text: var(--nruicolor-dialog-light-button-fg-100);
 
   --dialog-button-text-shadow: rgba(var(--rgb-white), .4);
-  --dialog-dark-header-border: rgba(var(--rgb-white), .3);
-  --dialog-dark-console-bg: rgba(var(--rgb-white), .1);
 
   --font-serif-brand: Unna, serif;
   --font-sans-serif: Arial, sans-serif;
@@ -122,10 +129,6 @@ See:
   --notes-input-bg: rgba(var(--rgb-white), .5);
   --notes-input-bg-active: rgba(var(--rgb-white), 1);
   --notes-input-border-active: rgba(var(--rgb-black), 1);
-
-  --overlay-dark-bg: rgba(var(--rgb-black), .95);
-  --overlay-dark-text: var(--text-midlight);
-  --overlay-light-bg: rgba(var(--rgb-white), 1);
 
   --run-bg: var(--bg-light);
 
@@ -1187,7 +1190,7 @@ a.small,
   top: 0;
   z-index: var(--z-index-overlay);
 
-  background-color: var(--overlay-dark-bg);
+  background-color: var(--dialog-dark-bg);
   padding: 4.5625rem 0 1.5rem;
 }
 
@@ -1498,8 +1501,8 @@ body[data-child-is-loading='true'] {
 
 .dialog-dark,
 .dialog-dark .dialog-header {
-  background-color: var(--overlay-dark-bg);
-  color: var(--overlay-dark-text);
+  background-color: var(--dialog-dark-bg);
+  color: var(--dialog-dark-text);
 }
 
 .dialog-dark .dialog-header::after {
@@ -1514,8 +1517,8 @@ body[data-child-is-loading='true'] {
 
 .dialog-light,
 .dialog-light .dialog-header {
-  background-color: var(--overlay-light-bg);
-  color: var(--text-dark);
+  background-color: var(--dialog-light-bg);
+  color: var(--dialog-light-text);
 }
 
 .dialog-light .dialog-header::after {

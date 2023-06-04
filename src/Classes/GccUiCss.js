@@ -53,7 +53,7 @@ class GccUiCss {
   }
 
   set fixedPositionIds(fixedPositionIds) {
-    this._fixedPositionIds = GccValidate.validate(fixedPositionIds, 'Array', 'GccUiCss.fixedPositionIds');
+    this._fixedPositionIds = validate(fixedPositionIds, 'Array', 'GccUiCss.fixedPositionIds');
   }
 
   /**

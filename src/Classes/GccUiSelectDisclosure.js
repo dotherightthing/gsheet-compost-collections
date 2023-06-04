@@ -98,7 +98,7 @@ class GccUiSelectDisclosure {
   }
 
   set closeOnSelect(closeOnSelect) {
-    this._closeOnSelect = GccValidate.validate(closeOnSelect, 'boolean', 'GccUiSelectDisclosure.closeOnSelect');
+    this._closeOnSelect = validate(closeOnSelect, 'boolean', 'GccUiSelectDisclosure.closeOnSelect');
   }
 
   /**
@@ -112,7 +112,7 @@ class GccUiSelectDisclosure {
   }
 
   set closeOnSelectDelay(closeOnSelectDelay) {
-    this._closeOnSelectDelay = GccValidate.validate(closeOnSelectDelay, 'number', 'GccUiSelectDisclosure.closeOnSelectDelay');
+    this._closeOnSelectDelay = validate(closeOnSelectDelay, 'number', 'GccUiSelectDisclosure.closeOnSelectDelay');
   }
 
   /**
@@ -140,7 +140,7 @@ class GccUiSelectDisclosure {
   }
 
   set triggerClass(triggerClass) {
-    this._triggerClass = GccValidate.validate(triggerClass, 'string1', 'GccUiSelectDisclosure.triggerClass');
+    this._triggerClass = validate(triggerClass, 'string1', 'GccUiSelectDisclosure.triggerClass');
   }
 
   /* Instance methods */

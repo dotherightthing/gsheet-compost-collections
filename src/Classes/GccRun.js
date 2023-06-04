@@ -74,7 +74,7 @@ class GccRun {
   }
 
   set abbreviations(abbreviations) {
-    this._abbreviations = GccValidate.validate(abbreviations, 'Array', 'GccRun.abbreviations');
+    this._abbreviations = validate(abbreviations, 'Array', 'GccRun.abbreviations');
   }
 
   /**
@@ -88,7 +88,7 @@ class GccRun {
   }
 
   set collectionDateFlags(collectionDateFlags) {
-    this._collectionDateFlags = GccValidate.validate(collectionDateFlags, 'Array', 'GccRun.collectionDateFlags');
+    this._collectionDateFlags = validate(collectionDateFlags, 'Array', 'GccRun.collectionDateFlags');
   }
 
   /**
@@ -102,7 +102,7 @@ class GccRun {
   }
 
   set collectionMapLocale(collectionMapLocale) {
-    this._collectionMapLocale = GccValidate.validate(collectionMapLocale, 'string1', 'GccRun.collectionMapLocale');
+    this._collectionMapLocale = validate(collectionMapLocale, 'string1', 'GccRun.collectionMapLocale');
   }
 
   /**
@@ -116,7 +116,7 @@ class GccRun {
   }
 
   set containerCapacities(containerCapacities) {
-    this._containerCapacities = GccValidate.validate(containerCapacities, 'Array', 'GccRun.containerCapacities');
+    this._containerCapacities = validate(containerCapacities, 'Array', 'GccRun.containerCapacities');
   }
 
   /**
@@ -130,7 +130,7 @@ class GccRun {
   }
 
   set containerNonVolumes(containerNonVolumes) {
-    this._containerNonVolumes = GccValidate.validate(containerNonVolumes, 'Array', 'GccRun.containerNonVolumes');
+    this._containerNonVolumes = validate(containerNonVolumes, 'Array', 'GccRun.containerNonVolumes');
   }
 
   /**
@@ -144,7 +144,7 @@ class GccRun {
   }
 
   set containerTypes(containerTypes) {
-    this._containerTypes = GccValidate.validate(containerTypes, 'Array', 'GccRun.containerTypes');
+    this._containerTypes = validate(containerTypes, 'Array', 'GccRun.containerTypes');
   }
 
   /**
@@ -158,7 +158,7 @@ class GccRun {
   }
 
   set containerVolumeFractions(containerVolumeFractions) {
-    this._containerVolumeFractions = GccValidate.validate(containerVolumeFractions, 'Array', 'GccRun.containerVolumeFractions');
+    this._containerVolumeFractions = validate(containerVolumeFractions, 'Array', 'GccRun.containerVolumeFractions');
   }
 
   /**
@@ -172,7 +172,7 @@ class GccRun {
   }
 
   set name(name) {
-    this._name = GccValidate.validate(name, 'string1', 'GccRun.name');
+    this._name = validate(name, 'string1', 'GccRun.name');
   }
 
   /**
@@ -186,7 +186,7 @@ class GccRun {
   }
 
   set nextRunName(nextRunName) {
-    this._nextRunName = GccValidate.validate(nextRunName, 'string1|null', 'GccRun.nextRunName');
+    this._nextRunName = validate(nextRunName, 'string1|null', 'GccRun.nextRunName');
   }
 
   /**
@@ -200,7 +200,7 @@ class GccRun {
   }
 
   set runBlankRowsAfter(runBlankRowsAfter) {
-    this._runBlankRowsAfter = GccValidate.validate(runBlankRowsAfter, 'number', 'GccRun.runBlankRowsAfter');
+    this._runBlankRowsAfter = validate(runBlankRowsAfter, 'number', 'GccRun.runBlankRowsAfter');
   }
 
   /**
@@ -214,7 +214,7 @@ class GccRun {
   }
 
   set runBounds(runBounds) {
-    const runBoundsValid = GccValidate.validate(runBounds, 'object', 'GccRun.runBounds');
+    const runBoundsValid = validate(runBounds, 'object', 'GccRun.runBounds');
 
     this._runBounds = { ...runBoundsValid };
   }
@@ -230,7 +230,7 @@ class GccRun {
   }
 
   set runGroup(runGroup) {
-    this._runGroup = GccValidate.validate(runGroup, 'object', 'GccRun.runGroup');
+    this._runGroup = validate(runGroup, 'object', 'GccRun.runGroup');
   }
 
   /* Instance methods */
@@ -242,8 +242,8 @@ class GccRun {
    * @memberof GccRun
    */
   cacheInstance() {
-    const obj = GccValidate.validate(this, 'object', 'GccRun.cacheInstance');
-    const cacheKey = `run-${GccUtils.stringToId(this.name)}`;
+    const obj = validate(this, 'object', 'GccRun.cacheInstance');
+    const cacheKey = `run-${stringToId(this.name)}`;
 
     GccCache.setCacheItem(cacheKey, obj);
   }
@@ -547,7 +547,7 @@ class GccRun {
    * @static
    */
   static getInstanceFromCache(runName) {
-    const cacheKey = `run-${GccUtils.stringToId(runName)}`;
+    const cacheKey = `run-${stringToId(runName)}`;
     const cachedObj = GccCache.getCacheItem(cacheKey);
 
     if (cachedObj === null) {

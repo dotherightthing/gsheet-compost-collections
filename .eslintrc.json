@@ -34,7 +34,6 @@
     "GccTest": "readonly",
     "GccUser": "readonly",
     "GccUtils": "readonly",
-    "GccValidate": "readonly",
     "GccUi": "readonly",
     "GccUiCollection": "readonly",
     "GccUiCss": "readonly",
@@ -52,7 +51,11 @@
     "gccInit": "readonly",
     "gccInitUnitTests": "readonly",
     "sinon": "readonly",
-    "QUnit": "readonly"
+    "QUnit": "readonly",
+    "isObject": "readonly",
+    "stringToCapitalised": "readonly",
+    "stringToId": "readonly",
+    "validate": "readonly"
   },
   "ignorePatterns": [
     "node_modules/"

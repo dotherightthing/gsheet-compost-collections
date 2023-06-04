@@ -42,7 +42,7 @@ class GccUiSelectForm {
   }
 
   set id(id) {
-    this._id = GccValidate.validate(id, 'string1', 'GccUiSelectForm.id');
+    this._id = validate(id, 'string1', 'GccUiSelectForm.id');
   }
 
   /**

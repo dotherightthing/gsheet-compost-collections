@@ -89,7 +89,7 @@ class GccCollection {
   }
 
   set abbreviations(abbreviations) {
-    this._abbreviations = GccValidate.validate(abbreviations, 'Array', 'GccCollection.abbreviations');
+    this._abbreviations = validate(abbreviations, 'Array', 'GccCollection.abbreviations');
   }
 
   /**
@@ -103,7 +103,7 @@ class GccCollection {
   }
 
   set address(address) {
-    this._address = GccValidate.validate(address, 'string1', 'GccCollection.address');
+    this._address = validate(address, 'string1', 'GccCollection.address');
   }
 
   /**
@@ -117,7 +117,7 @@ class GccCollection {
   }
 
   set cancelled(cancelled) {
-    this._cancelled = GccValidate.validate(cancelled, 'boolean', 'GccCollection.cancelled');
+    this._cancelled = validate(cancelled, 'boolean', 'GccCollection.cancelled');
   }
 
   /**
@@ -131,7 +131,7 @@ class GccCollection {
   }
 
   set collect(collect) {
-    this._collect = GccValidate.validate(collect, 'boolean', 'GccCollection.collect');
+    this._collect = validate(collect, 'boolean', 'GccCollection.collect');
   }
 
   /**
@@ -145,7 +145,7 @@ class GccCollection {
   }
 
   set container(container) {
-    this._container = GccValidate.validate(container, 'object', 'GccCollection.container');
+    this._container = validate(container, 'object', 'GccCollection.container');
   }
 
   /**
@@ -159,7 +159,7 @@ class GccCollection {
   }
 
   set dateFlag(dateFlag) {
-    this._dateFlag = GccValidate.validate(dateFlag, 'string', 'GccCollection.dateFlag');
+    this._dateFlag = validate(dateFlag, 'string', 'GccCollection.dateFlag');
   }
 
   /**
@@ -173,7 +173,7 @@ class GccCollection {
   }
 
   set dateFlags(dateFlags) {
-    this._dateFlags = GccValidate.validate(dateFlags, 'Array', 'GccCollection.dateFlags');
+    this._dateFlags = validate(dateFlags, 'Array', 'GccCollection.dateFlags');
   }
 
   /**
@@ -188,7 +188,7 @@ class GccCollection {
 
   set dateValue(dateValue) {
     // must be a number (compost amount) or a string (status) or a boolean (checkbox)
-    this._dateValue = GccValidate.validate(dateValue, 'number|string|boolean', 'GccCollection.dateValue');
+    this._dateValue = validate(dateValue, 'number|string|boolean', 'GccCollection.dateValue');
   }
 
   /**
@@ -202,7 +202,7 @@ class GccCollection {
   }
 
   set collectionMapLocale(collectionMapLocale) {
-    this._collectionMapLocale = GccValidate.validate(collectionMapLocale, 'string1', 'GccCollection.collectionMapLocale');
+    this._collectionMapLocale = validate(collectionMapLocale, 'string1', 'GccCollection.collectionMapLocale');
   }
 
   /**
@@ -216,7 +216,7 @@ class GccCollection {
   }
 
   set name(name) {
-    this._name = GccValidate.validate(name, 'string1', 'GccCollection.name');
+    this._name = validate(name, 'string1', 'GccCollection.name');
   }
 
   /**
@@ -230,7 +230,7 @@ class GccCollection {
   }
 
   set onHold(onHold) {
-    this._onHold = GccValidate.validate(onHold, 'boolean', 'GccCollection.onHold');
+    this._onHold = validate(onHold, 'boolean', 'GccCollection.onHold');
   }
 
   /**
@@ -244,7 +244,7 @@ class GccCollection {
   }
 
   set notes(notes) {
-    this._notes = GccValidate.validate(notes, 'string1', 'GccCollection.notes');
+    this._notes = validate(notes, 'string1', 'GccCollection.notes');
   }
 
   /**
@@ -258,7 +258,7 @@ class GccCollection {
   }
 
   set pending(pending) {
-    this._pending = GccValidate.validate(pending, 'boolean', 'GccCollection.pending');
+    this._pending = validate(pending, 'boolean', 'GccCollection.pending');
   }
 
   /**
@@ -272,7 +272,7 @@ class GccCollection {
   }
 
   set runDate(runDate) {
-    this._runDate = GccValidate.validate(runDate, 'string1', 'GccCollection.runDate');
+    this._runDate = validate(runDate, 'string1', 'GccCollection.runDate');
   }
 
   /**
@@ -286,7 +286,7 @@ class GccCollection {
   }
 
   set runName(runName) {
-    this._runName = GccValidate.validate(runName, 'string1', 'GccCollection.runName');
+    this._runName = validate(runName, 'string1', 'GccCollection.runName');
   }
 
   /**
@@ -300,7 +300,7 @@ class GccCollection {
   }
 
   set type(type) {
-    this._type = GccValidate.validate(type, 'string1', 'GccCollection.type');
+    this._type = validate(type, 'string1', 'GccCollection.type');
   }
 
   /**
@@ -314,7 +314,7 @@ class GccCollection {
   }
 
   set typeDefinition(typeDefinition) {
-    this._typeDefinition = GccValidate.validate(typeDefinition, 'string1', 'GccCollection.typeDefinition');
+    this._typeDefinition = validate(typeDefinition, 'string1', 'GccCollection.typeDefinition');
   }
 
   /**
@@ -328,7 +328,7 @@ class GccCollection {
   }
 
   set volumesAndDateFlags(volumesAndDateFlags) {
-    this._volumesAndDateFlags = GccValidate.validate(volumesAndDateFlags, 'Array', 'GccCollection.volumesAndDateFlags');
+    this._volumesAndDateFlags = validate(volumesAndDateFlags, 'Array', 'GccCollection.volumesAndDateFlags');
   }
 
   /* Instance methods */

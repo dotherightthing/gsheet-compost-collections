@@ -78,7 +78,7 @@ class GccPage {
   }
 
   set appName(appName) {
-    this._appName = GccValidate.validate(appName, 'string1', 'GccPage.appName');
+    this._appName = validate(appName, 'string1', 'GccPage.appName');
   }
 
   /**
@@ -92,7 +92,7 @@ class GccPage {
   }
 
   set config(config) {
-    this._config = GccValidate.validate(config, 'object', 'GccPage.config');
+    this._config = validate(config, 'object', 'GccPage.config');
   }
 
   /**
@@ -106,7 +106,7 @@ class GccPage {
   }
 
   set debug(debug) {
-    this._debug = GccValidate.validate(debug, 'boolean', 'GccPage.debug');
+    this._debug = validate(debug, 'boolean', 'GccPage.debug');
   }
 
   /**
@@ -120,7 +120,7 @@ class GccPage {
   }
 
   set developerUserEmails(developerUserEmails) {
-    this._developerUserEmails = GccValidate.validate(developerUserEmails, 'Array', 'GccPage.developerUserEmails');
+    this._developerUserEmails = validate(developerUserEmails, 'Array', 'GccPage.developerUserEmails');
   }
 
   /**
@@ -134,7 +134,7 @@ class GccPage {
   }
 
   set extraCollectionsLabel(extraCollectionsLabel) {
-    this._extraCollectionsLabel = GccValidate.validate(extraCollectionsLabel, 'string1', 'GccPage.extraCollectionsLabel');
+    this._extraCollectionsLabel = validate(extraCollectionsLabel, 'string1', 'GccPage.extraCollectionsLabel');
   }
 
   /**
@@ -148,7 +148,7 @@ class GccPage {
   }
 
   set feedbackEmailBody(feedbackEmailBody) {
-    this._feedbackEmailBody = GccValidate.validate(feedbackEmailBody, 'string1', 'GccPage.feedbackEmailBody');
+    this._feedbackEmailBody = validate(feedbackEmailBody, 'string1', 'GccPage.feedbackEmailBody');
   }
 
   /**
@@ -162,7 +162,7 @@ class GccPage {
   }
 
   set helpLinks(helpLinks) {
-    this._helpLinks = GccValidate.validate(helpLinks, 'Array', 'GccPage.helpLinks');
+    this._helpLinks = validate(helpLinks, 'Array', 'GccPage.helpLinks');
   }
 
   /**
@@ -176,7 +176,7 @@ class GccPage {
   }
 
   set imageFavicon(imageFavicon) {
-    this._imageFavicon = GccValidate.validate(imageFavicon, 'string1', 'GccPage.imageFavicon');
+    this._imageFavicon = validate(imageFavicon, 'string1', 'GccPage.imageFavicon');
   }
 
   /**
@@ -190,7 +190,7 @@ class GccPage {
   }
 
   set imageLogo(imageLogo) {
-    this._imageLogo = GccValidate.validate(imageLogo, 'string1', 'GccPage.imageLogo');
+    this._imageLogo = validate(imageLogo, 'string1', 'GccPage.imageLogo');
   }
 
   /**
@@ -218,7 +218,7 @@ class GccPage {
   }
 
   set organisationName(organisationName) {
-    this._organisationName = GccValidate.validate(organisationName, 'string1', 'GccPage.organisationName');
+    this._organisationName = validate(organisationName, 'string1', 'GccPage.organisationName');
   }
 
   /**
@@ -252,7 +252,7 @@ class GccPage {
   }
 
   set pageTitle(pageTitle) {
-    this._pageTitle = GccValidate.validate(pageTitle, 'string1', 'GccPage.pageTitle');
+    this._pageTitle = validate(pageTitle, 'string1', 'GccPage.pageTitle');
   }
 
   /**
@@ -266,7 +266,7 @@ class GccPage {
   }
 
   set runGroups(runGroups) {
-    this._runGroups = GccValidate.validate(runGroups, 'Array', 'GccPage.runGroups');
+    this._runGroups = validate(runGroups, 'Array', 'GccPage.runGroups');
   }
 
   /* Instance methods */

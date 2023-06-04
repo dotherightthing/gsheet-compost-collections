@@ -3,3 +3,4 @@ creds.json
 node_modules
 src/Htmlified
 src/_Help
+src/Dependencies

@@ -155,7 +155,7 @@ class GccUiCollection {
   }
 
   set abbreviations(abbreviations) {
-    this._abbreviations = GccValidate.validate(abbreviations, 'Array', 'GccUiCollection.abbreviations');
+    this._abbreviations = validate(abbreviations, 'Array', 'GccUiCollection.abbreviations');
   }
 
   /**
@@ -169,7 +169,7 @@ class GccUiCollection {
   }
 
   set address(address) {
-    this._address = GccValidate.validate(address, 'string1', 'GccUiCollection.address');
+    this._address = validate(address, 'string1', 'GccUiCollection.address');
   }
 
   /**
@@ -183,7 +183,7 @@ class GccUiCollection {
   }
 
   set cancelled(cancelled) {
-    this._cancelled = GccValidate.validate(cancelled, 'boolean', 'GccUiCollection.cancelled');
+    this._cancelled = validate(cancelled, 'boolean', 'GccUiCollection.cancelled');
   }
 
   /**
@@ -197,7 +197,7 @@ class GccUiCollection {
   }
 
   set collect(collect) {
-    this._collect = GccValidate.validate(collect, 'boolean', 'GccUiCollection.collect');
+    this._collect = validate(collect, 'boolean', 'GccUiCollection.collect');
   }
 
   /**
@@ -211,7 +211,7 @@ class GccUiCollection {
   }
 
   set collectionMapLocale(collectionMapLocale) {
-    this._collectionMapLocale = GccValidate.validate(collectionMapLocale, 'string1', 'GccUiCollection.collectionMapLocale');
+    this._collectionMapLocale = validate(collectionMapLocale, 'string1', 'GccUiCollection.collectionMapLocale');
   }
 
   /**
@@ -225,7 +225,7 @@ class GccUiCollection {
   }
 
   set collectionStatus(collectionStatus) {
-    this._collectionStatus = GccValidate.validate(collectionStatus, 'string1', 'GccUiCollection.collectionStatus');
+    this._collectionStatus = validate(collectionStatus, 'string1', 'GccUiCollection.collectionStatus');
   }
 
   /**
@@ -240,7 +240,7 @@ class GccUiCollection {
 
   set containerQuantity(containerQuantity) {
     const validateIf = (this.type !== 'X');
-    this._containerQuantity = GccValidate.validate(containerQuantity, 'number', 'GccUiCollection.containerQuantity', validateIf);
+    this._containerQuantity = validate(containerQuantity, 'number', 'GccUiCollection.containerQuantity', validateIf);
   }
 
   /**
@@ -255,7 +255,7 @@ class GccUiCollection {
 
   set containerType(containerType) {
     const validateIf = (this.type !== 'X');
-    this._containerType = GccValidate.validate(containerType, 'string1', 'GccUiCollection.containerType', validateIf);
+    this._containerType = validate(containerType, 'string1', 'GccUiCollection.containerType', validateIf);
   }
 
   /**
@@ -269,7 +269,7 @@ class GccUiCollection {
   }
 
   set dateFlag(dateFlag) {
-    this._dateFlag = GccValidate.validate(dateFlag, 'string', 'GccUiCollection.dateFlag');
+    this._dateFlag = validate(dateFlag, 'string', 'GccUiCollection.dateFlag');
   }
 
   /**
@@ -284,7 +284,7 @@ class GccUiCollection {
 
   set dateValue(dateValue) {
     // must be a number (compost amount) or a string (status) or a boolean (checkbox)
-    this._dateValue = GccValidate.validate(dateValue, 'number|string|boolean', 'GccUiCollection.dateValue');
+    this._dateValue = validate(dateValue, 'number|string|boolean', 'GccUiCollection.dateValue');
   }
 
   /**
@@ -298,7 +298,7 @@ class GccUiCollection {
   }
 
   set index(index) {
-    this._index = GccValidate.validate(index, 'number', 'GccUiCollection.index');
+    this._index = validate(index, 'number', 'GccUiCollection.index');
   }
 
   /**
@@ -312,7 +312,7 @@ class GccUiCollection {
   }
 
   set groupActiveIndex(groupActiveIndex) {
-    this._groupActiveIndex = GccValidate.validate(groupActiveIndex, 'number', 'GccUiCollection.groupActiveIndex');
+    this._groupActiveIndex = validate(groupActiveIndex, 'number', 'GccUiCollection.groupActiveIndex');
   }
 
   /**
@@ -326,7 +326,7 @@ class GccUiCollection {
   }
 
   set groupTotal(groupTotal) {
-    this._groupTotal = GccValidate.validate(groupTotal, 'number', 'GccUiCollection.groupTotal');
+    this._groupTotal = validate(groupTotal, 'number', 'GccUiCollection.groupTotal');
   }
 
   /**
@@ -340,7 +340,7 @@ class GccUiCollection {
   }
 
   set name(name) {
-    this._name = GccValidate.validate(name, 'string1', 'GccUiCollection.name');
+    this._name = validate(name, 'string1', 'GccUiCollection.name');
   }
 
   /**
@@ -354,7 +354,7 @@ class GccUiCollection {
   }
 
   set notes(notes) {
-    this._notes = GccValidate.validate(notes, 'string1', 'GccUiCollection.notes');
+    this._notes = validate(notes, 'string1', 'GccUiCollection.notes');
   }
 
   /**
@@ -368,7 +368,7 @@ class GccUiCollection {
   }
 
   set onHold(onHold) {
-    this._onHold = GccValidate.validate(onHold, 'boolean', 'GccUiCollection.onHold');
+    this._onHold = validate(onHold, 'boolean', 'GccUiCollection.onHold');
   }
 
   /**
@@ -382,7 +382,7 @@ class GccUiCollection {
   }
 
   set pending(pending) {
-    this._pending = GccValidate.validate(pending, 'boolean', 'GccUiCollection.pending');
+    this._pending = validate(pending, 'boolean', 'GccUiCollection.pending');
   }
 
   /**
@@ -396,7 +396,7 @@ class GccUiCollection {
   }
 
   set runDate(runDate) {
-    this._runDate = GccValidate.validate(runDate, 'string1', 'GccUiCollection.runDate');
+    this._runDate = validate(runDate, 'string1', 'GccUiCollection.runDate');
   }
 
   /**
@@ -410,7 +410,7 @@ class GccUiCollection {
   }
 
   set runName(runName) {
-    this._runName = GccValidate.validate(runName, 'string1', 'GccUiCollection.runName');
+    this._runName = validate(runName, 'string1', 'GccUiCollection.runName');
   }
 
   /**
@@ -424,7 +424,7 @@ class GccUiCollection {
   }
 
   set type(type) {
-    this._type = GccValidate.validate(type, 'string1', 'GccUiCollection.type');
+    this._type = validate(type, 'string1', 'GccUiCollection.type');
   }
 
   /**
@@ -438,7 +438,7 @@ class GccUiCollection {
   }
 
   set typeDefinition(typeDefinition) {
-    this._typeDefinition = GccValidate.validate(typeDefinition, 'string1', 'GccUiCollection.typeDefinition');
+    this._typeDefinition = validate(typeDefinition, 'string1', 'GccUiCollection.typeDefinition');
   }
 
   /**
@@ -452,7 +452,7 @@ class GccUiCollection {
   }
 
   set volumesAndDateFlags(volumesAndDateFlags) {
-    this._volumesAndDateFlags = GccValidate.validate(volumesAndDateFlags, 'null|Array', 'GccUiCollection.volumesAndDateFlags');
+    this._volumesAndDateFlags = validate(volumesAndDateFlags, 'null|Array', 'GccUiCollection.volumesAndDateFlags');
   }
 
   /* Instance methods */
@@ -849,7 +849,7 @@ class GccUiCollection {
       html += `<div class="notes" id="${notesId}-container">`;
 
       if (dateFlag !== '') {
-        const dateFlagId = GccUtils.stringToId(dateFlag);
+        const dateFlagId = stringToId(dateFlag);
 
         html += `<p>
           <span class="date-flag smaller color-${dateFlagId}-bg color-${dateFlagId}-fg">${dateFlag}</span>
@@ -1077,7 +1077,7 @@ class GccUiCollection {
       value = '';
     }
 
-    const valueId = GccUtils.stringToId(value);
+    const valueId = stringToId(value);
     const selectors = [
       {
         cssClass: 'fieldset-liner',

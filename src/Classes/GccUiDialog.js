@@ -78,7 +78,7 @@ class GccUiDialog {
   }
 
   set cacheClearButtonId(cacheClearButtonId) {
-    this._cacheClearButtonId = GccValidate.validate(cacheClearButtonId, 'string1', 'GccUiDialog.cacheClearButtonId');
+    this._cacheClearButtonId = validate(cacheClearButtonId, 'string1', 'GccUiDialog.cacheClearButtonId');
   }
 
   /**
@@ -92,7 +92,7 @@ class GccUiDialog {
   }
 
   set cacheLogButtonId(cacheLogButtonId) {
-    this._cacheLogButtonId = GccValidate.validate(cacheLogButtonId, 'string1', 'GccUiDialog.cacheLogButtonId');
+    this._cacheLogButtonId = validate(cacheLogButtonId, 'string1', 'GccUiDialog.cacheLogButtonId');
   }
 
   /**
@@ -106,7 +106,7 @@ class GccUiDialog {
   }
 
   set closeClass(closeClass) {
-    this._closeClass = GccValidate.validate(closeClass, 'string1', 'GccUiDialog.closeClass');
+    this._closeClass = validate(closeClass, 'string1', 'GccUiDialog.closeClass');
   }
 
   /**
@@ -120,7 +120,7 @@ class GccUiDialog {
   }
 
   set componentClass(componentClass) {
-    this._componentClass = GccValidate.validate(componentClass, 'string1', 'GccUiDialog.componentClass');
+    this._componentClass = validate(componentClass, 'string1', 'GccUiDialog.componentClass');
   }
 
   /**
@@ -134,7 +134,7 @@ class GccUiDialog {
   }
 
   set consoleContainerId(consoleContainerId) {
-    this._consoleContainerId = GccValidate.validate(consoleContainerId, 'string1', 'GccUiDialog.consoleContainerId');
+    this._consoleContainerId = validate(consoleContainerId, 'string1', 'GccUiDialog.consoleContainerId');
   }
 
   /**
@@ -148,7 +148,7 @@ class GccUiDialog {
   }
 
   set endClass(endClass) {
-    this._endClass = GccValidate.validate(endClass, 'string1', 'GccUiDialog.endClass');
+    this._endClass = validate(endClass, 'string1', 'GccUiDialog.endClass');
   }
 
   /**
@@ -162,7 +162,7 @@ class GccUiDialog {
   }
 
   set erudaScriptId(erudaScriptId) {
-    this._erudaScriptId = GccValidate.validate(erudaScriptId, 'string1', 'GccUiDialog.erudaScriptId');
+    this._erudaScriptId = validate(erudaScriptId, 'string1', 'GccUiDialog.erudaScriptId');
   }
 
   /**
@@ -176,7 +176,7 @@ class GccUiDialog {
   }
 
   set focusableSelector(focusableSelector) {
-    this._focusableSelector = GccValidate.validate(focusableSelector, 'string1', 'GccUiDialog.focusableSelector');
+    this._focusableSelector = validate(focusableSelector, 'string1', 'GccUiDialog.focusableSelector');
   }
 
   /**
@@ -204,7 +204,7 @@ class GccUiDialog {
   }
 
   set parentDataAttr(parentDataAttr) {
-    this._parentDataAttr = GccValidate.validate(parentDataAttr, 'string1', 'GccUiDialog.parentDataAttr');
+    this._parentDataAttr = validate(parentDataAttr, 'string1', 'GccUiDialog.parentDataAttr');
   }
 
   /**
@@ -218,7 +218,7 @@ class GccUiDialog {
   }
 
   set startClass(startClass) {
-    this._startClass = GccValidate.validate(startClass, 'string1', 'GccUiDialog.startClass');
+    this._startClass = validate(startClass, 'string1', 'GccUiDialog.startClass');
   }
 
   /**
@@ -232,7 +232,7 @@ class GccUiDialog {
   }
 
   set triggerClass(triggerClass) {
-    this._triggerClass = GccValidate.validate(triggerClass, 'string1', 'GccUiDialog.triggerClass');
+    this._triggerClass = validate(triggerClass, 'string1', 'GccUiDialog.triggerClass');
   }
 
   /**
@@ -246,7 +246,7 @@ class GccUiDialog {
   }
 
   set updateDateValidationId(updateDateValidationId) {
-    this._updateDateValidationId = GccValidate.validate(updateDateValidationId, 'string1', 'GccUiDialog.updateDateValidationId');
+    this._updateDateValidationId = validate(updateDateValidationId, 'string1', 'GccUiDialog.updateDateValidationId');
   }
 
   /* Instance methods */

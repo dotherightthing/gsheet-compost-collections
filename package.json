@@ -10,11 +10,11 @@
     "man": "npx jsdoc2md --template ./templates/MAN.hbs --files ./src/**/*.js* ./demo/**/*.js* > ./MAN.md",
     "openEditor": "npm run push && npx clasp open",
     "openPreview": "npm run push && npx clasp open --webapp --deploymentId $npm_package_config_headDeploymentId",
-    "postinstall": "node ./scripts/htmlify.js",
+    "postinstall": "node ./scripts/copyDependencies.js && node ./scripts/htmlify.js",
     "prepare": "husky install",
     "prepareTest": "node scripts/prepareTest.js",
     "publish": "npm run prepareTest --test=false && ./scripts/publish.sh ${npm_package_config_pubDeploymentId} \"${npm_config_gccmessage}\" && npm run prepareTest --test=true",
-    "push": "npm run timestamp && node ./scripts/htmlify.js && npm run helpHtml && npx clasp push",
+    "push": "npm run timestamp && node ./scripts/copyDependencies.js  && node ./scripts/htmlify.js && npm run helpHtml && npx clasp push",
     "timestamp": "node ./scripts/timestamp.js"
   },
   "repository": {
@@ -53,8 +53,22 @@
     "stylelint-selector-bem-pattern": "^2.1.1"
   },
   "config": {
+    "dependencies": {
+      "node_modules/dtrt-string-utils": [
+        "dtrt-string-utils.mjs"
+      ],
+      "node_modules/dtrt-type-validate": [
+        "dtrt-type-validate.mjs"
+      ]
+    },
     "pubDeploymentId": "",
     "htmlify": {
+      "node_modules/dtrt-string-utils": [
+        "dtrt-string-utils.mjs"
+      ],
+      "node_modules/dtrt-type-validate": [
+        "dtrt-type-validate.mjs"
+      ],
       "node_modules/pubsub.js": [
         "pubsub.js"
       ],
@@ -91,8 +105,7 @@
         "GccUiSelectForm.js",
         "GccUser.js",
         "GccTest.js",
-        "GccUtils.js",
-        "GccValidate.js"
+        "GccUtils.js"
       ]
     },
     "testDependency": {
@@ -102,6 +115,8 @@
     }
   },
   "dependencies": {
+    "dtrt-string-utils": "github:dotherightthing/dtrt-string-utils",
+    "dtrt-type-validate": "github:dotherightthing/dtrt-type-validate",
     "open": "^8.4.0",
     "pubsub.js": "^1.5.2"
   }

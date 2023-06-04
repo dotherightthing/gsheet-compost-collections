@@ -64,7 +64,7 @@ class GccEnv {
   }
 
   set containerBoundAppScriptId(containerBoundAppScriptId) {
-    this._containerBoundAppScriptId = GccValidate.validate(containerBoundAppScriptId, 'string1', 'GccEnv.containerBoundAppScriptId');
+    this._containerBoundAppScriptId = validate(containerBoundAppScriptId, 'string1', 'GccEnv.containerBoundAppScriptId');
   }
 
   /**
@@ -78,7 +78,7 @@ class GccEnv {
   }
 
   set developerUserEmails(developerUserEmails) {
-    this._developerUserEmails = GccValidate.validate(developerUserEmails, 'Array', 'GccEnv.developerUserEmails');
+    this._developerUserEmails = validate(developerUserEmails, 'Array', 'GccEnv.developerUserEmails');
   }
 
   /**
@@ -93,7 +93,7 @@ class GccEnv {
   }
 
   set env(env) {
-    this._env = GccValidate.validate(env, 'object', 'GccEnv.env');
+    this._env = validate(env, 'object', 'GccEnv.env');
   }
 
   /**
@@ -107,7 +107,7 @@ class GccEnv {
   }
 
   set headDeploymentId(headDeploymentId) {
-    this._headDeploymentId = GccValidate.validate(headDeploymentId, 'string1', 'GccEnv.headDeploymentId');
+    this._headDeploymentId = validate(headDeploymentId, 'string1', 'GccEnv.headDeploymentId');
   }
 
   /**
@@ -135,7 +135,7 @@ class GccEnv {
   }
 
   set pubDeploymentId(pubDeploymentId) {
-    this._pubDeploymentId = GccValidate.validate(pubDeploymentId, 'string1', 'GccEnv.pubDeploymentId');
+    this._pubDeploymentId = validate(pubDeploymentId, 'string1', 'GccEnv.pubDeploymentId');
   }
 
   /**
@@ -149,7 +149,7 @@ class GccEnv {
   }
 
   set spreadsheetId(spreadsheetId) {
-    this._spreadsheetId = GccValidate.validate(spreadsheetId, 'string1', 'GccEnv.spreadsheetId');
+    this._spreadsheetId = validate(spreadsheetId, 'string1', 'GccEnv.spreadsheetId');
   }
 
   /**
@@ -163,7 +163,7 @@ class GccEnv {
   }
 
   set standaloneAppScriptId(standaloneAppScriptId) {
-    this._standaloneAppScriptId = GccValidate.validate(standaloneAppScriptId, 'string1', 'GccEnv.standaloneAppScriptId');
+    this._standaloneAppScriptId = validate(standaloneAppScriptId, 'string1', 'GccEnv.standaloneAppScriptId');
   }
 
   /* Instance methods */

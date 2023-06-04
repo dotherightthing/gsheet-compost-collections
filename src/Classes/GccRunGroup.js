@@ -44,7 +44,7 @@ class GccRunGroup {
     this.dateHeaderRangeA1Notation = this.getDateHeadersRange('a1Notation');
     this.dateHeaders = this.getDateHeaders();
     this.dateHeadersFormatted = this.getDateHeaders(true);
-    this.id = GccUtils.stringToId(config.sheetName);
+    this.id = stringToId(config.sheetName);
 
     this.cacheInstance();
   }
@@ -62,7 +62,7 @@ class GccRunGroup {
   }
 
   set columnHeaderIndices(columnHeaderIndices) {
-    this._columnHeaderIndices = GccValidate.validate(columnHeaderIndices, 'object', 'GccRunGroup.columnHeaderIndices');
+    this._columnHeaderIndices = validate(columnHeaderIndices, 'object', 'GccRunGroup.columnHeaderIndices');
   }
 
   /**
@@ -76,7 +76,7 @@ class GccRunGroup {
   }
 
   set columnHeaderRowIndex(columnHeaderRowIndex) {
-    this._columnHeaderRowIndex = GccValidate.validate(columnHeaderRowIndex, 'number', 'GccRunGroup.columnHeaderRowIndex');
+    this._columnHeaderRowIndex = validate(columnHeaderRowIndex, 'number', 'GccRunGroup.columnHeaderRowIndex');
   }
 
   /**
@@ -90,7 +90,7 @@ class GccRunGroup {
   }
 
   set dateHeaderRangeA1Notation(dateHeaderRangeA1Notation) {
-    this._dateHeaderRangeA1Notation = GccValidate.validate(dateHeaderRangeA1Notation, 'string1', 'GccRunGroup.dateHeaderRangeA1Notation');
+    this._dateHeaderRangeA1Notation = validate(dateHeaderRangeA1Notation, 'string1', 'GccRunGroup.dateHeaderRangeA1Notation');
   }
 
   /**
@@ -104,7 +104,7 @@ class GccRunGroup {
   }
 
   set dateHeaders(dateHeaders) {
-    this._dateHeaders = GccValidate.validate(dateHeaders, 'Array', 'GccRunGroup.dateHeaders');
+    this._dateHeaders = validate(dateHeaders, 'Array', 'GccRunGroup.dateHeaders');
   }
 
   /**
@@ -118,7 +118,7 @@ class GccRunGroup {
   }
 
   set dateHeadersFormatted(dateHeadersFormatted) {
-    this._dateHeadersFormatted = GccValidate.validate(dateHeadersFormatted, 'Array', 'GccRunGroup.dateHeadersFormatted');
+    this._dateHeadersFormatted = validate(dateHeadersFormatted, 'Array', 'GccRunGroup.dateHeadersFormatted');
   }
 
   /**
@@ -132,7 +132,7 @@ class GccRunGroup {
   }
 
   set footer(footer) {
-    this._footer = GccValidate.validate(footer, 'string1', 'GccRunGroup.footer');
+    this._footer = validate(footer, 'string1', 'GccRunGroup.footer');
   }
 
   /**
@@ -146,7 +146,7 @@ class GccRunGroup {
   }
 
   set id(id) {
-    this._id = GccValidate.validate(id, 'string1', 'GccRunGroup.id');
+    this._id = validate(id, 'string1', 'GccRunGroup.id');
   }
 
   /**
@@ -160,7 +160,7 @@ class GccRunGroup {
   }
 
   set preRunExtras(preRunExtras) {
-    this._preRunExtras = GccValidate.validate(preRunExtras, 'string1', 'GccRunGroup.preRunExtras');
+    this._preRunExtras = validate(preRunExtras, 'string1', 'GccRunGroup.preRunExtras');
   }
 
   /**
@@ -174,7 +174,7 @@ class GccRunGroup {
   }
 
   set postRunExtras(postRunExtras) {
-    this._postRunExtras = GccValidate.validate(postRunExtras, 'string1', 'GccRunGroup.postRunExtras');
+    this._postRunExtras = validate(postRunExtras, 'string1', 'GccRunGroup.postRunExtras');
   }
 
   /**
@@ -188,7 +188,7 @@ class GccRunGroup {
   }
 
   set runNames(runNames) {
-    this._runNames = GccValidate.validate(runNames, 'Array', 'GccRunGroup.runNames');
+    this._runNames = validate(runNames, 'Array', 'GccRunGroup.runNames');
   }
 
   /**
@@ -202,7 +202,7 @@ class GccRunGroup {
   }
 
   set sheetName(sheetName) {
-    this._sheetName = GccValidate.validate(sheetName, 'string1', 'GccRunGroup.sheetName');
+    this._sheetName = validate(sheetName, 'string1', 'GccRunGroup.sheetName');
   }
 
   /* Instance methods */
@@ -214,8 +214,8 @@ class GccRunGroup {
    * @memberof GccRunGroup
    */
   cacheInstance() {
-    const obj = GccValidate.validate(this, 'object', 'GccRunGroup.cacheInstance');
-    const cacheKey = `run-group-${GccUtils.stringToId(this.sheetName)}`;
+    const obj = validate(this, 'object', 'GccRunGroup.cacheInstance');
+    const cacheKey = `run-group-${stringToId(this.sheetName)}`;
 
     GccCache.setCacheItem(cacheKey, obj);
   }
@@ -457,7 +457,7 @@ class GccRunGroup {
    * @static
    */
   static getInstanceFromCache(runGroupName) {
-    const cacheKey = `run-group-${GccUtils.stringToId(runGroupName)}`;
+    const cacheKey = `run-group-${stringToId(runGroupName)}`;
     const cachedObj = GccCache.getCacheItem(cacheKey);
 
     if (cachedObj === null) {

@@ -44,6 +44,45 @@
 ## Functions
 
 <dl>
+<dt><a href="#getIndefiniteArticle">getIndefiniteArticle(str)</a> ⇒ <code>string</code></dt>
+<dd><p>getIndefiniteArticle</p>
+</dd>
+<dt><a href="#stringToCapitalised">stringToCapitalised(str)</a> ⇒ <code>string</code></dt>
+<dd><p>stringToCapitalised</p>
+</dd>
+<dt><a href="#stringToId">stringToId(str)</a> ⇒ <code>string</code></dt>
+<dd><p>stringToId</p>
+</dd>
+<dt><a href="#errorMessage">errorMessage(value, types, identifier)</a></dt>
+<dd><p>errorMessage</p>
+</dd>
+<dt><a href="#isArray">isArray(value)</a> ⇒ <code>boolean</code></dt>
+<dd><p>isArray</p>
+</dd>
+<dt><a href="#isBoolean">isBoolean(value)</a> ⇒ <code>boolean</code></dt>
+<dd><p>isBoolean</p>
+</dd>
+<dt><a href="#isNull">isNull(value)</a> ⇒ <code>boolean</code></dt>
+<dd><p>isNull</p>
+</dd>
+<dt><a href="#isNumber">isNumber(value)</a> ⇒ <code>boolean</code></dt>
+<dd><p>isNumber</p>
+</dd>
+<dt><a href="#isObject">isObject(value)</a> ⇒ <code>boolean</code></dt>
+<dd><p>isObject</p>
+</dd>
+<dt><a href="#isString">isString(value)</a> ⇒ <code>boolean</code></dt>
+<dd><p>isString</p>
+</dd>
+<dt><a href="#isString1">isString1(value)</a> ⇒ <code>boolean</code></dt>
+<dd><p>isString1</p>
+</dd>
+<dt><a href="#isStringNumber">isStringNumber(value)</a> ⇒ <code>boolean</code></dt>
+<dd><p>isStringNumber</p>
+</dd>
+<dt><a href="#validate">validate(value, type, identifier, condition)</a> ⇒ <code>*</code></dt>
+<dd><p>validate</p>
+</dd>
 <dt><a href="#doGet">doGet(e)</a> ⇒ <code>*</code></dt>
 <dd><p>doGet</p>
 </dd>
@@ -3757,6 +3796,179 @@ getInstance
 | Param | Type | Description |
 | --- | --- | --- |
 | config | <code>object</code> | Config |
+
+<a name="getIndefiniteArticle"></a>
+
+## getIndefiniteArticle(str) ⇒ <code>string</code>
+getIndefiniteArticle
+
+**Kind**: global function  
+**Summary**: Get the appropriate indefinite article for the specified string  
+**Returns**: <code>string</code> - indefiniteArticle  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| str | <code>string</code> | String |
+
+<a name="stringToCapitalised"></a>
+
+## stringToCapitalised(str) ⇒ <code>string</code>
+stringToCapitalised
+
+**Kind**: global function  
+**Summary**: Capitalise a string  
+**Returns**: <code>string</code> - capitalisedStr  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| str | <code>string</code> | String to convert |
+
+<a name="stringToId"></a>
+
+## stringToId(str) ⇒ <code>string</code>
+stringToId
+
+**Kind**: global function  
+**Summary**: Convert a string into a form safe for use as an HTML id attribute.  
+**Returns**: <code>string</code> - safeStr  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| str | <code>string</code> | String to convert |
+
+<a name="errorMessage"></a>
+
+## errorMessage(value, types, identifier)
+errorMessage
+
+**Kind**: global function  
+**Summary**: Generate a validation error message.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>\*</code> | Value to validate |
+| types | <code>Array</code> | Expected type(s) |
+| identifier | <code>string</code> | Label to use in error message |
+
+<a name="isArray"></a>
+
+## isArray(value) ⇒ <code>boolean</code>
+isArray
+
+**Kind**: global function  
+**Summary**: Validate that a value is an array  
+**Returns**: <code>boolean</code> - valid  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>\*</code> | Value to validate |
+
+<a name="isBoolean"></a>
+
+## isBoolean(value) ⇒ <code>boolean</code>
+isBoolean
+
+**Kind**: global function  
+**Summary**: Validate that a value is a boolean  
+**Returns**: <code>boolean</code> - valid  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>\*</code> | Value to validate |
+
+<a name="isNull"></a>
+
+## isNull(value) ⇒ <code>boolean</code>
+isNull
+
+**Kind**: global function  
+**Summary**: Validate that a value is null  
+**Returns**: <code>boolean</code> - valid  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>\*</code> | Value to validate |
+
+<a name="isNumber"></a>
+
+## isNumber(value) ⇒ <code>boolean</code>
+isNumber
+
+**Kind**: global function  
+**Summary**: Validate that a value is a number  
+**Returns**: <code>boolean</code> - valid  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>\*</code> | Value to validate |
+
+<a name="isObject"></a>
+
+## isObject(value) ⇒ <code>boolean</code>
+isObject
+
+**Kind**: global function  
+**Summary**: Validate that a value is an object  
+**Returns**: <code>boolean</code> - valid  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>\*</code> | Value to validate |
+
+<a name="isString"></a>
+
+## isString(value) ⇒ <code>boolean</code>
+isString
+
+**Kind**: global function  
+**Summary**: Validate that a value is a string (even an empty one)  
+**Returns**: <code>boolean</code> - valid  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>\*</code> | Value to validate |
+
+<a name="isString1"></a>
+
+## isString1(value) ⇒ <code>boolean</code>
+isString1
+
+**Kind**: global function  
+**Summary**: Validate that a value is a string of at least one character in length  
+**Returns**: <code>boolean</code> - valid  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>\*</code> | Value to validate |
+
+<a name="isStringNumber"></a>
+
+## isStringNumber(value) ⇒ <code>boolean</code>
+isStringNumber
+
+**Kind**: global function  
+**Summary**: Validate that a value is a number  
+**Returns**: <code>boolean</code> - valid  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>\*</code> | Value to validate |
+
+<a name="validate"></a>
+
+## validate(value, type, identifier, condition) ⇒ <code>\*</code>
+validate
+
+**Kind**: global function  
+**Summary**: Validate a value against a type.  
+**Returns**: <code>\*</code> - value  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | <code>\*</code> |  | Value to validate |
+| type | <code>string</code> |  | Expected type |
+| identifier | <code>string</code> |  | Label to use in error message |
+| condition | <code>boolean</code> | <code>true</code> | Validate if condition is true |
 
 <a name="doGet"></a>
 

@@ -82,6 +82,8 @@
         tplVersionHistory: GccPage.include('Partials/VersionHistory.part'),
       }); ?>
     <? } ?>
+    <?!= GccPage.include('Htmlified/Dtrt-string-utils.js'); ?>
+    <?!= GccPage.include('Htmlified/Dtrt-type-validate.js'); ?>
     <?!= GccPage.include('Htmlified/Pubsub.js'); ?>
     <?!= GccPage.include('Htmlified/GccUi.js'); ?>
     <?!= GccPage.include('Htmlified/GccUiCollection.js'); ?>
@@ -93,7 +95,6 @@
     <?!= GccPage.include('Htmlified/GccUiSelectDisclosure.js'); ?>
     <?!= GccPage.include('Htmlified/GccUiSelectForm.js'); ?>
     <?!= GccPage.include('Htmlified/GccUtils.js'); ?>
-    <?!= GccPage.include('Htmlified/GccValidate.js'); ?>
     <?!= GccPage.include('Scripts/InitApp.js', {
       tplAppConfig,
     }); ?>

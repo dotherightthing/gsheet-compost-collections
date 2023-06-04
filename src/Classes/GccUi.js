@@ -36,7 +36,7 @@ class GccUi {
   }
 
   set focusableSelector(focusableSelector) {
-    this._focusableSelector = GccValidate.validate(focusableSelector, 'string1', 'GccUi.focusableSelector');
+    this._focusableSelector = validate(focusableSelector, 'string1', 'GccUi.focusableSelector');
   }
 
   /**

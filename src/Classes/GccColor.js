@@ -33,7 +33,7 @@ class GccColor {
   }
 
   set colors(colors) {
-    this._colors = GccValidate.validate(colors, 'Array', 'GccColor.colors');
+    this._colors = validate(colors, 'Array', 'GccColor.colors');
   }
 
   /**
@@ -61,7 +61,7 @@ class GccColor {
   }
 
   set colorNamedRangeNames(colorNamedRangeNames) {
-    this._colorNamedRangeNames = GccValidate.validate(colorNamedRangeNames, 'Array', 'GccColor.colorNamedRangeNames');
+    this._colorNamedRangeNames = validate(colorNamedRangeNames, 'Array', 'GccColor.colorNamedRangeNames');
   }
 
   /* Instance methods */
@@ -85,7 +85,7 @@ class GccColor {
       values.forEach((value, i) => {
         _colors.push({
           valueRaw: value,
-          value: GccUtils.stringToId(value),
+          value: stringToId(value),
           backgroundColorHex: backgroundColors[i][0].trim(),
           backgroundColorRgb: GccColor.hexToRgb(backgroundColors[i][0].trim()),
           colorHex: colors[i][0].trim(),

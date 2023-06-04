@@ -52,7 +52,7 @@ class GccUiRun {
   }
 
   set bucketsTotal(bucketsTotal) {
-    this._bucketsTotal = GccValidate.validate(bucketsTotal, 'number|stringE', 'GccUiRun.bucketsTotal');
+    this._bucketsTotal = validate(bucketsTotal, 'number|stringE', 'GccUiRun.bucketsTotal');
   }
 
   /**
@@ -66,7 +66,7 @@ class GccUiRun {
   }
 
   set collections(collections) {
-    this._collections = GccValidate.validate(collections, 'Array', 'GccUiRun.collections');
+    this._collections = validate(collections, 'Array', 'GccUiRun.collections');
   }
 
   /**
@@ -80,7 +80,7 @@ class GccUiRun {
   }
 
   set collectionsActiveTotal(collectionsActiveTotal) {
-    this._collectionsActiveTotal = GccValidate.validate(collectionsActiveTotal, 'number', 'GccUiRun.collectionsActiveTotal');
+    this._collectionsActiveTotal = validate(collectionsActiveTotal, 'number', 'GccUiRun.collectionsActiveTotal');
   }
 
   /**
@@ -94,7 +94,7 @@ class GccUiRun {
   }
 
   set date(date) {
-    this._date = GccValidate.validate(date, 'string1', 'GccUiRun.date');
+    this._date = validate(date, 'string1', 'GccUiRun.date');
   }
 
   /**
@@ -108,7 +108,7 @@ class GccUiRun {
   }
 
   set name(name) {
-    this._name = GccValidate.validate(name, 'string1', 'GccUiRun.name');
+    this._name = validate(name, 'string1', 'GccUiRun.name');
   }
 
   /**
@@ -122,7 +122,7 @@ class GccUiRun {
   }
 
   set tubsTotal(tubsTotal) {
-    this._tubsTotal = GccValidate.validate(tubsTotal, 'number', 'GccUiRun.tubsTotal');
+    this._tubsTotal = validate(tubsTotal, 'number', 'GccUiRun.tubsTotal');
   }
 
   /* Instance methods */

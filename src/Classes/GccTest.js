@@ -103,7 +103,7 @@ class GccTest {
   }
 
   set config(config) {
-    this._config = GccValidate.validate(config, 'object', 'GccTest.config');
+    this._config = validate(config, 'object', 'GccTest.config');
   }
 
   /**
@@ -117,7 +117,7 @@ class GccTest {
   }
 
   set expectations(expectations) {
-    this._expectations = GccValidate.validate(expectations, 'object', 'GccTest.expectations');
+    this._expectations = validate(expectations, 'object', 'GccTest.expectations');
   }
 
   /**
@@ -1825,33 +1825,6 @@ class GccTest {
         this.uiCollections[0].getTypeDefinition(),
         'Business',
         `Abbreviation ${this.uiCollections[0].type} has definition ${this.uiCollections[0].typeDefinition}`,
-      );
-    });
-
-    QUnit.module('GccUtils');
-
-    QUnit.test('stringToCapitalised', (assert) => {
-      assert.equal(
-        // method, str
-        this.utils[0].stringToCapitalised('capitalised string'),
-        'Capitalised string',
-        'String is capitalised',
-      );
-    });
-
-    QUnit.test('stringToId', (assert) => {
-      assert.equal(
-        // method, string
-        this.utils[0].stringToId('MT VIC RUN'),
-        'mt-vic-run',
-        'Replaced spaces with dashes',
-      );
-
-      assert.equal(
-        // method, string
-        this.utils[0].stringToId('BERHAMPORE/NEWTOWN RUN'),
-        'berhampore-newtown-run',
-        'Replaced slashes with dashes',
       );
     });
   }

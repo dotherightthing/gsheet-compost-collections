@@ -58,7 +58,7 @@ class GccSheet {
   }
 
   set appName(appName) {
-    this._appName = GccValidate.validate(appName, 'string1', 'GccSheet.appName');
+    this._appName = validate(appName, 'string1', 'GccSheet.appName');
   }
 
   /**
@@ -72,7 +72,7 @@ class GccSheet {
   }
 
   set computedNamedRangeNames(computedNamedRangeNames) {
-    this._computedNamedRangeNames = GccValidate.validate(computedNamedRangeNames, 'Array', 'GccSheet.computedNamedRangeNames');
+    this._computedNamedRangeNames = validate(computedNamedRangeNames, 'Array', 'GccSheet.computedNamedRangeNames');
   }
 
   /**
@@ -86,7 +86,7 @@ class GccSheet {
   }
 
   set dateFormat(dateFormat) {
-    this._dateFormat = GccValidate.validate(dateFormat, 'string1', 'GccSheet.dateFormat');
+    this._dateFormat = validate(dateFormat, 'string1', 'GccSheet.dateFormat');
   }
 
   /**
@@ -100,7 +100,7 @@ class GccSheet {
   }
 
   set debug(debug) {
-    this._debug = GccValidate.validate(debug, 'boolean', 'GccSheet.debug');
+    this._debug = validate(debug, 'boolean', 'GccSheet.debug');
   }
 
   /**
@@ -114,7 +114,7 @@ class GccSheet {
   }
 
   set helplinks(helplinks) {
-    this._helplinks = GccValidate.validate(helplinks, 'Array', 'GccSheet.helplinks');
+    this._helplinks = validate(helplinks, 'Array', 'GccSheet.helplinks');
   }
 
   /**
@@ -142,7 +142,7 @@ class GccSheet {
   }
 
   set namedRangeItems(namedRangeItems) {
-    this._namedRangeItems = GccValidate.validate(namedRangeItems, 'Array', 'GccSheet.namedRangeItems');
+    this._namedRangeItems = validate(namedRangeItems, 'Array', 'GccSheet.namedRangeItems');
   }
 
   /**
@@ -156,7 +156,7 @@ class GccSheet {
   }
 
   set namedRangeValues(namedRangeValues) {
-    this._namedRangeValues = GccValidate.validate(namedRangeValues, 'object', 'GccSheet.namedRangeValues');
+    this._namedRangeValues = validate(namedRangeValues, 'object', 'GccSheet.namedRangeValues');
   }
 
   /**
@@ -170,7 +170,7 @@ class GccSheet {
   }
 
   set runBlankRowsAfter(runBlankRowsAfter) {
-    this._runBlankRowsAfter = GccValidate.validate(runBlankRowsAfter, 'number', 'GccSheet.runBlankRowsAfter');
+    this._runBlankRowsAfter = validate(runBlankRowsAfter, 'number', 'GccSheet.runBlankRowsAfter');
   }
 
   /**
@@ -184,7 +184,7 @@ class GccSheet {
   }
 
   set runGroupCount(runGroupCount) {
-    this._runGroupCount = GccValidate.validate(runGroupCount, 'number', 'GccSheet.runGroupCount');
+    this._runGroupCount = validate(runGroupCount, 'number', 'GccSheet.runGroupCount');
   }
 
   /**
@@ -198,7 +198,7 @@ class GccSheet {
   }
 
   set runGroupRunCount(runGroupRunCount) {
-    this._runGroupRunCount = GccValidate.validate(runGroupRunCount, 'number', 'GccSheet.runGroupRunCount');
+    this._runGroupRunCount = validate(runGroupRunCount, 'number', 'GccSheet.runGroupRunCount');
   }
 
   /* Instance methods */
@@ -1075,7 +1075,7 @@ class GccSheet {
    * @todo For dates follow technique of setDateValidationCriteria - dateHeadersRange.getColumn() + offset
    */
   static getColumnIndex(sheetName, cellText) {
-    const cacheKey = `column-index-${GccUtils.stringToId(sheetName)}-${GccUtils.stringToId(cellText)}`;
+    const cacheKey = `column-index-${stringToId(sheetName)}-${stringToId(cellText)}`;
     let columnIndex = GccCache.getCacheItem(cacheKey);
 
     if (typeof columnIndex === 'number') {

@@ -54,7 +54,7 @@ class GccContainer {
   }
 
   set capacities(capacities) {
-    this._capacities = GccValidate.validate(capacities, 'Array', 'GccContainer.capacities');
+    this._capacities = validate(capacities, 'Array', 'GccContainer.capacities');
   }
 
   /**
@@ -68,7 +68,7 @@ class GccContainer {
   }
 
   set nonVolumes(nonVolumes) {
-    this._nonVolumes = GccValidate.validate(nonVolumes, 'Array', 'GccContainer.nonVolumes');
+    this._nonVolumes = validate(nonVolumes, 'Array', 'GccContainer.nonVolumes');
   }
 
   /**
@@ -82,7 +82,7 @@ class GccContainer {
   }
 
   set quantity(quantity) {
-    this._quantity = GccValidate.validate(quantity, 'number|string', 'GccContainer.quantity');
+    this._quantity = validate(quantity, 'number|string', 'GccContainer.quantity');
   }
 
   /**
@@ -96,7 +96,7 @@ class GccContainer {
   }
 
   set type(type) {
-    this._type = GccValidate.validate(type, 'string1|string', 'GccContainer.type');
+    this._type = validate(type, 'string1|string', 'GccContainer.type');
   }
 
   /**
@@ -110,7 +110,7 @@ class GccContainer {
   }
 
   set types(types) {
-    this._types = GccValidate.validate(types, 'Array', 'GccContainer.types');
+    this._types = validate(types, 'Array', 'GccContainer.types');
   }
 
   /**
@@ -124,7 +124,7 @@ class GccContainer {
   }
 
   set volumeFractions(volumeFractions) {
-    this._volumeFractions = GccValidate.validate(volumeFractions, 'Array', 'GccContainer.volumeFractions');
+    this._volumeFractions = validate(volumeFractions, 'Array', 'GccContainer.volumeFractions');
   }
 
   /**
@@ -138,7 +138,7 @@ class GccContainer {
   }
 
   set volumes(volumes) {
-    this._volumes = GccValidate.validate(volumes, 'Array', 'GccContainer.volumes');
+    this._volumes = validate(volumes, 'Array', 'GccContainer.volumes');
   }
 
   /* Instance methods */
@@ -157,7 +157,7 @@ class GccContainer {
     } = this;
 
     const cacheKey = `container-${type}-${quantity}`; // -${format}`;
-    const obj = GccValidate.validate(this, 'object', 'GccContainer.cacheInstance');
+    const obj = validate(this, 'object', 'GccContainer.cacheInstance');
 
     GccCache.setCacheItem(cacheKey, obj);
   }

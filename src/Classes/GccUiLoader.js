@@ -109,7 +109,7 @@ class GccUiLoader {
   }
 
   set componentClass(componentClass) {
-    this._componentClass = GccValidate.validate(componentClass, 'string1', 'GccUiLoader.componentClass');
+    this._componentClass = validate(componentClass, 'string1', 'GccUiLoader.componentClass');
   }
 
   /**
@@ -123,7 +123,7 @@ class GccUiLoader {
   }
 
   set dataAttr(dataAttr) {
-    this._dataAttr = GccValidate.validate(dataAttr, 'string1', 'GccUiLoader.dataAttr');
+    this._dataAttr = validate(dataAttr, 'string1', 'GccUiLoader.dataAttr');
   }
 
   /**
@@ -137,7 +137,7 @@ class GccUiLoader {
   }
 
   set descriptionClass(descriptionClass) {
-    this._descriptionClass = GccValidate.validate(descriptionClass, 'string1', 'GccUiLoader.descriptionClass');
+    this._descriptionClass = validate(descriptionClass, 'string1', 'GccUiLoader.descriptionClass');
   }
 
   /**
@@ -151,7 +151,7 @@ class GccUiLoader {
   }
 
   set hideDelay(hideDelay) {
-    this._hideDelay = GccValidate.validate(hideDelay, 'number', 'GccUiLoader.hideDelay');
+    this._hideDelay = validate(hideDelay, 'number', 'GccUiLoader.hideDelay');
   }
 
   /**
@@ -165,7 +165,7 @@ class GccUiLoader {
   }
 
   set parentDataAttr(parentDataAttr) {
-    this._parentDataAttr = GccValidate.validate(parentDataAttr, 'string1', 'GccUiLoader.parentDataAttr');
+    this._parentDataAttr = validate(parentDataAttr, 'string1', 'GccUiLoader.parentDataAttr');
   }
 
   /**
@@ -179,7 +179,7 @@ class GccUiLoader {
   }
 
   set runLoaderId(runLoaderId) {
-    this._runLoaderId = GccValidate.validate(runLoaderId, 'string1', 'GccUiLoader.runLoaderId');
+    this._runLoaderId = validate(runLoaderId, 'string1', 'GccUiLoader.runLoaderId');
   }
 
   /**
@@ -193,7 +193,7 @@ class GccUiLoader {
   }
 
   set runSaverId(runSaverId) {
-    this._runSaverId = GccValidate.validate(runSaverId, 'string1', 'GccUiLoader.runSaverId');
+    this._runSaverId = validate(runSaverId, 'string1', 'GccUiLoader.runSaverId');
   }
 
   /**
@@ -207,7 +207,7 @@ class GccUiLoader {
   }
 
   set titleClass(titleClass) {
-    this._titleClass = GccValidate.validate(titleClass, 'string1', 'GccUiLoader.titleClass');
+    this._titleClass = validate(titleClass, 'string1', 'GccUiLoader.titleClass');
   }
 
   /* Instance methods */

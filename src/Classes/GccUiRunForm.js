@@ -73,7 +73,7 @@ class GccUiRunForm {
   }
 
   set collectionsId(collectionsId) {
-    this._collectionsId = GccValidate.validate(collectionsId, 'string1', 'GccUiRunForm.collectionsId');
+    this._collectionsId = validate(collectionsId, 'string1', 'GccUiRunForm.collectionsId');
   }
 
   /**
@@ -87,7 +87,7 @@ class GccUiRunForm {
   }
 
   set id(id) {
-    this._id = GccValidate.validate(id, 'string1', 'GccUiRunForm.id');
+    this._id = validate(id, 'string1', 'GccUiRunForm.id');
   }
 
   /**
@@ -115,7 +115,7 @@ class GccUiRunForm {
   }
 
   set placeholderLogoClass(placeholderLogoClass) {
-    this._placeholderLogoClass = GccValidate.validate(placeholderLogoClass, 'string1', 'GccUiRunForm.placeholderLogoClass');
+    this._placeholderLogoClass = validate(placeholderLogoClass, 'string1', 'GccUiRunForm.placeholderLogoClass');
   }
 
   /**
@@ -129,7 +129,7 @@ class GccUiRunForm {
   }
 
   set runId(runId) {
-    this._runId = GccValidate.validate(runId, 'string1', 'GccUiRunForm.runId');
+    this._runId = validate(runId, 'string1', 'GccUiRunForm.runId');
   }
 
   /* Instance methods */

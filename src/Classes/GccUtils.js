@@ -94,13 +94,13 @@ class GccUtils {
     const cachedConfig = GccCache.getCacheItem(cacheKey, true);
 
     // if config could be cached and was cached
-    if (GccValidate.isObject(cachedConfig)) {
+    if (isObject(cachedConfig)) {
       return cachedConfig;
     }
 
     // else if container-bound config available
     if (typeof cbConfig !== 'undefined') {
-      if (GccValidate.isObject(cbConfig) && GccValidate.isObject(devConfig)) {
+      if (isObject(cbConfig) && isObject(devConfig)) {
         return { ...cbConfig, ...devConfig };
       }
     }
@@ -126,33 +126,11 @@ class GccUtils {
     // which don't seem to be aware of prior instantiations.
     const cacheKey = 'config';
 
-    if (GccValidate.isObject(appConfig)) {
+    if (isObject(appConfig)) {
       GccCache.setCacheItem(cacheKey, appConfig, true);
     }
 
     return appConfig;
-  }
-
-  /**
-   * getIndefiniteArticle
-   *
-   * @summary Get the appropriate indefinite article for the specified string
-   * @param {string} str - String
-   * @returns {string} indefiniteArticle
-   * @memberof GccUtils
-   * @static
-   */
-  static getIndefiniteArticle(str) {
-    const firstLetter = str.slice(0, 1).toLowerCase();
-    const strLower = str.toLowerCase();
-
-    let art = (firstLetter.match(/^(a|e|i|o|u)$/)) ? 'an' : 'a';
-
-    if (strLower === 'null') {
-      art = '';
-    }
-
-    return art;
   }
 
   /**
@@ -201,52 +179,5 @@ class GccUtils {
     }
 
     return output;
-  }
-
-  /**
-   * stringToCapitalised
-   *
-   * @summary Capitalise a string
-   * @param {string} str - String to convert
-   * @returns {string} capitalisedStr
-   * @memberof GccUtils
-   * @static
-   * @see {@link GccTest#runUnitTests}
-   */
-  static stringToCapitalised(str) {
-    if (typeof str !== 'string') {
-      return '';
-    }
-
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
-  /**
-   * stringToId
-   *
-   * @summary Convert a string into a form safe for use as an HTML id attribute.
-   * @param {string} str - String to convert
-   * @returns {string} safeStr
-   * @memberof GccUtils
-   * @static
-   * @see {@link GccTest#runUnitTests}
-   */
-  static stringToId(str) {
-    if (typeof str !== 'string') {
-      return '';
-    }
-
-    // Note: "/" is a valid ID character in HTML5, but fails in querySelector.
-    let safeStr = str
-      .trim()
-      .toLowerCase()
-      .replaceAll(/([ /.,'"!()])+/g, '-')
-      .replaceAll(/[-]{2,}/g, '-'); // --
-
-    if (safeStr[safeStr.length - 1] === '-') {
-      safeStr = safeStr.slice(0, -1);
-    }
-
-    return safeStr;
   }
 }
